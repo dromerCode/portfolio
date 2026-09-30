@@ -39,3 +39,7 @@ export function timelineRowHTML(entry, lang) {
   <td class="timeline__type">${led}${escapeHTML(t.type)}</td>
 </tr>`;
 }
+
+export function pickCv(cv, lang) {
+  return cv?.[lang] ?? cv?.es ?? cv?.en ?? null;
+}

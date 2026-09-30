@@ -1,5 +1,5 @@
 import { pickLang, readStoredLang, saveLang, applyTranslations } from './i18n.js';
-import { projectCardHTML, timelineRowHTML } from './render.js';
+import { projectCardHTML, timelineRowHTML, pickCv } from './render.js';
 import { radarSVG, radarListHTML } from './radar.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -37,7 +37,7 @@ function renderData(lang, dict) {
   $('#projects-grid').innerHTML = projects.map((p, i) => projectCardHTML(p, lang, i, repoLabel)).join('');
   $('#timeline-body').innerHTML = timeline.map((e) => timelineRowHTML(e, lang)).join('');
 
-  const cv = profile.cv?.[lang] ?? profile.cv?.es ?? null;
+  const cv = pickCv(profile.cv, lang);
   for (const a of document.querySelectorAll('[data-cv]')) {
     a.hidden = !cv;
     if (cv) a.href = cv;
