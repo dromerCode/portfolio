@@ -19,11 +19,13 @@
   "bio": "Estudiante de 2º de DAW. Me interesa todo lo que tenga que ver con ordenadores: desarrollo web, sistemas y lo que se me cruce. Aprendo montando cosas reales y rompiéndolas. Punto débil conocido: las bases de datos, y estoy trabajando en ello.",
   "side.signature": "FIRMA",
   "side.cv": "DESCARGAR CV",
-  "side.now.k": "AHORA MISMO",
-  "side.now.v": "Aprendiendo DWEC (JS en cliente) y montando este portfolio.",
+  "side.now.k": "TRABAJANDO EN",
   "sec.projects": "PROYECTOS",
   "sec.timeline": "TRAYECTORIA",
   "footer.contact": "CONTACTO",
   "footer.cv": "CV",
-  "project.repo": "VER REPO →"
+  "project.repo": "VER REPO →",
+  "side.now.subtrack": "Gestor de suscripciones self-hosted con Spring Boot y React.",
+  "side.now.tabmon": "Tablet Android como monitor extendido en niri, en Rust.",
+  "side.cv.meta": "PDF · 1 PÁGINA"
 }

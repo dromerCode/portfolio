@@ -19,6 +19,25 @@
     }
   },
   {
+    "id": "subtrack",
+    "tags": [
+      "SPRING BOOT",
+      "REACT",
+      "POSTGRESQL"
+    ],
+    "repo": "https://github.com/pichaDev/subtrack",
+    "es": {
+      "category": "FULL STACK",
+      "title": "SUBTRACK",
+      "desc": "App self-hosted para controlar suscripciones: gasto mensual y anual, próximos cobros y gasto por categoría. Spring Boot + React/TypeScript + PostgreSQL en una sola imagen Docker."
+    },
+    "en": {
+      "category": "FULL STACK",
+      "title": "SUBTRACK",
+      "desc": "Self-hosted app to keep track of subscriptions: monthly and yearly spend, upcoming charges and spend by category. Spring Boot + React/TypeScript + PostgreSQL in a single Docker image."
+    }
+  },
+  {
     "id": "tabmon",
     "tags": [
       "RUST",

@@ -1,17 +1,5 @@
 [
   {
-    "period": "2026",
-    "led": false,
-    "es": {
-      "text": "Desarrollador web en prácticas en Granadev: frontend con React y TypeScript",
-      "type": "PRÁCTICAS"
-    },
-    "en": {
-      "text": "Web developer intern at Granadev: frontend with React and TypeScript",
-      "type": "INTERNSHIP"
-    }
-  },
-  {
     "period": "2025 – 27",
     "led": true,
     "es": {
@@ -21,6 +9,18 @@
     "en": {
       "text": "Higher Technical Degree in Web Application Development (IES Politécnico Hermenegildo Lanz)",
       "type": "IN PROGRESS"
+    }
+  },
+  {
+    "period": "2026",
+    "led": false,
+    "es": {
+      "text": "Desarrollador web en prácticas en Granadev: frontend con React y TypeScript",
+      "type": "PRÁCTICAS"
+    },
+    "en": {
+      "text": "Web developer intern at Granadev: frontend with React and TypeScript",
+      "type": "INTERNSHIP"
     }
   },
   {

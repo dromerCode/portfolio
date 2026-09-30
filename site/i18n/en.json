@@ -19,11 +19,13 @@
   "bio": "Second-year web development student. I'm into anything computer-related: web development, systems and whatever catches my eye. I learn by building real things and breaking them. Known weak spot: databases, and I'm working on it.",
   "side.signature": "SIGNATURE",
   "side.cv": "DOWNLOAD CV",
-  "side.now.k": "RIGHT NOW",
-  "side.now.v": "Learning client-side JavaScript and building this portfolio.",
+  "side.now.k": "WORKING ON",
   "sec.projects": "PROJECTS",
   "sec.timeline": "TIMELINE",
   "footer.contact": "CONTACT",
   "footer.cv": "CV",
-  "project.repo": "VIEW REPO →"
+  "project.repo": "VIEW REPO →",
+  "side.now.subtrack": "Self-hosted subscription tracker with Spring Boot and React.",
+  "side.now.tabmon": "Android tablet as an extended monitor on niri, in Rust.",
+  "side.cv.meta": "PDF · 1 PAGE"
 }

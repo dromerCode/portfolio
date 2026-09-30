@@ -7,11 +7,34 @@ const html = read('site/index.html');
 
 const contactLinks = [...html.matchAll(/<a class="ico-link[^"]*"[^>]*>([\s\S]*?)<\/a>/g)];
 
-test('tabmon is the second project and links to its repo', () => {
+test('projects are in the agreed order and subtrack/tabmon link to their repos', () => {
   const projects = JSON.parse(read('site/data/projects.json'));
-  assert.equal(projects[1].id, 'tabmon');
-  assert.equal(projects[1].repo, 'https://github.com/pichaDev/tabmon');
-  assert.ok(projects[1].es.desc && projects[1].en.desc);
+  assert.deepEqual(projects.map((p) => p.id), ['pichaflix', 'subtrack', 'tabmon', 'cicd', 'juegonaves', 'cursophp']);
+  const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
+  assert.equal(byId.subtrack.repo, 'https://github.com/pichaDev/subtrack');
+  assert.equal(byId.tabmon.repo, 'https://github.com/pichaDev/tabmon');
+  for (const p of projects) assert.ok(p.es.desc && p.en.desc, p.id);
+});
+
+test('timeline: degree in progress first, then internship, then Erasmus+', () => {
+  const timeline = JSON.parse(read('site/data/timeline.json'));
+  assert.deepEqual(timeline.map((e) => e.es.type), ['EN CURSO', 'PRÁCTICAS', 'ERASMUS+']);
+});
+
+test('"working on" box lists subtrack and tabmon with repo links and descriptions', () => {
+  const box = html.match(/<div class="box side-box side-box--now">([\s\S]*?)<\/div>\s*<\/aside>/)?.[1] ?? '';
+  assert.match(box, /href="https:\/\/github.com\/pichaDev\/subtrack"/);
+  assert.match(box, /href="https:\/\/github.com\/pichaDev\/tabmon"/);
+  assert.match(box, /data-i18n="side\.now\.subtrack"/);
+  assert.match(box, /data-i18n="side\.now\.tabmon"/);
+  const es = JSON.parse(read('site/i18n/es.json'));
+  assert.equal(es['side.now.k'], 'TRABAJANDO EN');
+  assert.ok(!('side.now.v' in es), 'old DWEC text removed');
+});
+
+test('CV side box shows the CV icon', () => {
+  const box = html.match(/<a class="box side-box side-box--cv"[\s\S]*?<\/a>/)?.[0] ?? '';
+  assert.match(box, /<use href="#i-cv"/);
 });
 
 test('photo links and footer each have github, linkedin, mail and cv', () => {

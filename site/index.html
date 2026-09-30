@@ -21,7 +21,8 @@
     <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
-    <symbol id="i-cv" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M12 10v7M9 14l3 3 3-3"/></symbol>
+    <symbol id="i-cv" viewBox="0 0 24 24"><path d="M6.5 2.5h8l4 4v15h-12z"/><path d="M14.5 2.5v4h4"/><circle cx="12.5" cy="10" r="2.2"/><path d="M8.8 15.2c.8-1.5 2.1-2.2 3.7-2.2s2.9.7 3.7 2.2"/><path d="M9 18.5h7"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   </svg>
   <svg class="mesh" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
     <g>
@@ -91,12 +92,22 @@
             <span class="side-box__label" data-i18n="side.signature">FIRMA</span>
           </div>
           <a class="box side-box side-box--cv" href="assets/cv/cv-es.pdf" data-cv download hidden>
-            <span class="cv-icon" aria-hidden="true">↓</span>
+            <svg class="ico ico--stroke cv-doc" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg>
             <span class="side-box__label" data-i18n="side.cv">DESCARGAR CV</span>
+            <span class="cv-meta"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="side.cv.meta">PDF · 1 PÁGINA</span></span>
           </a>
-          <div class="box side-box">
-            <span class="side-box__label side-box__label--top" data-i18n="side.now.k">AHORA MISMO</span>
-            <p class="side-box__text" data-i18n="side.now.v">Aprendiendo DWEC (JS en cliente) y montando este portfolio.</p>
+          <div class="box side-box side-box--now">
+            <span class="side-box__label side-box__label--top" data-i18n="side.now.k">TRABAJANDO EN</span>
+            <ul class="now-list">
+              <li>
+                <a href="https://github.com/pichaDev/subtrack" target="_blank" rel="noopener"><span class="led" aria-hidden="true"></span> SUBTRACK <span aria-hidden="true">↗</span></a>
+                <p data-i18n="side.now.subtrack">Gestor de suscripciones self-hosted con Spring Boot y React.</p>
+              </li>
+              <li>
+                <a href="https://github.com/pichaDev/tabmon" target="_blank" rel="noopener"><span class="led" aria-hidden="true"></span> TABMON <span aria-hidden="true">↗</span></a>
+                <p data-i18n="side.now.tabmon">Tablet Android como monitor extendido en niri, en Rust.</p>
+              </li>
+            </ul>
           </div>
         </aside>
       </section>
