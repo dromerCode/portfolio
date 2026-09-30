@@ -38,6 +38,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 .led--off { background: var(--dim); box-shadow: none; animation: none; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
 
+/* Iconos */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ico { width: 15px; height: 15px; flex: none; fill: currentColor; }
+.ico--stroke { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ico-link { display: inline-flex; align-items: center; gap: 6px; }
+.contact-btn { border: 1.5px solid var(--c); box-shadow: var(--glow); padding: 7px 14px; text-decoration: none; transition: background .15s; }
+.contact-btn:hover { background: rgba(90, 80, 255, .2); text-shadow: 0 0 8px var(--c); }
+.contact-btn .ico { width: 17px; height: 17px; }
+
 /* Barra superior */
 .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .topbar__label { font-size: 13px; letter-spacing: .1em; }
@@ -59,7 +68,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 .dossier__photo { display: flex; flex-direction: column; }
 .photo { flex: 1; min-height: 200px; display: grid; place-items: center; background: radial-gradient(circle, #2b2850, var(--bg)); font-family: var(--display); font-size: 42px; color: var(--dim-text); overflow: hidden; }
 .photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.3) contrast(1.05); }
-.links { display: flex; justify-content: space-around; gap: 8px; padding: 8px; border-top: 1.5px solid var(--c); font-size: 12px; }
+.links { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 6px 10px; padding: 8px; border-top: 1.5px solid var(--c); font-size: 12px; }
 .links a { text-decoration: none; }
 .links a:hover { text-shadow: 0 0 8px var(--c); }
 .dossier__radar { display: grid; place-items: center; padding: 10px; }

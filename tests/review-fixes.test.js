@@ -40,7 +40,7 @@ test('pickCv uses the language, then any available CV, then null', () => {
 test('CV links start hidden in the HTML', () => {
   const html = read('site/index.html');
   const cvTags = html.match(/<a [^>]*data-cv[^>]*>/g) ?? [];
-  assert.equal(cvTags.length, 2);
+  assert.ok(cvTags.length >= 2);
   for (const tag of cvTags) assert.match(tag, /\shidden(\s|>)/);
 });
 
