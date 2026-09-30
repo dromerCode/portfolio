@@ -8,7 +8,7 @@
   --dim-text: #8f8ad0;
   --txt: #dcd9ff;
   --led: #7dffb0;
-  --purple: #8b6bff;
+  --purple: #a98fff;
   --fill: rgba(90, 80, 255, .55);
   --glow: 0 0 8px rgba(184, 179, 255, .25), inset 0 0 8px rgba(184, 179, 255, .08);
   --mono: "Share Tech Mono", ui-monospace, monospace;
@@ -47,7 +47,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 .contact-btn { border: 1.5px solid var(--c); box-shadow: var(--glow); padding: 7px 14px; text-decoration: none; transition: background .15s; }
 .contact-btn:hover { background: rgba(90, 80, 255, .2); text-shadow: 0 0 8px var(--c); }
 .contact-btn .ico { width: 17px; height: 17px; }
-.links .ico-link { color: var(--purple); padding: 4px; transition: color .15s, filter .15s; }
+.links .ico-link { color: var(--purple); filter: drop-shadow(0 0 3px rgba(169, 143, 255, .45)); padding: 4px; transition: color .15s, filter .15s; }
 .links .ico-link:hover { color: var(--c); filter: drop-shadow(0 0 6px var(--purple)); text-shadow: none; }
 .links .ico { width: 22px; height: 22px; }
 .links .ico--stroke { stroke-width: 2.2; }
