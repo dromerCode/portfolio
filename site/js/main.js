@@ -1,5 +1,5 @@
 import { pickLang, readStoredLang, saveLang, applyTranslations } from './i18n.js';
-import { projectCardHTML, timelineRowHTML, pickCv } from './render.js';
+import { projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, escapeHTML } from './render.js';
 import { radarSVG, radarListHTML } from './radar.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -21,21 +21,27 @@ async function loadDict(lang) {
 }
 
 async function loadData() {
-  const [profile, projects, timeline] = await Promise.all([
+  const [profile, projects, timeline, homelab, pichaflix] = await Promise.all([
     getJSON('data/profile.json'),
     getJSON('data/projects.json'),
     getJSON('data/timeline.json'),
+    getJSON('data/homelab.json'),
+    getJSON('data/pichaflix.json'),
   ]);
-  return { profile, projects, timeline };
+  return { profile, projects, timeline, homelab, pichaflix };
 }
 
 function renderData(lang, dict) {
-  const { profile, projects, timeline } = state.data;
+  const { profile, projects, timeline, homelab, pichaflix } = state.data;
   $('#radar').innerHTML = radarSVG(profile.skills, lang);
   $('#radar-list').innerHTML = radarListHTML(profile.skills, lang);
   const repoLabel = dict['project.repo'] ?? 'REPO →';
   $('#projects-grid').innerHTML = projects.map((p, i) => projectCardHTML(p, lang, i, repoLabel)).join('');
   $('#timeline-body').innerHTML = timeline.map((e) => timelineRowHTML(e, lang)).join('');
+  $('#homelab-specs').innerHTML = pichaflix.specs.map((s) => `<li class="tag">${escapeHTML(s)}</li>`).join('');
+  $('#homelab-grid').innerHTML = homelab.services.map((s) => serviceCardHTML(s, lang)).join('');
+  $('#pichaflix-steps').innerHTML = pichaflix.steps.map((s, i) => stepHTML(s, lang, i)).join('');
+  $('#pichaflix-storage').innerHTML = pichaflix.storage.map((d) => storageRowHTML(d, lang)).join('');
 
   const cv = pickCv(profile.cv, lang);
   for (const a of document.querySelectorAll('[data-cv]')) {

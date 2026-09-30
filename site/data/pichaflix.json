@@ -1,0 +1,103 @@
+{
+  "steps": [
+    {
+      "es": {
+        "title": "PETICIÓN",
+        "text": "Los usuarios piden una película o serie desde Seerr. Un bot de Telegram hecho por mí (Node.js) me avisa y me deja aprobarla con un botón."
+      },
+      "en": {
+        "title": "REQUEST",
+        "text": "Users request a movie or show in Seerr. A Telegram bot I wrote (Node.js) notifies me and lets me approve it with one tap."
+      }
+    },
+    {
+      "es": {
+        "title": "BÚSQUEDA",
+        "text": "Sonarr (series) y Radarr (películas) reciben la petición y buscan la mejor versión a través de los indexadores que centraliza Prowlarr."
+      },
+      "en": {
+        "title": "SEARCH",
+        "text": "Sonarr (shows) and Radarr (movies) pick up the request and look for the best release through the indexers managed by Prowlarr."
+      }
+    },
+    {
+      "es": {
+        "title": "DESCARGA",
+        "text": "qBittorrent descarga el contenido en una carpeta de trabajo del disco de 6 TB."
+      },
+      "en": {
+        "title": "DOWNLOAD",
+        "text": "qBittorrent downloads the content into a working folder on the 6 TB drive."
+      }
+    },
+    {
+      "es": {
+        "title": "ORGANIZACIÓN",
+        "text": "Sonarr y Radarr renombran los ficheros y los mueven a su biblioteca, repartida entre los discos del servidor y el NAS."
+      },
+      "en": {
+        "title": "ORGANISE",
+        "text": "Sonarr and Radarr rename the files and move them into the library, spread across the server drives and the NAS."
+      }
+    },
+    {
+      "es": {
+        "title": "REPRODUCCIÓN",
+        "text": "Jellyfin detecta lo nuevo y lo sirve al momento. La GTX 1660 Super transcodifica por hardware cuando el dispositivo lo necesita."
+      },
+      "en": {
+        "title": "PLAYBACK",
+        "text": "Jellyfin picks up the new content and serves it straight away. The GTX 1660 Super handles hardware transcoding when a device needs it."
+      }
+    },
+    {
+      "es": {
+        "title": "USUARIOS Y ACCESO",
+        "text": "JFA-Go gestiona invitaciones y cuentas. Todo sale a internet por Cloudflare DNS → DDNS → Nginx Proxy Manager con HTTPS, y la administración va por Tailscale."
+      },
+      "en": {
+        "title": "USERS AND ACCESS",
+        "text": "JFA-Go handles invites and accounts. Everything is exposed through Cloudflare DNS → DDNS → Nginx Proxy Manager with HTTPS, and admin access goes through Tailscale."
+      }
+    }
+  ],
+  "storage": [
+    {
+      "name": "HDD 6 TB",
+      "es": "Biblioteca principal y descargas",
+      "en": "Main library and downloads"
+    },
+    {
+      "name": "HDD 4 TB",
+      "es": "Biblioteca",
+      "en": "Library"
+    },
+    {
+      "name": "HDD 2 TB",
+      "es": "Biblioteca",
+      "en": "Library"
+    },
+    {
+      "name": "NAS OMV · RAID5",
+      "es": "Almacenamiento en red (SMB), redundante",
+      "en": "Network storage (SMB), redundant"
+    },
+    {
+      "name": "SSD 240 GB",
+      "es": "Nube privada (File Browser)",
+      "en": "Private cloud (File Browser)"
+    },
+    {
+      "name": "NVMe",
+      "es": "Sistema y datos de las apps",
+      "en": "System and app data"
+    }
+  ],
+  "specs": [
+    "ZIMAOS",
+    "RYZEN 5 PRO 3400G",
+    "GTX 1660 SUPER",
+    "~13 TB + RAID5",
+    "DOCKER · 30 CONTENEDORES"
+  ]
+}

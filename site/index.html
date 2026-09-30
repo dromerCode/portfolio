@@ -22,6 +22,7 @@
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
     <symbol id="i-cv" viewBox="0 0 24 24"><path d="M6.5 2.5h8l4 4v15h-12z"/><path d="M14.5 2.5v4h4"/><circle cx="12.5" cy="10" r="2.2"/><path d="M8.8 15.2c.8-1.5 2.1-2.2 3.7-2.2s2.9.7 3.7 2.2"/><path d="M9 18.5h7"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M9 7V5h6v2M3 12.5h18M11 12.5v2h2v-2"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   </svg>
   <svg class="mesh" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
@@ -40,6 +41,7 @@
       <nav class="topbar__nav" data-i18n-aria="nav.label" aria-label="Principal">
         <a href="#about" data-i18n="nav.about">SOBRE MÍ</a>
         <a href="#projects" data-i18n="nav.projects">PROYECTOS</a>
+        <a href="#homelab" data-i18n="nav.homelab">HOMELAB</a>
         <a href="#contact" data-i18n="nav.contact">CONTACTO</a>
         <button id="lang-toggle" class="lang box" type="button" data-lang="es" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
       </nav>
@@ -50,17 +52,20 @@
         <div class="box dossier__main">
           <div class="dossier__head">
             <h1 class="title glow">PICHADEV</h1>
-            <span class="dossier__id">ID: DAW-2027</span>
+            <span class="dossier__id">DANIEL ROMERO CÓZAR</span>
           </div>
 
           <div class="dossier__row">
             <div class="dossier__photo">
+              <div class="photo-wrap">
+              <span class="badge-available"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-briefcase"/></svg><span data-i18n="badge.available">DISPONIBLE</span></span>
               <div class="photo" role="img" data-i18n-aria="photo.alt" aria-label="Foto de pichaDev"><img src="assets/img/photo.avif" alt="" width="225" height="225"></div>
+              </div>
               <div class="links">
                 <a class="ico-link" title="GitHub" href="https://github.com/pichaDev" data-link="github" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span class="sr-only">GITHUB</span></a>
                 <a class="ico-link" title="LinkedIn" href="https://www.linkedin.com/in/dromerocoz/" data-link="linkedin" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span class="sr-only">LINKEDIN</span></a>
                 <a class="ico-link" title="Mail" href="mailto:pichaDev2010@gmail.com" data-link="email"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg><span class="sr-only">MAIL</span></a>
-                <a class="ico-link" title="CV" href="assets/cv/cv-es.pdf" data-cv download hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span class="sr-only" data-i18n="footer.cv">CV</span></a>
+                <a class="ico-link" title="CV" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span class="sr-only" data-i18n="footer.cv">CV</span></a>
               </div>
             </div>
             <div class="dossier__radar">
@@ -77,12 +82,12 @@
                 <tr><th scope="row" data-i18n="spec.role.k">ROL:</th><td data-i18n="spec.role.v">DESARROLLADOR WEB</td></tr>
                 <tr><th scope="row" data-i18n="spec.edu.k">FORMACIÓN:</th><td data-i18n="spec.edu.v">2º DAW</td></tr>
                 <tr><th scope="row" data-i18n="spec.loc.k">UBICACIÓN:</th><td data-i18n="spec.loc.v">ESPAÑA</td></tr>
-                <tr><th scope="row" data-i18n="spec.langs.k">IDIOMAS:</th><td>ES · EN</td></tr>
+                <tr><th scope="row" data-i18n="spec.langs.k">IDIOMAS:</th><td>ES · EN (B2)</td></tr>
                 <tr><th scope="row" data-i18n="spec.status.k">ESTADO:</th><td><span class="led" aria-hidden="true"></span> <span data-i18n="spec.status.v">DISPONIBLE PARA TRABAJAR</span></td></tr>
               </tbody>
             </table>
             </div>
-            <p class="bio" data-i18n="bio">Estudiante de 2º de DAW. Me interesa todo lo que tenga que ver con ordenadores: desarrollo web, sistemas y lo que se me cruce. Aprendo montando cosas reales y rompiéndolas. Punto débil conocido: las bases de datos, y estoy trabajando en ello.</p>
+            <p class="bio" data-i18n="bio">Desarrollador web junior y estudiante de 2º de DAW. Trabajo sobre todo en frontend con React y TypeScript, con base en backend con Java y Node.js. Administro mi propio servidor Linux con Docker, donde despliego y mantengo servicios en producción. Me gusta entender cómo funciona todo, de la interfaz a la infraestructura, y aprendo rápido en proyectos reales.</p>
           </div>
         </div>
 
@@ -91,7 +96,7 @@
             <svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 45 C 20 10, 30 10, 28 40 S 45 55, 52 25 S 70 5, 72 40 S 88 45, 94 20"/></svg>
             <span class="side-box__label" data-i18n="side.signature">FIRMA</span>
           </div>
-          <a class="box side-box side-box--cv" href="assets/cv/cv-es.pdf" data-cv download hidden>
+          <a class="box side-box side-box--cv" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden>
             <svg class="ico ico--stroke cv-doc" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg>
             <span class="side-box__label" data-i18n="side.cv">DESCARGAR CV</span>
             <span class="cv-meta"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="side.cv.meta">PDF · 1 PÁGINA</span></span>
@@ -119,6 +124,23 @@
         </div>
       </section>
 
+      <section id="homelab">
+        <h2 class="sec"><span class="title glow" data-i18n="sec.homelab">HOMELAB</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
+        <p class="sec__intro" data-i18n="homelab.intro">Tengo un servidor en casa con ZimaOS y Docker donde monto, pruebo y mantengo servicios reales que uso a diario. Estos son los principales:</p>
+        <ul id="homelab-specs" class="chips"></ul>
+        <div id="homelab-grid" class="grid grid--svc"></div>
+      </section>
+
+      <section id="pichaflix">
+        <h2 class="sec"><span class="title glow">PICHAFLIX</span><span class="sec__line"></span></h2>
+        <p class="sec__intro" data-i18n="pichaflix.intro">Mi plataforma de streaming privada, montada de principio a fin en el homelab. Así funciona desde que alguien pide algo hasta que lo ve:</p>
+        <ol id="pichaflix-steps" class="steps"></ol>
+        <div class="box storage">
+          <span class="side-box__label side-box__label--top" data-i18n="pichaflix.storage">ALMACENAMIENTO</span>
+          <table><tbody id="pichaflix-storage"></tbody></table>
+        </div>
+      </section>
+
       <section id="timeline">
         <h2 class="sec"><span class="title glow" data-i18n="sec.timeline">TRAYECTORIA</span><span class="sec__line"></span></h2>
         <div class="box timeline">
@@ -133,7 +155,7 @@
         <a class="ico-link contact-btn" href="https://github.com/pichaDev" data-link="github" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span>GITHUB</span></a>
         <a class="ico-link contact-btn" href="https://www.linkedin.com/in/dromerocoz/" data-link="linkedin" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LINKEDIN</span></a>
         <a class="ico-link contact-btn" href="mailto:pichaDev2010@gmail.com" data-link="email"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg><span>MAIL</span></a>
-        <a class="ico-link contact-btn" href="assets/cv/cv-es.pdf" data-cv download hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="footer.cv">CV</span></a>
+        <a class="ico-link contact-btn" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="footer.cv">CV</span></a>
       </div>
       <div class="footer__bar">
         <span class="slashes" aria-hidden="true">/ / / / / /</span>

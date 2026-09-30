@@ -3,36 +3,72 @@
     "period": "2025 – 27",
     "led": true,
     "es": {
-      "text": "Grado Superior en Desarrollo de Aplicaciones Web (IES Politécnico Hermenegildo Lanz)",
-      "type": "EN CURSO"
+      "text": "Grado Superior en Desarrollo de Aplicaciones Web · IES Politécnico Hermenegildo Lanz",
+      "type": "EN CURSO",
+      "detail": "Desarrollo web en cliente y servidor, bases de datos, despliegue y diseño de interfaces."
     },
     "en": {
-      "text": "Higher Technical Degree in Web Application Development (IES Politécnico Hermenegildo Lanz)",
-      "type": "IN PROGRESS"
+      "text": "Higher Technical Degree in Web Application Development · IES Politécnico Hermenegildo Lanz",
+      "type": "IN PROGRESS",
+      "detail": "Client and server web development, databases, deployment and interface design."
     }
   },
   {
     "period": "2026",
     "led": false,
     "es": {
-      "text": "Desarrollador web en prácticas en Granadev: frontend con React y TypeScript",
-      "type": "PRÁCTICAS"
+      "text": "Desarrollador web en prácticas · Granadev",
+      "type": "PRÁCTICAS",
+      "detail": "Desarrollo de una aplicación web para gestionar partidas de juegos de mesa con integración de IA. Frontend con React y TypeScript, componentes reutilizables e interfaces dinámicas, trabajando en equipo con flujos de desarrollo profesionales."
     },
     "en": {
-      "text": "Web developer intern at Granadev: frontend with React and TypeScript",
-      "type": "INTERNSHIP"
+      "text": "Web developer intern · Granadev",
+      "type": "INTERNSHIP",
+      "detail": "Built a web app to manage board game sessions with AI integration. Frontend in React and TypeScript, reusable components and dynamic interfaces, working in a team with professional development workflows."
     }
   },
   {
     "period": "2025",
     "led": false,
     "es": {
-      "text": "Erasmus+ en Grecia (Twinsoft): técnico de sistemas POS, impresoras y redes locales",
-      "type": "ERASMUS+"
+      "text": "Erasmus+ en Grecia · Twinsoft",
+      "type": "ERASMUS+",
+      "detail": "Técnico de sistemas: instalación, configuración y reparación de TPV, impresoras, datáfonos y redes locales en hoteles y comercios."
     },
     "en": {
-      "text": "Erasmus+ in Greece (Twinsoft): technician for POS systems, printers and local networks",
-      "type": "ERASMUS+"
+      "text": "Erasmus+ in Greece · Twinsoft",
+      "type": "ERASMUS+",
+      "detail": "Systems technician: installing, configuring and repairing POS systems, printers, card terminals and local networks in hotels and shops."
+    }
+  },
+  {
+    "period": "2023 – 25",
+    "led": false,
+    "es": {
+      "text": "Grado Medio en Sistemas Microinformáticos y Redes · IES Virgen del Carmen",
+      "type": "FORMACIÓN",
+      "detail": "Montaje y mantenimiento de equipos, sistemas operativos, redes locales y servicios de red."
+    },
+    "en": {
+      "text": "Intermediate Degree in Microcomputer Systems and Networks · IES Virgen del Carmen",
+      "type": "EDUCATION",
+      "detail": "Hardware assembly and maintenance, operating systems, local networks and network services."
+    }
+  },
+  {
+    "period": "2020",
+    "led": true,
+    "es": {
+      "text": "Proyectos propios",
+      "type": "AUTÓNOMO",
+      "detail": "Aplicaciones y webs con HTML, CSS, JavaScript, React y Java. Administración de servidores Linux y Windows, Docker, redes, automatización y servicios autoalojados de streaming, domótica e infraestructura.",
+      "period": "2020 – HOY"
+    },
+    "en": {
+      "text": "Personal projects",
+      "type": "SELF-DIRECTED",
+      "detail": "Apps and websites with HTML, CSS, JavaScript, React and Java. Linux and Windows server administration, Docker, networking, automation and self-hosted streaming, home automation and infrastructure services.",
+      "period": "2020 – NOW"
     }
   }
 ]

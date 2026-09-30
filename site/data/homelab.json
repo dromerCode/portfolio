@@ -1,0 +1,121 @@
+{
+  "services": [
+    {
+      "id": "npm",
+      "es": {
+        "name": "NGINX PROXY MANAGER",
+        "role": "PROXY INVERSO",
+        "desc": "Puerta de entrada de todo el homelab: enruta cada subdominio a su servicio y gestiona los certificados HTTPS de Let's Encrypt."
+      },
+      "en": {
+        "name": "NGINX PROXY MANAGER",
+        "role": "REVERSE PROXY",
+        "desc": "Front door of the whole homelab: routes each subdomain to its service and manages Let's Encrypt HTTPS certificates."
+      }
+    },
+    {
+      "id": "jellyfin",
+      "es": {
+        "name": "JELLYFIN",
+        "role": "STREAMING",
+        "desc": "Servidor multimedia de Pichaflix. Sirve películas y series a toda la familia y amigos, con transcodificación por GPU."
+      },
+      "en": {
+        "name": "JELLYFIN",
+        "role": "STREAMING",
+        "desc": "Pichaflix's media server. Streams movies and shows to family and friends, with GPU transcoding."
+      }
+    },
+    {
+      "id": "qbittorrent",
+      "es": {
+        "name": "QBITTORRENT",
+        "role": "DESCARGAS",
+        "desc": "Cliente de descargas controlado por el stack ARR, que deja los ficheros listos para organizarse solos."
+      },
+      "en": {
+        "name": "QBITTORRENT",
+        "role": "DOWNLOADS",
+        "desc": "Download client driven by the ARR stack, leaving files ready to be organised automatically."
+      }
+    },
+    {
+      "id": "arr",
+      "es": {
+        "name": "STACK ARR",
+        "role": "AUTOMATIZACIÓN",
+        "desc": "Sonarr, Radarr y Prowlarr: buscan, descargan y ordenan series y películas sin intervención. Lo explico más abajo, en Pichaflix."
+      },
+      "en": {
+        "name": "ARR STACK",
+        "role": "AUTOMATION",
+        "desc": "Sonarr, Radarr and Prowlarr: they find, download and sort shows and movies on their own. Explained below, in Pichaflix."
+      }
+    },
+    {
+      "id": "rensaio",
+      "es": {
+        "name": "RENSAIŌ",
+        "role": "MANGA",
+        "desc": "Sigue mis series de manga, descarga los capítulos nuevos y los deja organizados en la biblioteca."
+      },
+      "en": {
+        "name": "RENSAIŌ",
+        "role": "MANGA",
+        "desc": "Tracks my manga series, downloads new chapters and keeps them organised in the library."
+      }
+    },
+    {
+      "id": "kavita",
+      "es": {
+        "name": "KAVITA",
+        "role": "LECTURA",
+        "desc": "Lector web de libros, cómics y manga, con la biblioteca que alimenta Rensaiō."
+      },
+      "en": {
+        "name": "KAVITA",
+        "role": "READING",
+        "desc": "Web reader for books, comics and manga, using the library that Rensaiō keeps up to date."
+      }
+    },
+    {
+      "id": "adguard",
+      "es": {
+        "name": "ADGUARD HOME",
+        "role": "DNS",
+        "desc": "DNS de toda la red de casa: bloquea anuncios y rastreadores en todos los dispositivos sin instalar nada en ellos."
+      },
+      "en": {
+        "name": "ADGUARD HOME",
+        "role": "DNS",
+        "desc": "DNS for the whole home network: blocks ads and trackers on every device without installing anything on them."
+      }
+    },
+    {
+      "id": "filebrowser",
+      "es": {
+        "name": "FILE BROWSER",
+        "role": "ARCHIVOS",
+        "desc": "Mi nube privada: acceso web a mis archivos para subirlos, descargarlos y compartirlos desde cualquier sitio."
+      },
+      "en": {
+        "name": "FILE BROWSER",
+        "role": "FILES",
+        "desc": "My private cloud: web access to my files to upload, download and share them from anywhere."
+      }
+    },
+    {
+      "id": "subtrack",
+      "es": {
+        "name": "SUBTRACK",
+        "role": "APP PROPIA",
+        "desc": "Mi gestor de suscripciones (Spring Boot + React + PostgreSQL), desplegado aquí en producción."
+      },
+      "en": {
+        "name": "SUBTRACK",
+        "role": "OWN APP",
+        "desc": "My subscription tracker (Spring Boot + React + PostgreSQL), running here in production."
+      }
+    }
+  ]
+}

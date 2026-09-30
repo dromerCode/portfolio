@@ -1,24 +1,5 @@
 [
   {
-    "id": "pichaflix",
-    "tags": [
-      "DOCKER",
-      "LINUX",
-      "JELLYFIN"
-    ],
-    "repo": null,
-    "es": {
-      "category": "HOMELAB",
-      "title": "PICHAFLIX",
-      "desc": "Servidor multimedia con Jellyfin, stack ARR y unos 15TB, montado sobre ZimaOS y un NAS OMV en RAID5."
-    },
-    "en": {
-      "category": "HOMELAB",
-      "title": "PICHAFLIX",
-      "desc": "Media server with Jellyfin, the ARR stack and around 15TB, running on ZimaOS and an OMV NAS in RAID5."
-    }
-  },
-  {
     "id": "subtrack",
     "tags": [
       "SPRING BOOT",

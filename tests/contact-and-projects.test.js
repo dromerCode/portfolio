@@ -9,7 +9,7 @@ const contactLinks = [...html.matchAll(/<a class="ico-link[^"]*"[^>]*>([\s\S]*?)
 
 test('projects are in the agreed order and subtrack/tabmon link to their repos', () => {
   const projects = JSON.parse(read('site/data/projects.json'));
-  assert.deepEqual(projects.map((p) => p.id), ['pichaflix', 'subtrack', 'tabmon', 'cicd', 'juegonaves', 'cursophp']);
+  assert.deepEqual(projects.map((p) => p.id), ['subtrack', 'tabmon', 'cicd', 'juegonaves', 'cursophp']);
   const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
   assert.equal(byId.subtrack.repo, 'https://github.com/pichaDev/subtrack');
   assert.equal(byId.tabmon.repo, 'https://github.com/pichaDev/tabmon');
@@ -18,7 +18,7 @@ test('projects are in the agreed order and subtrack/tabmon link to their repos',
 
 test('timeline: degree in progress first, then internship, then Erasmus+', () => {
   const timeline = JSON.parse(read('site/data/timeline.json'));
-  assert.deepEqual(timeline.map((e) => e.es.type), ['EN CURSO', 'PRÁCTICAS', 'ERASMUS+']);
+  assert.deepEqual(timeline.slice(0, 3).map((e) => e.es.type), ['EN CURSO', 'PRÁCTICAS', 'ERASMUS+']);
 });
 
 test('"working on" box lists subtrack and tabmon with repo links and descriptions', () => {
