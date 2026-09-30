@@ -1,0 +1,11 @@
+{
+  "skills": [
+    { "value": 78, "es": "FRONTEND", "en": "FRONTEND" },
+    { "value": 80, "es": "LINUX", "en": "LINUX" },
+    { "value": 72, "es": "DEVOPS", "en": "DEVOPS" },
+    { "value": 45, "es": "BBDD", "en": "DATABASES" },
+    { "value": 60, "es": "BACKEND", "en": "BACKEND" },
+    { "value": 62, "es": "JAVA", "en": "JAVA" }
+  ],
+  "cv": { "es": null, "en": null }
+}
