@@ -31,14 +31,14 @@ Un **expediente de desarrollador** de estética sci-fi y servercore suave. La re
    - **Radar de skills** en SVG con 6 ejes: Frontend, Backend, Java, Linux, DevOps y BBDD. Los valores salen de un JSON. Incluye una alternativa accesible: una lista oculta visualmente con cada skill y su nivel.
    - Tabla de datos: rol, formación, ubicación, idiomas y estado (LED verde + "Buscando prácticas").
    - Bio corta.
-   - Columna lateral: firma (SVG), QR o botón para descargar el CV, y un bloque "Ahora mismo".
+   - Columna lateral: firma (SVG), botón para descargar el CV (se oculta si todavía no hay CV) y un bloque "Ahora mismo".
 3. **Proyectos** (#projects): tarjetas en rejilla de 3 columnas con número y categoría (`#01 · HOMELAB`), título, descripción y etiquetas. Proyectos iniciales: Pichaflix (homelab), CI/CD DAW, juegoNaves y cursophp/DWEC si caben. Cada tarjeta enlaza a su repo cuando lo tiene.
 4. **Trayectoria**: tabla con año, descripción y tipo/estado.
 5. **Pie / Contacto** (#contact): correo, GitHub, LinkedIn, descarga del CV y `PORTFOLIO.PICHAHOUSE.ES`.
 
 ## Arquitectura
 
-HTML, CSS y JS sin frameworks ni build. Ficheros:
+HTML, CSS y JS sin frameworks ni build. Todo lo público va en `site/`, que es lo que se sube al servidor. El detalle de ficheros definitivo está en el plan (`docs/superpowers/plans/2026-09-30-portfolio.md`). Visión general:
 
 ```
 portfolio/
@@ -63,7 +63,7 @@ portfolio/
 
 - Al cargar, el idioma se elige en este orden: primero `localStorage.lang`, si existe; si no, `navigator.language` (si empieza por `es`, español); en cualquier otro caso, inglés.
 - Los elementos con `data-i18n="clave"` reciben su texto desde el JSON. Al cambiar de idioma se actualizan `<html lang>`, `document.title`, la meta description y el enlace del CV, y se vuelven a pintar proyectos, trayectoria y radar.
-- El HTML trae el contenido en español ya escrito, así que la página se ve aunque falle el JS.
+- El HTML trae ya escritos los textos fijos en español, así que se leen aunque falle el JS. Proyectos, trayectoria y radar necesitan JS y, sin él, muestran un aviso con `<noscript>`.
 
 ### Datos y renderizado
 
