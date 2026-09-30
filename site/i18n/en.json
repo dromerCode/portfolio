@@ -1,6 +1,6 @@
 {
-  "meta.title": "pichaDev · Portfolio",
-  "meta.desc": "Portfolio of pichaDev, web development student: web dev, Linux and self-hosting.",
+  "meta.title": "Daniel Romero · Junior Web Developer",
+  "meta.desc": "Portfolio of Daniel Romero (pichaDev), Junior Web Developer: React, TypeScript, Java, Linux and self-hosting.",
   "profile.label": "DEV PROFILE",
   "nav.label": "Main",
   "nav.about": "ABOUT",
@@ -8,7 +8,7 @@
   "nav.contact": "CONTACT",
   "photo.alt": "Photo of pichaDev",
   "spec.role.k": "ROLE:",
-  "spec.role.v": "WEB DEVELOPER",
+  "spec.role.v": "JUNIOR WEB DEVELOPER",
   "spec.edu.k": "EDUCATION:",
   "spec.edu.v": "WEB DEV DEGREE (2ND YR)",
   "spec.loc.k": "LOCATION:",
@@ -16,7 +16,7 @@
   "spec.langs.k": "LANGUAGES:",
   "spec.status.k": "STATUS:",
   "spec.status.v": "AVAILABLE FOR WORK",
-  "bio": "Junior web developer and second-year web development student. I work mostly on the frontend with React and TypeScript, with a backend foundation in Java and Node.js. I run my own Linux server with Docker, where I deploy and maintain services in production. I like understanding how everything works, from the interface to the infrastructure, and I learn fast on real projects.",
+  "bio": "Junior Web Developer and second-year web development student, with internship experience building frontends in React and TypeScript. I have a backend foundation in Java, Spring Boot and Node.js, and I run my own Linux server with Docker, where I deploy and maintain applications in production. I like understanding how everything works, from the interface to the infrastructure, and I learn fast on real projects.",
   "side.signature": "SIGNATURE",
   "side.cv": "DOWNLOAD CV",
   "side.now.k": "WORKING ON",
@@ -33,5 +33,12 @@
   "homelab.intro": "I run a home server with ZimaOS and Docker where I build, test and maintain real services I use every day. These are the main ones:",
   "pichaflix.intro": "My private streaming platform, built end to end on the homelab. This is how it works, from someone asking for something to watching it:",
   "pichaflix.storage": "STORAGE",
-  "badge.available": "OPEN TO WORK"
+  "badge.available": "OPEN TO WORK",
+  "sec.stack": "STACK",
+  "cta.label": "CONTACT",
+  "cta.title": "LET'S WORK TOGETHER",
+  "cta.text": "I'm looking for my first role as a Junior Web Developer and I'm open to projects. If you have an offer or an idea, drop me a line and I'll get back to you quickly.",
+  "cta.status": "AVAILABLE FOR JOBS AND PROJECTS",
+  "cta.mail": "EMAIL ME",
+  "cta.cv": "DOWNLOAD CV"
 }

@@ -66,3 +66,11 @@ export function stepHTML(step, lang, index) {
 export function storageRowHTML(disk, lang) {
   return `<tr><td class="storage__name">${escapeHTML(disk.name)}</td><td class="storage__use">${escapeHTML(disk[lang] ?? disk.es)}</td></tr>`;
 }
+
+export function stackGroupHTML(group, lang) {
+  const items = (group.items ?? []).map((item) => `<li class="tag">${escapeHTML(item)}</li>`).join('');
+  return `<div class="box stack-group">
+  <h3 class="stack-group__name">${escapeHTML(group[lang] ?? group.es)}</h3>
+  <ul class="proj__tags">${items}</ul>
+</div>`;
+}

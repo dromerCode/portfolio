@@ -134,6 +134,29 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 .badge-available { position: absolute; top: 10px; left: 10px; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; font-size: 11px; letter-spacing: .1em; color: var(--led); background: rgba(16, 20, 18, .82); border: 1.5px solid var(--led); box-shadow: 0 0 10px rgba(125, 255, 176, .35); }
 .badge-available .ico { width: 14px; height: 14px; }
 
+/* Stack */
+.grid--stack { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.stack-group { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.stack-group__name { margin: 0; font-family: var(--display); font-weight: 800; font-size: 12px; letter-spacing: .06em; }
+.stack-group .tag { font-size: 11px; color: var(--txt); }
+
+/* CTA de contacto */
+.cta { margin-top: 40px; padding: 26px 28px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; align-items: center; position: relative; }
+.cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 90% 0%, rgba(90, 80, 255, .22), transparent 60%); pointer-events: none; }
+.cta__title { font-size: clamp(22px, 3.2vw, 30px); margin: 6px 0 10px; }
+.cta__text { margin: 0 0 12px; color: var(--txt); font-size: 14px; line-height: 1.6; }
+.cta__status { margin: 0; font-size: 12px; letter-spacing: .1em; color: var(--led); }
+.cta__actions { display: flex; flex-direction: column; gap: 10px; position: relative; }
+.cta-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; border: 1.5px solid var(--c); box-shadow: var(--glow); text-decoration: none; font-size: 13px; letter-spacing: .08em; transition: background .15s, transform .15s; }
+.cta-btn:hover { background: rgba(90, 80, 255, .2); transform: translateY(-1px); }
+.cta-btn--primary { background: var(--c); color: var(--bg); font-family: var(--display); font-weight: 800; box-shadow: 0 0 16px rgba(184, 179, 255, .5); }
+.cta-btn--primary:hover { background: #d4d0ff; }
+.cta-btn .ico { width: 17px; height: 17px; }
+
+/* Cabecera: rol */
+.dossier__who { display: flex; flex-direction: column; gap: 2px; }
+.dossier__role { font-size: 13px; letter-spacing: .2em; color: var(--led); }
+
 /* Homelab */
 .sec__intro { margin: -4px 0 14px; color: var(--txt); font-size: 14px; max-width: 760px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0 0 14px; }
@@ -186,6 +209,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
   .topbar__nav { gap: 14px; }
   .timeline__period { width: auto; }
   .dossier__head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .cta { grid-template-columns: 1fr; padding: 20px; }
   .timeline tr { display: grid; grid-template-columns: 1fr auto; column-gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--dim); }
   .timeline tr:last-child { border-bottom: 0; }
   .timeline td { border-bottom: 0; padding: 0; }

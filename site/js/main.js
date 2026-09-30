@@ -1,5 +1,5 @@
 import { pickLang, readStoredLang, saveLang, applyTranslations } from './i18n.js';
-import { projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, escapeHTML } from './render.js';
+import { projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, stackGroupHTML, escapeHTML } from './render.js';
 import { radarSVG, radarListHTML } from './radar.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -21,18 +21,20 @@ async function loadDict(lang) {
 }
 
 async function loadData() {
-  const [profile, projects, timeline, homelab, pichaflix] = await Promise.all([
+  const [profile, projects, timeline, homelab, pichaflix, stack] = await Promise.all([
     getJSON('data/profile.json'),
     getJSON('data/projects.json'),
     getJSON('data/timeline.json'),
     getJSON('data/homelab.json'),
     getJSON('data/pichaflix.json'),
+    getJSON('data/stack.json'),
   ]);
-  return { profile, projects, timeline, homelab, pichaflix };
+  return { profile, projects, timeline, homelab, pichaflix, stack };
 }
 
 function renderData(lang, dict) {
-  const { profile, projects, timeline, homelab, pichaflix } = state.data;
+  const { profile, projects, timeline, homelab, pichaflix, stack } = state.data;
+  $('#stack-grid').innerHTML = stack.map((g) => stackGroupHTML(g, lang)).join('');
   $('#radar').innerHTML = radarSVG(profile.skills, lang);
   $('#radar-list').innerHTML = radarListHTML(profile.skills, lang);
   const repoLabel = dict['project.repo'] ?? 'REPO →';

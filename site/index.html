@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pichaDev · Portfolio</title>
-  <meta name="description" content="Portfolio de pichaDev, estudiante de DAW: desarrollo web, Linux y self-hosting.">
+  <title>Daniel Romero · Junior Web Developer</title>
+  <meta name="description" content="Portfolio de Daniel Romero (pichaDev), Junior Web Developer: React, TypeScript, Java, Linux y self-hosting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://portfolio.pichahouse.es/">
-  <meta property="og:title" content="pichaDev · Portfolio">
+  <meta property="og:title" content="Daniel Romero · Junior Web Developer">
   <meta property="og:description" content="Estudiante de DAW: desarrollo web, Linux y self-hosting.">
   <meta name="theme-color" content="#1a1a1f">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1f'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23b8b3ff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
@@ -51,7 +51,10 @@
       <section id="about" class="dossier">
         <div class="box dossier__main">
           <div class="dossier__head">
-            <h1 class="title glow">PICHADEV</h1>
+            <div class="dossier__who">
+              <h1 class="title glow">PICHADEV</h1>
+              <span class="dossier__role">JUNIOR WEB DEVELOPER</span>
+            </div>
             <span class="dossier__id">DANIEL ROMERO CÓZAR</span>
           </div>
 
@@ -79,7 +82,7 @@
             <div class="specs-wrap">
             <table class="specs">
               <tbody>
-                <tr><th scope="row" data-i18n="spec.role.k">ROL:</th><td data-i18n="spec.role.v">DESARROLLADOR WEB</td></tr>
+                <tr><th scope="row" data-i18n="spec.role.k">ROL:</th><td data-i18n="spec.role.v">JUNIOR WEB DEVELOPER</td></tr>
                 <tr><th scope="row" data-i18n="spec.edu.k">FORMACIÓN:</th><td data-i18n="spec.edu.v">2º DAW</td></tr>
                 <tr><th scope="row" data-i18n="spec.loc.k">UBICACIÓN:</th><td data-i18n="spec.loc.v">ESPAÑA</td></tr>
                 <tr><th scope="row" data-i18n="spec.langs.k">IDIOMAS:</th><td>ES · EN (B2)</td></tr>
@@ -87,7 +90,7 @@
               </tbody>
             </table>
             </div>
-            <p class="bio" data-i18n="bio">Desarrollador web junior y estudiante de 2º de DAW. Trabajo sobre todo en frontend con React y TypeScript, con base en backend con Java y Node.js. Administro mi propio servidor Linux con Docker, donde despliego y mantengo servicios en producción. Me gusta entender cómo funciona todo, de la interfaz a la infraestructura, y aprendo rápido en proyectos reales.</p>
+            <p class="bio" data-i18n="bio">Junior Web Developer y estudiante de 2º de DAW, con experiencia en prácticas desarrollando frontend con React y TypeScript. Tengo base en backend con Java, Spring Boot y Node.js, y administro mi propio servidor Linux con Docker, donde despliego y mantengo aplicaciones en producción. Me gusta entender cómo funciona todo, de la interfaz a la infraestructura, y aprendo rápido en proyectos reales.</p>
           </div>
         </div>
 
@@ -115,6 +118,11 @@
             </ul>
           </div>
         </aside>
+      </section>
+
+      <section id="stack">
+        <h2 class="sec"><span class="title glow" data-i18n="sec.stack">STACK</span><span class="sec__line"></span></h2>
+        <div id="stack-grid" class="grid grid--stack"></div>
       </section>
 
       <section id="projects">
@@ -147,9 +155,22 @@
           <table><tbody id="timeline-body"></tbody></table>
         </div>
       </section>
+      <section id="contact" class="cta box">
+        <div class="cta__body">
+          <span class="side-box__label side-box__label--top" data-i18n="cta.label">CONTACTO</span>
+          <h2 class="cta__title title glow" data-i18n="cta.title">¿TRABAJAMOS JUNTOS?</h2>
+          <p class="cta__text" data-i18n="cta.text">Busco mi primer puesto como Junior Web Developer y estoy abierto a proyectos. Si tienes una oferta o una idea, escríbeme y te respondo rápido.</p>
+          <p class="cta__status"><span class="led" aria-hidden="true"></span> <span data-i18n="cta.status">DISPONIBLE PARA EMPLEO Y PROYECTOS</span></p>
+        </div>
+        <div class="cta__actions">
+          <a class="cta-btn cta-btn--primary" href="mailto:pichaDev2010@gmail.com"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="cta.mail">ESCRÍBEME</span></a>
+          <a class="cta-btn" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="cta.cv">DESCARGAR CV</span></a>
+          <a class="cta-btn" href="https://www.linkedin.com/in/dromerocoz/" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LINKEDIN</span></a>
+        </div>
+      </section>
     </main>
 
-    <footer id="contact" class="footer">
+    <footer class="footer">
       <div class="footer__links">
         <span class="footer__label" data-i18n="footer.contact">CONTACTO</span>
         <a class="ico-link contact-btn" href="https://github.com/pichaDev" data-link="github" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span>GITHUB</span></a>

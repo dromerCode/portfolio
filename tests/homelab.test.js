@@ -63,7 +63,7 @@ test('availability badge with briefcase icon over the photo', () => {
 
 test('downloaded CV is named "CV-Daniel Romero.pdf"', () => {
   const tags = html.match(/<a [^>]*data-cv[^>]*>/g);
-  assert.equal(tags.length, 3);
+  assert.equal(tags.length, 4);
   for (const t of tags) assert.match(t, /download="CV-Daniel Romero\.pdf"/);
 });
 

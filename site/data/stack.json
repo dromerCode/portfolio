@@ -1,0 +1,57 @@
+[
+  {
+    "es": "FRONTEND",
+    "en": "FRONTEND",
+    "items": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "es": "BACKEND",
+    "en": "BACKEND",
+    "items": [
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "Express",
+      "PHP",
+      "Rust"
+    ]
+  },
+  {
+    "es": "BASES DE DATOS",
+    "en": "DATABASES",
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "MariaDB"
+    ]
+  },
+  {
+    "es": "SISTEMAS Y DEVOPS",
+    "en": "SYSTEMS & DEVOPS",
+    "items": [
+      "Linux",
+      "Windows Server",
+      "Docker",
+      "Nginx",
+      "GitHub Actions",
+      "Cloudflare"
+    ]
+  },
+  {
+    "es": "HERRAMIENTAS",
+    "en": "TOOLS",
+    "items": [
+      "Git",
+      "GitHub",
+      "REST APIs",
+      "Vite"
+    ]
+  }
+]

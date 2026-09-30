@@ -1,6 +1,6 @@
 {
-  "meta.title": "pichaDev · Portfolio",
-  "meta.desc": "Portfolio de pichaDev, estudiante de DAW: desarrollo web, Linux y self-hosting.",
+  "meta.title": "Daniel Romero · Junior Web Developer",
+  "meta.desc": "Portfolio de Daniel Romero (pichaDev), Junior Web Developer: React, TypeScript, Java, Linux y self-hosting.",
   "profile.label": "EXPEDIENTE DEV",
   "nav.label": "Principal",
   "nav.about": "SOBRE MÍ",
@@ -8,7 +8,7 @@
   "nav.contact": "CONTACTO",
   "photo.alt": "Foto de pichaDev",
   "spec.role.k": "ROL:",
-  "spec.role.v": "DESARROLLADOR WEB",
+  "spec.role.v": "JUNIOR WEB DEVELOPER",
   "spec.edu.k": "FORMACIÓN:",
   "spec.edu.v": "2º DAW",
   "spec.loc.k": "UBICACIÓN:",
@@ -16,7 +16,7 @@
   "spec.langs.k": "IDIOMAS:",
   "spec.status.k": "ESTADO:",
   "spec.status.v": "DISPONIBLE PARA TRABAJAR",
-  "bio": "Desarrollador web junior y estudiante de 2º de DAW. Trabajo sobre todo en frontend con React y TypeScript, con base en backend con Java y Node.js. Administro mi propio servidor Linux con Docker, donde despliego y mantengo servicios en producción. Me gusta entender cómo funciona todo, de la interfaz a la infraestructura, y aprendo rápido en proyectos reales.",
+  "bio": "Junior Web Developer y estudiante de 2º de DAW, con experiencia en prácticas desarrollando frontend con React y TypeScript. Tengo base en backend con Java, Spring Boot y Node.js, y administro mi propio servidor Linux con Docker, donde despliego y mantengo aplicaciones en producción. Me gusta entender cómo funciona todo, de la interfaz a la infraestructura, y aprendo rápido en proyectos reales.",
   "side.signature": "FIRMA",
   "side.cv": "DESCARGAR CV",
   "side.now.k": "TRABAJANDO EN",
@@ -33,5 +33,12 @@
   "homelab.intro": "Tengo un servidor en casa con ZimaOS y Docker donde monto, pruebo y mantengo servicios reales que uso a diario. Estos son los principales:",
   "pichaflix.intro": "Mi plataforma de streaming privada, montada de principio a fin en el homelab. Así funciona desde que alguien pide algo hasta que lo ve:",
   "pichaflix.storage": "ALMACENAMIENTO",
-  "badge.available": "DISPONIBLE"
+  "badge.available": "DISPONIBLE",
+  "sec.stack": "STACK",
+  "cta.label": "CONTACTO",
+  "cta.title": "¿TRABAJAMOS JUNTOS?",
+  "cta.text": "Busco mi primer puesto como Junior Web Developer y estoy abierto a proyectos. Si tienes una oferta o una idea, escríbeme y te respondo rápido.",
+  "cta.status": "DISPONIBLE PARA EMPLEO Y PROYECTOS",
+  "cta.mail": "ESCRÍBEME",
+  "cta.cv": "DESCARGAR CV"
 }
