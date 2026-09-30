@@ -1,0 +1,30 @@
+[
+  {
+    "id": "pichaflix",
+    "tags": ["DOCKER", "LINUX", "JELLYFIN"],
+    "repo": null,
+    "es": { "category": "HOMELAB", "title": "PICHAFLIX", "desc": "Servidor multimedia con Jellyfin, stack ARR y unos 15TB, montado sobre ZimaOS y un NAS OMV en RAID5." },
+    "en": { "category": "HOMELAB", "title": "PICHAFLIX", "desc": "Media server with Jellyfin, the ARR stack and around 15TB, running on ZimaOS and an OMV NAS in RAID5." }
+  },
+  {
+    "id": "cicd",
+    "tags": ["GITHUB ACTIONS", "DOCKER", "NODE"],
+    "repo": "https://github.com/pichaDev/proyecto-cicd-daw",
+    "es": { "category": "DEVOPS", "title": "CI/CD DAW", "desc": "Pipeline con GitHub Actions y Docker para probar y desplegar una app de Node.js." },
+    "en": { "category": "DEVOPS", "title": "CI/CD DAW", "desc": "GitHub Actions and Docker pipeline to test and deploy a Node.js app." }
+  },
+  {
+    "id": "juegonaves",
+    "tags": ["JAVA", "EQUIPO"],
+    "repo": "https://github.com/pichaDev/juegoNaves",
+    "es": { "category": "JUEGO", "title": "JUEGONAVES", "desc": "Shooter espacial en Java, proyecto en grupo para clase." },
+    "en": { "category": "GAME", "title": "JUEGONAVES", "desc": "Space shooter in Java, a group project for class." }
+  },
+  {
+    "id": "cursophp",
+    "tags": ["PHP"],
+    "repo": "https://github.com/pichaDev/cursophp",
+    "es": { "category": "APRENDIZAJE", "title": "CURSO PHP", "desc": "Curso de PHP desde cero, con ejercicios y apuntes." },
+    "en": { "category": "LEARNING", "title": "PHP COURSE", "desc": "PHP course from scratch, with exercises and notes." }
+  }
+]

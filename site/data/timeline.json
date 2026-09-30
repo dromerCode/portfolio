@@ -1,0 +1,14 @@
+[
+  {
+    "period": "2025 – 27",
+    "led": false,
+    "es": { "text": "Grado Superior en Desarrollo de Aplicaciones Web", "type": "FORMACIÓN" },
+    "en": { "text": "Higher Technical Degree in Web Application Development", "type": "EDUCATION" }
+  },
+  {
+    "period": "2026",
+    "led": true,
+    "es": { "text": "FCT / prácticas en empresa", "type": "PENDIENTE" },
+    "en": { "text": "Company internship (FCT)", "type": "PENDING" }
+  }
+]
