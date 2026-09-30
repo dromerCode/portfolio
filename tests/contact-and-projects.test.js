@@ -38,3 +38,17 @@ test('translated elements never contain icons (textContent would erase them)', (
   const translated = [...html.matchAll(/<(\w+)[^>]*data-i18n="[^"]*"[^>]*>([\s\S]*?)<\/\1>/g)];
   for (const [whole, , inner] of translated) assert.doesNotMatch(inner, /<svg/, whole);
 });
+
+test('icons carry their own size so they stay small even without the CSS', () => {
+  const icons = [...html.matchAll(/<svg class="ico[^"]*"[^>]*>/g)].map((m) => m[0]);
+  assert.ok(icons.length >= 8);
+  for (const tag of icons) assert.match(tag, /width="16" height="16"/, tag);
+  assert.match(html, /<svg class="sprite"[^>]*width="0" height="0"/);
+});
+
+test('nginx makes browsers revalidate css, js and json on every visit', () => {
+  const conf = read('nginx.conf');
+  const block = conf.match(/location ~\* \\\.\(css\|js\|json\)\$ \{([^}]*)\}/)?.[1] ?? '';
+  assert.match(block, /Cache-Control "no-cache"/);
+  assert.doesNotMatch(block, /expires 1h/);
+});
