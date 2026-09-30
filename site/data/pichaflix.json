@@ -12,32 +12,22 @@
     },
     {
       "es": {
-        "title": "BÚSQUEDA",
-        "text": "Sonarr (series) y Radarr (películas) reciben la petición y buscan la mejor versión a través de los indexadores que centraliza Prowlarr."
+        "title": "AUTOMATIZACIÓN",
+        "text": "Sonarr (series) y Radarr (películas) reciben la petición aprobada y se encargan de conseguir el contenido sin que yo tenga que intervenir."
       },
       "en": {
-        "title": "SEARCH",
-        "text": "Sonarr (shows) and Radarr (movies) pick up the request and look for the best release through the indexers managed by Prowlarr."
-      }
-    },
-    {
-      "es": {
-        "title": "DESCARGA",
-        "text": "qBittorrent descarga el contenido en una carpeta de trabajo del disco de 6 TB."
-      },
-      "en": {
-        "title": "DOWNLOAD",
-        "text": "qBittorrent downloads the content into a working folder on the 6 TB drive."
+        "title": "AUTOMATION",
+        "text": "Sonarr (shows) and Radarr (movies) pick up the approved request and take care of getting the content without me stepping in."
       }
     },
     {
       "es": {
         "title": "ORGANIZACIÓN",
-        "text": "Sonarr y Radarr renombran los ficheros y los mueven a su biblioteca, repartida entre los discos del servidor y el NAS."
+        "text": "Renombran los ficheros y los colocan en su biblioteca, repartida entre los discos del servidor y el NAS con RAID5."
       },
       "en": {
         "title": "ORGANISE",
-        "text": "Sonarr and Radarr rename the files and move them into the library, spread across the server drives and the NAS."
+        "text": "They rename the files and place them in the library, spread across the server drives and the RAID5 NAS."
       }
     },
     {
@@ -64,8 +54,8 @@
   "storage": [
     {
       "name": "HDD 6 TB",
-      "es": "Biblioteca principal y descargas",
-      "en": "Main library and downloads"
+      "es": "Biblioteca principal",
+      "en": "Main library"
     },
     {
       "name": "HDD 4 TB",

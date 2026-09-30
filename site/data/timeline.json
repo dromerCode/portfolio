@@ -5,12 +5,12 @@
     "es": {
       "text": "Grado Superior en Desarrollo de Aplicaciones Web · IES Politécnico Hermenegildo Lanz",
       "type": "EN CURSO",
-      "detail": "Desarrollo web en cliente y servidor, bases de datos, despliegue y diseño de interfaces."
+      "detail": "Desarrollo web en cliente y servidor, bases de datos, despliegue y diseño de interfaces. Proyectos de clase: juegoNaves, un shooter espacial en Java hecho en equipo, y un curso de PHP desde cero."
     },
     "en": {
       "text": "Higher Technical Degree in Web Application Development · IES Politécnico Hermenegildo Lanz",
       "type": "IN PROGRESS",
-      "detail": "Client and server web development, databases, deployment and interface design."
+      "detail": "Client and server web development, databases, deployment and interface design. Class projects: juegoNaves, a space shooter in Java built as a team, and a PHP course from scratch."
     }
   },
   {

@@ -10,12 +10,22 @@
     "es": {
       "category": "FULL STACK",
       "title": "SUBTRACK",
-      "desc": "App self-hosted para controlar suscripciones: gasto mensual y anual, próximos cobros y gasto por categoría. Spring Boot + React/TypeScript + PostgreSQL en una sola imagen Docker."
+      "desc": "App self-hosted para controlar suscripciones: gasto mensual y anual, próximos cobros y gasto por categoría. Spring Boot + React/TypeScript + PostgreSQL en una sola imagen Docker.",
+      "learned": "Qué hice: la app entera, de la API con Spring Boot y PostgreSQL al frontend con React. Aprendí a testear con Testcontainers y a empaquetarlo todo en una sola imagen Docker."
     },
     "en": {
       "category": "FULL STACK",
       "title": "SUBTRACK",
-      "desc": "Self-hosted app to keep track of subscriptions: monthly and yearly spend, upcoming charges and spend by category. Spring Boot + React/TypeScript + PostgreSQL in a single Docker image."
+      "desc": "Self-hosted app to keep track of subscriptions: monthly and yearly spend, upcoming charges and spend by category. Spring Boot + React/TypeScript + PostgreSQL in a single Docker image.",
+      "learned": "What I did: the whole app, from the Spring Boot + PostgreSQL API to the React frontend. I learned to test with Testcontainers and to ship everything as a single Docker image."
+    },
+    "media": {
+      "type": "img",
+      "src": "assets/img/subtrack.webp",
+      "width": 1200,
+      "height": 750,
+      "es": "Panel de subtrack en modo oscuro con el gasto mensual, los próximos cobros y el gasto por categoría",
+      "en": "subtrack dashboard in dark mode with monthly spend, upcoming charges and spend by category"
     }
   },
   {
@@ -29,12 +39,18 @@
     "es": {
       "category": "HERRAMIENTA LINUX",
       "title": "TABMON",
-      "desc": "Convierte una tablet Android en un monitor extendido para niri por USB, usando una pantalla virtual (vkms) y wayvnc. Publicado en AUR."
+      "desc": "Convierte una tablet Android en un monitor extendido para niri por USB, usando una pantalla virtual (vkms) y wayvnc. Publicado en AUR.",
+      "learned": "Qué hice: una CLI en Rust que resuelve un límite real de niri. Aprendí a trabajar con módulos del kernel (vkms), procesos externos y a publicar un paquete en AUR."
     },
     "en": {
       "category": "LINUX TOOL",
       "title": "TABMON",
-      "desc": "Turns an Android tablet into an extended monitor for niri over USB, using a virtual display (vkms) and wayvnc. Published on the AUR."
+      "desc": "Turns an Android tablet into an extended monitor for niri over USB, using a virtual display (vkms) and wayvnc. Published on the AUR.",
+      "learned": "What I did: a Rust CLI that works around a real niri limitation. I learned to work with kernel modules (vkms), external processes and to publish a package on the AUR."
+    },
+    "media": {
+      "type": "code",
+      "text": "$ tabmon doctor\n✓ niri installed\n✓ wayvnc installed\n✓ adb installed\n✓ vkms module loaded\n✓ output Virtual-1 exists in niri\n✓ adb device ready"
     }
   },
   {
@@ -42,53 +58,24 @@
     "tags": [
       "GITHUB ACTIONS",
       "DOCKER",
-      "NODE"
+      "AWS EC2"
     ],
     "repo": "https://github.com/pichaDev/proyecto-cicd-daw",
     "es": {
       "category": "DEVOPS",
       "title": "CI/CD DAW",
-      "desc": "Pipeline con GitHub Actions y Docker para probar y desplegar una app de Node.js."
+      "desc": "Pipeline de CI/CD con GitHub Actions: en cada push construye la imagen Docker, la sube a Docker Hub y la despliega por SSH en una instancia de AWS EC2.",
+      "learned": "Aprendí a encadenar integración y despliegue continuos, a gestionar secretos en GitHub y a desplegar sin tocar el servidor a mano."
     },
     "en": {
       "category": "DEVOPS",
       "title": "CI/CD DAW",
-      "desc": "GitHub Actions and Docker pipeline to test and deploy a Node.js app."
-    }
-  },
-  {
-    "id": "juegonaves",
-    "tags": [
-      "JAVA",
-      "EQUIPO"
-    ],
-    "repo": "https://github.com/pichaDev/juegoNaves",
-    "es": {
-      "category": "JUEGO",
-      "title": "JUEGONAVES",
-      "desc": "Shooter espacial en Java, proyecto en grupo para clase."
+      "desc": "CI/CD pipeline with GitHub Actions: on every push it builds the Docker image, pushes it to Docker Hub and deploys it over SSH to an AWS EC2 instance.",
+      "learned": "I learned to chain continuous integration and delivery, manage secrets on GitHub and deploy without touching the server by hand."
     },
-    "en": {
-      "category": "GAME",
-      "title": "JUEGONAVES",
-      "desc": "Space shooter in Java, a group project for class."
-    }
-  },
-  {
-    "id": "cursophp",
-    "tags": [
-      "PHP"
-    ],
-    "repo": "https://github.com/pichaDev/cursophp",
-    "es": {
-      "category": "APRENDIZAJE",
-      "title": "CURSO PHP",
-      "desc": "Curso de PHP desde cero, con ejercicios y apuntes."
-    },
-    "en": {
-      "category": "LEARNING",
-      "title": "PHP COURSE",
-      "desc": "PHP course from scratch, with exercises and notes."
+    "media": {
+      "type": "code",
+      "text": "jobs:\n  build-and-push:\n    steps:\n      - uses: docker/build-push-action@v5\n  deploy:\n    needs: build-and-push\n    steps:\n      - uses: appleboy/ssh-action@v1.0.3"
     }
   }
 ]

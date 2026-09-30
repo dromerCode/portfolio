@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- Plantilla de la imagen de vista previa (og:image). Regenerar con tools/make-og.sh -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Orbitron"; src: url("../site/assets/fonts/orbitron-800.woff2") format("woff2"); font-weight: 800; }
+  @font-face { font-family: "Share Tech Mono"; src: url("../site/assets/fonts/share-tech-mono-400.woff2") format("woff2"); }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; background: #1a1a1f; color: #b8b3ff; font-family: "Share Tech Mono", monospace; overflow: hidden; position: relative; }
+  .mesh { position: absolute; inset: 0; opacity: .12; }
+  .mesh path { fill: none; stroke: #b8b3ff; stroke-width: 1; }
+  .glow-bg { position: absolute; inset: 0; background: radial-gradient(circle at 85% 10%, rgba(90, 80, 255, .28), transparent 55%); }
+  .card { position: absolute; inset: 48px; border: 2px solid #b8b3ff; box-shadow: 0 0 18px rgba(184, 179, 255, .3), inset 0 0 18px rgba(184, 179, 255, .08); display: grid; grid-template-columns: 300px 1fr; }
+  .photo { border-right: 2px solid #b8b3ff; background: url("../site/assets/img/photo.avif") center / cover; position: relative; }
+  .badge { position: absolute; top: 18px; left: 18px; padding: 6px 12px; font-size: 18px; letter-spacing: .1em; color: #7dffb0; background: rgba(16, 20, 18, .85); border: 2px solid #7dffb0; box-shadow: 0 0 14px rgba(125, 255, 176, .4); }
+  .body { padding: 44px 48px; display: flex; flex-direction: column; justify-content: space-between; }
+  .top { font-size: 20px; letter-spacing: .2em; color: #8f8ad0; }
+  h1 { font-family: "Orbitron"; font-weight: 800; font-size: 58px; line-height: 1.05; letter-spacing: .03em; text-shadow: 0 0 16px rgba(184, 179, 255, .6); }
+  .role { margin-top: 16px; font-size: 28px; letter-spacing: .22em; color: #7dffb0; }
+  .stack { display: flex; flex-wrap: wrap; gap: 10px; }
+  .stack span { border: 1.5px solid #6d68a8; padding: 4px 12px; font-size: 20px; color: #dcd9ff; }
+  .bottom { display: flex; justify-content: space-between; align-items: center; font-size: 20px; letter-spacing: .15em; }
+  .slashes { font-weight: 800; letter-spacing: -3px; font-size: 26px; }
+</style>
+</head>
+<body>
+  <svg class="mesh" viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M0 30 Q200 5 400 35"/><path d="M0 80 Q200 55 400 85"/><path d="M0 130 Q200 115 400 135"/><path d="M0 180 Q200 175 400 185"/><path d="M60 0 Q40 100 70 200"/><path d="M160 0 Q150 100 165 200"/><path d="M260 0 Q270 100 255 200"/><path d="M350 0 Q370 100 340 200"/></svg>
+  <div class="glow-bg"></div>
+  <div class="card">
+    <div class="photo"><span class="badge">DISPONIBLE</span></div>
+    <div class="body">
+      <div>
+        <p class="top">DEV PROFILE · @pichaDev</p>
+        <h1 style="margin-top:18px">DANIEL ROMERO<br>CÓZAR</h1>
+        <p class="role">JUNIOR WEB DEVELOPER</p>
+      </div>
+      <div class="stack"><span>React</span><span>TypeScript</span><span>Java</span><span>Spring Boot</span><span>Docker</span><span>Linux</span></div>
+      <div class="bottom"><span class="slashes">/ / / / /</span><span>PORTFOLIO.PICHAHOUSE.ES</span></div>
+    </div>
+  </div>
+</body>
+</html>

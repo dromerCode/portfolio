@@ -30,13 +30,13 @@
       "id": "qbittorrent",
       "es": {
         "name": "QBITTORRENT",
-        "role": "DESCARGAS",
-        "desc": "Cliente de descargas controlado por el stack ARR, que deja los ficheros listos para organizarse solos."
+        "role": "TRANSFERENCIAS",
+        "desc": "Gestor de transferencias del servidor, integrado con la automatización de la biblioteca multimedia."
       },
       "en": {
         "name": "QBITTORRENT",
-        "role": "DOWNLOADS",
-        "desc": "Download client driven by the ARR stack, leaving files ready to be organised automatically."
+        "role": "TRANSFERS",
+        "desc": "Transfer manager for the server, integrated with the media library automation."
       }
     },
     {
@@ -44,12 +44,12 @@
       "es": {
         "name": "STACK ARR",
         "role": "AUTOMATIZACIÓN",
-        "desc": "Sonarr, Radarr y Prowlarr: buscan, descargan y ordenan series y películas sin intervención. Lo explico más abajo, en Pichaflix."
+        "desc": "Sonarr y Radarr: mantienen la biblioteca de series y películas al día y la organizan sola, con nombres y carpetas coherentes. Más detalle abajo, en Pichaflix."
       },
       "en": {
         "name": "ARR STACK",
         "role": "AUTOMATION",
-        "desc": "Sonarr, Radarr and Prowlarr: they find, download and sort shows and movies on their own. Explained below, in Pichaflix."
+        "desc": "Sonarr and Radarr: keep the shows and movies library up to date and organise it automatically, with consistent names and folders. More below, in Pichaflix."
       }
     },
     {

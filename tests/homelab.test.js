@@ -52,7 +52,7 @@ test('page has homelab and pichaflix sections in order, with nav link', () => {
 });
 
 test('header shows full name instead of the ID', () => {
-  assert.match(html, /class="dossier__id">DANIEL ROMERO CÓZAR</);
+  assert.match(html, /<h1[^>]*>DANIEL ROMERO CÓZAR<\/h1>/);
   assert.doesNotMatch(html, /DAW-2027/);
 });
 

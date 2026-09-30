@@ -9,7 +9,7 @@ const contactLinks = [...html.matchAll(/<a class="ico-link[^"]*"[^>]*>([\s\S]*?)
 
 test('projects are in the agreed order and subtrack/tabmon link to their repos', () => {
   const projects = JSON.parse(read('site/data/projects.json'));
-  assert.deepEqual(projects.map((p) => p.id), ['subtrack', 'tabmon', 'cicd', 'juegonaves', 'cursophp']);
+  assert.deepEqual(projects.map((p) => p.id), ['subtrack', 'tabmon', 'cicd']);
   const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
   assert.equal(byId.subtrack.repo, 'https://github.com/pichaDev/subtrack');
   assert.equal(byId.tabmon.repo, 'https://github.com/pichaDev/tabmon');

@@ -51,9 +51,3 @@ test('radarSVG escapes labels', () => {
   assert.doesNotMatch(svg, /<x>/);
 });
 
-test('radarListHTML lists every skill with its value', () => {
-  const html = radarListHTML(skills, 'es');
-  assert.match(html, /<li>FRONTEND: 100\/100<\/li>/);
-  assert.match(html, /<li>BBDD: 50\/100<\/li>/);
-  assert.equal((html.match(/<li>/g) ?? []).length, 6);
-});

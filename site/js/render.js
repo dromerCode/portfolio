@@ -13,6 +13,15 @@ export function safeUrl(url) {
   return typeof url === 'string' && url.startsWith('https://') ? url : null;
 }
 
+function mediaHTML(media, lang) {
+  if (media?.type === 'img') {
+    const size = media.width && media.height ? ` width="${Number(media.width)}" height="${Number(media.height)}"` : '';
+    return `<img class="proj__media" src="${escapeHTML(media.src)}" alt="${escapeHTML(media[lang] ?? media.es ?? '')}" loading="lazy"${size}>`;
+  }
+  if (media?.type === 'code') return `<pre class="proj__media proj__code"><code>${escapeHTML(media.text)}</code></pre>`;
+  return '';
+}
+
 export function projectCardHTML(project, lang, index, repoLabel) {
   const t = localized(project, lang);
   const num = String(index + 1).padStart(2, '0');
@@ -21,10 +30,13 @@ export function projectCardHTML(project, lang, index, repoLabel) {
   const link = url
     ? `<a class="proj__link" href="${escapeHTML(url)}" target="_blank" rel="noopener">${escapeHTML(repoLabel)}</a>`
     : '';
+  const learned = t.learned ? `<p class="proj__learned">${escapeHTML(t.learned)}</p>` : '';
   return `<article class="box proj">
+  ${mediaHTML(project.media, lang)}
   <span class="proj__cat">#${num} · ${escapeHTML(t.category)}</span>
   <h3 class="proj__title">${escapeHTML(t.title)}</h3>
   <p class="proj__desc">${escapeHTML(t.desc)}</p>
+  ${learned}
   <ul class="proj__tags">${tags}</ul>
   ${link}
 </article>`;

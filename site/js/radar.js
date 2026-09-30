@@ -3,6 +3,17 @@ import { escapeHTML } from './render.js';
 const RADIUS = 80;
 const LABEL_RADIUS = 94;
 const RINGS = [0.25, 0.5, 0.75, 1];
+const LEVELS = { main: 90, secondary: 65, learning: 40 };
+const LEVEL_LABELS = {
+  es: { main: 'principal', secondary: 'secundario', learning: 'aprendiendo' },
+  en: { main: 'main', secondary: 'secondary', learning: 'learning' },
+};
+
+export function levelValue(level) {
+  return LEVELS[level] ?? 0;
+}
+
+const skillValue = (s) => (s.level ? levelValue(s.level) : s.value);
 
 export function clamp(value) {
   if (typeof value !== 'number' || !Number.isFinite(value)) return 0;
@@ -31,7 +42,7 @@ export function radarSVG(skills, lang) {
     const [x, y] = axisPoint(i, n, RADIUS);
     return `M0 0L${x} ${y}`;
   }).join('');
-  const area = `<polygon class="radar__area" points="${polygon(radarPoints(skills.map((s) => s.value)))}"/>`;
+  const area = `<polygon class="radar__area" points="${polygon(radarPoints(skills.map(skillValue)))}"/>`;
   const labels = skills.map((s, i) => {
     const [x, y] = axisPoint(i, n, LABEL_RADIUS);
     return `<text class="radar__label" x="${x}" y="${y}">${escapeHTML(s[lang] ?? s.es)}</text>`;
@@ -40,5 +51,6 @@ export function radarSVG(skills, lang) {
 }
 
 export function radarListHTML(skills, lang) {
-  return skills.map((s) => `<li>${escapeHTML(s[lang] ?? s.es)}: ${clamp(s.value)}/100</li>`).join('');
+  const labels = LEVEL_LABELS[lang] ?? LEVEL_LABELS.es;
+  return skills.map((s) => `<li>${escapeHTML(s[lang] ?? s.es)}: ${escapeHTML(labels[s.level] ?? '')}</li>`).join('');
 }

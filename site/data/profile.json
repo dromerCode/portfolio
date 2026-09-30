@@ -1,32 +1,32 @@
 {
   "skills": [
     {
-      "value": 78,
+      "level": "main",
       "es": "FRONTEND",
       "en": "FRONTEND"
     },
     {
-      "value": 80,
+      "level": "main",
       "es": "LINUX",
       "en": "LINUX"
     },
     {
-      "value": 72,
+      "level": "main",
       "es": "DEVOPS",
       "en": "DEVOPS"
     },
     {
-      "value": 45,
+      "level": "learning",
       "es": "BBDD",
       "en": "DATABASES"
     },
     {
-      "value": 60,
+      "level": "secondary",
       "es": "BACKEND",
       "en": "BACKEND"
     },
     {
-      "value": 62,
+      "level": "secondary",
       "es": "JAVA",
       "en": "JAVA"
     }
