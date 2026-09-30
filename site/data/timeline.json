@@ -1,14 +1,38 @@
 [
   {
-    "period": "2025 – 27",
+    "period": "2026",
     "led": false,
-    "es": { "text": "Grado Superior en Desarrollo de Aplicaciones Web", "type": "FORMACIÓN" },
-    "en": { "text": "Higher Technical Degree in Web Application Development", "type": "EDUCATION" }
+    "es": {
+      "text": "Desarrollador web en prácticas en Granadev: frontend con React y TypeScript",
+      "type": "PRÁCTICAS"
+    },
+    "en": {
+      "text": "Web developer intern at Granadev: frontend with React and TypeScript",
+      "type": "INTERNSHIP"
+    }
   },
   {
-    "period": "2026",
+    "period": "2025 – 27",
     "led": true,
-    "es": { "text": "FCT / prácticas en empresa", "type": "PENDIENTE" },
-    "en": { "text": "Company internship (FCT)", "type": "PENDING" }
+    "es": {
+      "text": "Grado Superior en Desarrollo de Aplicaciones Web (IES Politécnico Hermenegildo Lanz)",
+      "type": "EN CURSO"
+    },
+    "en": {
+      "text": "Higher Technical Degree in Web Application Development (IES Politécnico Hermenegildo Lanz)",
+      "type": "IN PROGRESS"
+    }
+  },
+  {
+    "period": "2025",
+    "led": false,
+    "es": {
+      "text": "Erasmus+ en Grecia (Twinsoft): técnico de sistemas POS, impresoras y redes locales",
+      "type": "ERASMUS+"
+    },
+    "en": {
+      "text": "Erasmus+ in Greece (Twinsoft): technician for POS systems, printers and local networks",
+      "type": "ERASMUS+"
+    }
   }
 ]
