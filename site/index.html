@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pichaDev · Portfolio</title>
+  <meta name="description" content="Portfolio de pichaDev, estudiante de DAW: desarrollo web, Linux y self-hosting.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfolio.pichahouse.es/">
+  <meta property="og:title" content="pichaDev · Portfolio">
+  <meta property="og:description" content="Estudiante de DAW: desarrollo web, Linux y self-hosting.">
+  <meta name="theme-color" content="#1a1a1f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1f'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23b8b3ff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/orbitron-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/share-tech-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <svg class="mesh" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
+    <g>
+      <path d="M0 60 Q200 20 400 70"/><path d="M0 140 Q200 100 400 150"/><path d="M0 220 Q200 190 400 230"/>
+      <path d="M0 300 Q200 280 400 310"/><path d="M0 380 Q200 370 400 390"/><path d="M0 460 Q200 460 400 470"/>
+      <path d="M0 540 Q200 550 400 545"/>
+      <path d="M40 0 Q20 300 60 600"/><path d="M120 0 Q100 300 130 600"/><path d="M200 0 Q190 300 200 600"/>
+      <path d="M280 0 Q290 300 270 600"/><path d="M360 0 Q380 300 340 600"/>
+    </g>
+  </svg>
+
+  <div class="page">
+    <header class="topbar">
+      <span class="topbar__label" data-i18n="profile.label">EXPEDIENTE DEV</span>
+      <nav class="topbar__nav" data-i18n-aria="nav.label" aria-label="Principal">
+        <a href="#about" data-i18n="nav.about">SOBRE MÍ</a>
+        <a href="#projects" data-i18n="nav.projects">PROYECTOS</a>
+        <a href="#contact" data-i18n="nav.contact">CONTACTO</a>
+        <button id="lang-toggle" class="lang box" type="button" data-lang="es" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="dossier">
+        <div class="box dossier__main">
+          <div class="dossier__head">
+            <h1 class="title glow">PICHADEV</h1>
+            <span class="dossier__id">ID: DAW-2027</span>
+          </div>
+
+          <div class="dossier__row">
+            <div class="dossier__photo">
+              <div class="photo" role="img" data-i18n-aria="photo.alt" aria-label="Foto de pichaDev"><span>PD</span></div>
+              <div class="links">
+                <a href="https://github.com/pichaDev" target="_blank" rel="noopener">GITHUB</a>
+                <!-- PENDIENTE (Task 7): URL de LinkedIn -->
+                <a href="#" data-link="linkedin" target="_blank" rel="noopener">LINKEDIN</a>
+                <!-- PENDIENTE (Task 7): correo público -->
+                <a href="#" data-link="email">MAIL</a>
+              </div>
+            </div>
+            <div class="dossier__radar">
+              <div id="radar" aria-hidden="true"></div>
+              <ul id="radar-list" class="sr-only"></ul>
+              <noscript><p class="noscript">Activa JavaScript para ver el radar de skills.</p></noscript>
+            </div>
+          </div>
+
+          <div class="dossier__row">
+            <div class="specs-wrap">
+            <table class="specs">
+              <tbody>
+                <tr><th scope="row" data-i18n="spec.role.k">ROL:</th><td data-i18n="spec.role.v">DESARROLLADOR WEB</td></tr>
+                <tr><th scope="row" data-i18n="spec.edu.k">FORMACIÓN:</th><td data-i18n="spec.edu.v">2º DAW</td></tr>
+                <tr><th scope="row" data-i18n="spec.loc.k">UBICACIÓN:</th><td data-i18n="spec.loc.v">ESPAÑA</td></tr>
+                <tr><th scope="row" data-i18n="spec.langs.k">IDIOMAS:</th><td>ES · EN</td></tr>
+                <tr><th scope="row" data-i18n="spec.status.k">ESTADO:</th><td><span class="led" aria-hidden="true"></span> <span data-i18n="spec.status.v">BUSCANDO PRÁCTICAS</span></td></tr>
+              </tbody>
+            </table>
+            </div>
+            <p class="bio" data-i18n="bio">Estudiante de 2º de DAW. Me interesa todo lo que tenga que ver con ordenadores: desarrollo web, sistemas y lo que se me cruce. Aprendo montando cosas reales y rompiéndolas. Punto débil conocido: las bases de datos, y estoy trabajando en ello.</p>
+          </div>
+        </div>
+
+        <aside class="dossier__side">
+          <div class="box side-box side-box--sign">
+            <svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 45 C 20 10, 30 10, 28 40 S 45 55, 52 25 S 70 5, 72 40 S 88 45, 94 20"/></svg>
+            <span class="side-box__label" data-i18n="side.signature">FIRMA</span>
+          </div>
+          <a class="box side-box side-box--cv" href="assets/cv/cv-es.pdf" data-cv download>
+            <span class="cv-icon" aria-hidden="true">↓</span>
+            <span class="side-box__label" data-i18n="side.cv">DESCARGAR CV</span>
+          </a>
+          <div class="box side-box">
+            <span class="side-box__label side-box__label--top" data-i18n="side.now.k">AHORA MISMO</span>
+            <p class="side-box__text" data-i18n="side.now.v">Aprendiendo DWEC (JS en cliente) y montando este portfolio.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <h2 class="sec"><span class="title glow" data-i18n="sec.projects">PROYECTOS</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
+        <div id="projects-grid" class="grid">
+          <noscript><p class="noscript">Activa JavaScript para ver los proyectos, o mira <a href="https://github.com/pichaDev">github.com/pichaDev</a>.</p></noscript>
+        </div>
+      </section>
+
+      <section id="timeline">
+        <h2 class="sec"><span class="title glow" data-i18n="sec.timeline">TRAYECTORIA</span><span class="sec__line"></span></h2>
+        <div class="box timeline">
+          <table><tbody id="timeline-body"></tbody></table>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div class="footer__links">
+        <span class="footer__label" data-i18n="footer.contact">CONTACTO</span>
+        <a href="https://github.com/pichaDev" target="_blank" rel="noopener">GITHUB</a>
+        <a href="#" data-link="linkedin" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="#" data-link="email">MAIL</a>
+        <a href="assets/cv/cv-es.pdf" data-cv download data-i18n="footer.cv">CV</a>
+      </div>
+      <div class="footer__bar">
+        <span class="slashes" aria-hidden="true">/ / / / / /</span>
+        <span class="footer__domain">PORTFOLIO.PICHAHOUSE.ES</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
