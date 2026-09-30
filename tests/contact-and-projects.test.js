@@ -52,3 +52,21 @@ test('nginx makes browsers revalidate css, js and json on every visit', () => {
   assert.match(block, /Cache-Control "no-cache"/);
   assert.doesNotMatch(block, /expires 1h/);
 });
+
+test('links under the photo show only a purple icon, label kept for screen readers', () => {
+  const block = html.match(/<div class="links">([\s\S]*?)<\/div>/)[1];
+  const labels = [...block.matchAll(/<\/svg><span([^>]*)>/g)].map((m) => m[1]);
+  assert.equal(labels.length, 4);
+  for (const attrs of labels) assert.match(attrs, /class="sr-only"/);
+  for (const a of block.match(/<a [^>]*>/g)) assert.match(a, /title="[^"]+"/, a);
+
+  const css = read('site/css/style.css');
+  const hex = (name) => css.match(new RegExp(`--${name}:\\s*(#[0-9a-f]{6})`, 'i'))?.[1];
+  const lum = (h) => h.match(/\w\w/g).map((x) => parseInt(x, 16) / 255)
+    .map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
+    .reduce((acc, c, i) => acc + c * [0.2126, 0.7152, 0.0722][i], 0);
+  const purple = hex('purple');
+  assert.ok(purple, '--purple is defined');
+  assert.ok((lum(purple) + 0.05) / (lum(hex('bg')) + 0.05) >= 3, 'icon contrast >= 3:1');
+  assert.match(css, /\.links \.ico-link \{[^}]*color: var\(--purple\)/);
+});
