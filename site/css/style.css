@@ -75,7 +75,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 .photo { position: relative; aspect-ratio: 1 / 1; }
 .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .35s ease; }
 .photo__img--anime { filter: grayscale(.3) contrast(1.05); }
-.photo[data-photo="real"] .photo__img--anime, .photo[data-photo="anime"] .photo__img--real { opacity: 0; }
+.photo[data-photo="real"] .photo__img--anime, .photo[data-photo="anime"] .photo__img--real { opacity: 0; pointer-events: none; }
 .photo-toggle { position: absolute; left: 10px; bottom: 10px; z-index: 2; width: 36px; height: 36px; display: grid; place-items: center; padding: 0; color: var(--c); background: rgba(16, 16, 22, .82); border: 1.5px solid var(--c); box-shadow: 0 0 10px rgba(184, 179, 255, .3); cursor: pointer; transition: background .15s, color .15s; }
 .photo-toggle:hover { background: rgba(90, 80, 255, .35); color: #fff; }
 .photo-toggle[aria-pressed="true"] { border-color: var(--purple); }

@@ -51,3 +51,10 @@ test('share preview template uses the real photo', () => {
 test('real photo is high resolution (800px) and declares its size', () => {
   assert.match(html, /<img class="photo__img photo__img--real" src="assets\/img\/photo-real\.webp" alt="" width="800" height="800">/);
 });
+
+test('the hidden photo ignores the pointer so right-click hits the visible one', () => {
+  const css = read('site/css/style.css');
+  const rule = css.match(/\.photo\[data-photo="real"\] \.photo__img--anime, \.photo\[data-photo="anime"\] \.photo__img--real \{([^}]*)\}/)?.[1] ?? '';
+  assert.match(rule, /opacity: 0/);
+  assert.match(rule, /pointer-events: none/);
+});
