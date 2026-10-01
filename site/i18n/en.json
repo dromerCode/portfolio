@@ -43,6 +43,6 @@
   "radar.caption": "FOCUS AREAS",
   "stats.years": "YEARS CODING",
   "stats.containers": "CONTAINERS IN PRODUCTION",
-  "stats.aur": "PACKAGE PUBLISHED ON THE AUR",
-  "stats.english": "ENGLISH LEVEL"
+  "stats.english": "ENGLISH LEVEL",
+  "stats.storage": "OF STORAGE I MANAGE"
 }

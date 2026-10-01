@@ -97,7 +97,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 .side-box--stats { align-items: stretch; }
 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; margin: 0; width: 100%; }
 .stat { display: flex; flex-direction: column; gap: 3px; }
-.stat__value { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; color: var(--c); text-shadow: 0 0 10px rgba(184, 179, 255, .55); }
+.stat__value { font-family: var(--display); font-weight: 800; font-size: 23px; white-space: nowrap; line-height: 1; color: var(--c); text-shadow: 0 0 10px rgba(184, 179, 255, .55); }
 .stat__label { margin: 0; font-size: 9.5px; letter-spacing: .1em; line-height: 1.35; color: var(--dim-text); }
 .side-box--cv { position: relative; cursor: pointer; gap: 10px; transition: background .2s; }
 .side-box--cv::before, .side-box--cv::after { content: ""; position: absolute; width: 14px; height: 14px; border: 0 solid var(--c); transition: all .2s; }

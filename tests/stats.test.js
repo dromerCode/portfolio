@@ -28,3 +28,12 @@ test('signature box is replaced by four quick stats', () => {
 test('stats box is not hidden on small screens', () => {
   assert.doesNotMatch(read('site/css/style.css'), /side-box--stats \{[^}]*display: none/);
 });
+
+test('nothing claims tabmon is published on the AUR (not released yet)', () => {
+  const files = ['site/index.html', 'site/i18n/es.json', 'site/i18n/en.json', 'site/data/projects.json', 'README.md', 'tools/og.html'];
+  for (const f of files) assert.doesNotMatch(read(f), /\bAUR\b/i, f);
+});
+
+test('storage stat replaces the AUR one', () => {
+  assert.match(html, /<dt class="stat__value">~13 TB<\/dt>\s*<dd class="stat__label" data-i18n="stats\.storage">/);
+});

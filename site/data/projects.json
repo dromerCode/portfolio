@@ -33,20 +33,20 @@
     "tags": [
       "RUST",
       "NIRI",
-      "AUR"
+      "LINUX"
     ],
     "repo": "https://github.com/pichaDev/tabmon",
     "es": {
       "category": "HERRAMIENTA LINUX",
       "title": "TABMON",
-      "desc": "Convierte una tablet Android en un monitor extendido para niri por USB, usando una pantalla virtual (vkms) y wayvnc. Publicado en AUR.",
-      "learned": "Qué hice: una CLI en Rust que resuelve un límite real de niri. Aprendí a trabajar con módulos del kernel (vkms), procesos externos y a publicar un paquete en AUR."
+      "desc": "Convierte una tablet Android en un monitor extendido para niri por USB, usando una pantalla virtual (vkms) y wayvnc.",
+      "learned": "Qué hice: una CLI en Rust que resuelve un límite real de niri. Aprendí a trabajar con módulos del kernel (vkms), procesos externos y a empaquetar una herramienta para Arch Linux."
     },
     "en": {
       "category": "LINUX TOOL",
       "title": "TABMON",
-      "desc": "Turns an Android tablet into an extended monitor for niri over USB, using a virtual display (vkms) and wayvnc. Published on the AUR.",
-      "learned": "What I did: a Rust CLI that works around a real niri limitation. I learned to work with kernel modules (vkms), external processes and to publish a package on the AUR."
+      "desc": "Turns an Android tablet into an extended monitor for niri over USB, using a virtual display (vkms) and wayvnc.",
+      "learned": "What I did: a Rust CLI that works around a real niri limitation. I learned to work with kernel modules (vkms), external processes and to package a tool for Arch Linux."
     },
     "media": {
       "type": "code",
