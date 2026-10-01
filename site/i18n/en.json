@@ -6,7 +6,7 @@
   "nav.about": "ABOUT",
   "nav.projects": "PROJECTS",
   "nav.contact": "CONTACT",
-  "photo.alt": "Photo of pichaDev",
+  "photo.alt": "Photo of Daniel Romero",
   "spec.role.k": "ROLE:",
   "spec.role.v": "JUNIOR WEB DEVELOPER",
   "spec.edu.k": "EDUCATION:",
@@ -44,5 +44,9 @@
   "stats.years": "YEARS CODING",
   "stats.english": "ENGLISH LEVEL",
   "stats.languages": "LANGUAGES IN REAL PROJECTS",
-  "stats.projects": "PROJECTS COMPLETED"
+  "stats.projects": "PROJECTS COMPLETED",
+  "photo.alt.anime": "Anime avatar of Daniel Romero",
+  "photo.toggle": "Anime version",
+  "photo.show.anime": "Show anime version",
+  "photo.show.real": "Show real photo"
 }

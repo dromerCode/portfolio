@@ -1,3 +1,4 @@
+import { readPhoto, savePhoto, nextPhoto } from './photo.js';
 import { pickLang, readStoredLang, saveLang, applyTranslations } from './i18n.js';
 import { yearsSince, projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, stackGroupHTML, escapeHTML } from './render.js';
 import { radarSVG, radarListHTML } from './radar.js';
@@ -7,7 +8,7 @@ const storage = (() => {
   try { return window.localStorage; } catch { return undefined; }
 })();
 
-const state = { lang: 'es', dicts: {}, data: null, seq: 0 };
+const state = { lang: 'es', dicts: {}, data: null, seq: 0, photo: 'real' };
 
 async function getJSON(path) {
   const res = await fetch(path);
@@ -52,6 +53,19 @@ function renderData(lang, dict) {
   }
 }
 
+function applyPhoto(photo) {
+  const box = $('.photo');
+  const btn = $('#photo-toggle');
+  const anime = photo === 'anime';
+  box.dataset.photo = photo;
+  btn.setAttribute('aria-pressed', String(anime));
+  const dict = state.dicts[state.lang] ?? {};
+  btn.title = dict[anime ? 'photo.show.real' : 'photo.show.anime'] ?? btn.title;
+  btn.setAttribute('aria-label', dict['photo.toggle'] ?? btn.getAttribute('aria-label'));
+  box.setAttribute('aria-label', dict[anime ? 'photo.alt.anime' : 'photo.alt'] ?? box.getAttribute('aria-label'));
+  state.photo = photo;
+}
+
 async function setLang(lang) {
   const seq = ++state.seq;
   let dict;
@@ -69,8 +83,9 @@ async function setLang(lang) {
   const desc = document.querySelector('meta[name="description"]');
   if (desc && dict['meta.desc']) desc.content = dict['meta.desc'];
   $('#lang-toggle').dataset.lang = lang;
-  if (state.data) renderData(lang, dict);
   state.lang = lang;
+  applyPhoto(state.photo);
+  if (state.data) renderData(lang, dict);
 }
 
 function fillYears() {
@@ -82,6 +97,12 @@ function fillYears() {
 
 async function init() {
   fillYears();
+  applyPhoto(readPhoto(storage));
+  $('#photo-toggle').addEventListener('click', () => {
+    const next = nextPhoto(state.photo);
+    savePhoto(storage, next);
+    applyPhoto(next);
+  });
   $('#lang-toggle').addEventListener('click', () => {
     const next = state.lang === 'es' ? 'en' : 'es';
     saveLang(storage, next);

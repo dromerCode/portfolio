@@ -30,6 +30,7 @@
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
     <symbol id="i-cv" viewBox="0 0 24 24"><path d="M6.5 2.5h8l4 4v15h-12z"/><path d="M14.5 2.5v4h4"/><circle cx="12.5" cy="10" r="2.2"/><path d="M8.8 15.2c.8-1.5 2.1-2.2 3.7-2.2s2.9.7 3.7 2.2"/><path d="M9 18.5h7"/></symbol>
     <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M9 7V5h6v2M3 12.5h18M11 12.5v2h2v-2"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   </svg>
   <svg class="mesh" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
@@ -69,7 +70,13 @@
             <div class="dossier__photo">
               <div class="photo-wrap">
               <span class="badge-available"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-briefcase"/></svg><span data-i18n="badge.available">DISPONIBLE</span></span>
-              <div class="photo" role="img" data-i18n-aria="photo.alt" aria-label="Foto de pichaDev"><img src="assets/img/photo.avif" alt="" width="225" height="225"></div>
+              <div class="photo" data-photo="real" role="img" aria-label="Foto de Daniel Romero">
+                <img class="photo__img photo__img--real" src="assets/img/photo-real.webp" alt="" width="174" height="174">
+                <img class="photo__img photo__img--anime" src="assets/img/photo.avif" alt="" width="225" height="225" loading="lazy">
+              </div>
+              <button id="photo-toggle" class="photo-toggle" type="button" aria-pressed="false" aria-label="Versión anime" title="Ver versión anime">
+                <svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-swap"/></svg>
+              </button>
               </div>
               <div class="links">
                 <a class="ico-link" title="GitHub" href="https://github.com/pichaDev" data-link="github" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span class="sr-only">GITHUB</span></a>

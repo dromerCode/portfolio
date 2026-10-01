@@ -6,7 +6,7 @@
   "nav.about": "SOBRE MÍ",
   "nav.projects": "PROYECTOS",
   "nav.contact": "CONTACTO",
-  "photo.alt": "Foto de pichaDev",
+  "photo.alt": "Foto de Daniel Romero",
   "spec.role.k": "ROL:",
   "spec.role.v": "JUNIOR WEB DEVELOPER",
   "spec.edu.k": "FORMACIÓN:",
@@ -44,5 +44,9 @@
   "stats.years": "AÑOS PROGRAMANDO",
   "stats.english": "NIVEL DE INGLÉS",
   "stats.languages": "LENGUAJES EN PROYECTOS REALES",
-  "stats.projects": "PROYECTOS REALIZADOS"
+  "stats.projects": "PROYECTOS REALIZADOS",
+  "photo.alt.anime": "Avatar de anime de Daniel Romero",
+  "photo.toggle": "Versión anime",
+  "photo.show.anime": "Ver versión anime",
+  "photo.show.real": "Ver foto real"
 }
