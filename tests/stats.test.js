@@ -34,6 +34,12 @@ test('nothing claims tabmon is published on the AUR (not released yet)', () => {
   for (const f of files) assert.doesNotMatch(read(f), /\bAUR\b/i, f);
 });
 
-test('storage stat replaces the AUR one', () => {
-  assert.match(html, /<dt class="stat__value">~13 TB<\/dt>\s*<dd class="stat__label" data-i18n="stats\.storage">/);
+test('stats focus on programming: languages and own apps in production', () => {
+  assert.match(html, /<dt class="stat__value">5<\/dt>\s*<dd class="stat__label" data-i18n="stats\.languages">/);
+  assert.match(html, /<dt class="stat__value">3<\/dt>\s*<dd class="stat__label" data-i18n="stats\.apps">/);
+  assert.doesNotMatch(html, /stats\.(containers|storage)/);
+  for (const lang of ['es', 'en']) {
+    const d = JSON.parse(read(`site/i18n/${lang}.json`));
+    assert.ok(!('stats.containers' in d) && !('stats.storage' in d), lang);
+  }
 });
