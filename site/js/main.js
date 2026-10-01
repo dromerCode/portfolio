@@ -1,5 +1,5 @@
 import { pickLang, readStoredLang, saveLang, applyTranslations } from './i18n.js';
-import { projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, stackGroupHTML, escapeHTML } from './render.js';
+import { yearsSince, projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, stackGroupHTML, escapeHTML } from './render.js';
 import { radarSVG, radarListHTML } from './radar.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -73,7 +73,15 @@ async function setLang(lang) {
   state.lang = lang;
 }
 
+function fillYears() {
+  for (const el of document.querySelectorAll('[data-years-since]')) {
+    const [year, month] = el.dataset.yearsSince.split('-').map(Number);
+    el.textContent = `${yearsSince(year, month)}+`;
+  }
+}
+
 async function init() {
+  fillYears();
   $('#lang-toggle').addEventListener('click', () => {
     const next = state.lang === 'es' ? 'en' : 'es';
     saveLang(storage, next);

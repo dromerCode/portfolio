@@ -91,11 +91,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--led); outline-o
 
 .dossier__side { display: flex; flex-direction: column; gap: 16px; }
 .side-box { flex: 1; min-height: 120px; padding: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; text-decoration: none; }
-.side-box svg { width: 90%; }
-.side-box svg path { fill: none; stroke: var(--c); stroke-width: 2; stroke-linecap: round; }
 .side-box__label { font-size: 10px; letter-spacing: .12em; }
 .side-box__label--top { align-self: flex-start; color: var(--dim-text); }
 .side-box__text { margin: 0; font-size: 13px; color: var(--txt); align-self: flex-start; }
+.side-box--stats { align-items: stretch; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; margin: 0; width: 100%; }
+.stat { display: flex; flex-direction: column; gap: 3px; }
+.stat__value { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; color: var(--c); text-shadow: 0 0 10px rgba(184, 179, 255, .55); }
+.stat__label { margin: 0; font-size: 9.5px; letter-spacing: .1em; line-height: 1.35; color: var(--dim-text); }
 .side-box--cv { position: relative; cursor: pointer; gap: 10px; transition: background .2s; }
 .side-box--cv::before, .side-box--cv::after { content: ""; position: absolute; width: 14px; height: 14px; border: 0 solid var(--c); transition: all .2s; }
 .side-box--cv::before { top: 7px; left: 7px; border-top-width: 2px; border-left-width: 2px; }
@@ -227,7 +230,6 @@ img.proj__media { object-fit: cover; object-position: top left; }
 
   .dossier__side { flex-direction: row; flex-wrap: wrap; }
   .side-box { flex: 1 1 160px; min-height: 0; }
-  .side-box--sign { display: none; }
   .side-box--now { flex: 2 1 260px; }
   .now-list a { padding: 4px 0; }
 

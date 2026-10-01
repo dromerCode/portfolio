@@ -86,3 +86,9 @@ export function stackGroupHTML(group, lang) {
   <ul class="proj__tags">${items}</ul>
 </div>`;
 }
+
+// Años completos desde un mes de inicio (month: 1-12)
+export function yearsSince(year, month, now = new Date()) {
+  const months = (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month);
+  return Math.floor(months / 12);
+}

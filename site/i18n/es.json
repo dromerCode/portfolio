@@ -17,7 +17,6 @@
   "spec.status.k": "ESTADO:",
   "spec.status.v": "DISPONIBLE PARA TRABAJAR",
   "bio": "Junior Web Developer y estudiante de 2º de DAW, con experiencia en prácticas desarrollando frontend con React y TypeScript. Tengo base en backend con Java, Spring Boot y Node.js, y administro mi propio servidor Linux con Docker, donde despliego y mantengo aplicaciones en producción. Me gusta entender cómo funciona todo, de la interfaz a la infraestructura, y aprendo rápido en proyectos reales.",
-  "side.signature": "FIRMA",
   "side.cv": "DESCARGAR CV",
   "side.now.k": "TRABAJANDO EN",
   "sec.projects": "PROYECTOS",
@@ -41,5 +40,9 @@
   "cta.status": "DISPONIBLE PARA EMPLEO Y PROYECTOS",
   "cta.mail": "ESCRÍBEME",
   "cta.cv": "DESCARGAR CV",
-  "radar.caption": "ÁREAS DE ENFOQUE"
+  "radar.caption": "ÁREAS DE ENFOQUE",
+  "stats.years": "AÑOS PROGRAMANDO",
+  "stats.containers": "CONTENEDORES EN PRODUCCIÓN",
+  "stats.aur": "PAQUETE PUBLICADO EN AUR",
+  "stats.english": "NIVEL DE INGLÉS"
 }

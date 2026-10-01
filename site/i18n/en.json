@@ -17,7 +17,6 @@
   "spec.status.k": "STATUS:",
   "spec.status.v": "AVAILABLE FOR WORK",
   "bio": "Junior Web Developer and second-year web development student, with internship experience building frontends in React and TypeScript. I have a backend foundation in Java, Spring Boot and Node.js, and I run my own Linux server with Docker, where I deploy and maintain applications in production. I like understanding how everything works, from the interface to the infrastructure, and I learn fast on real projects.",
-  "side.signature": "SIGNATURE",
   "side.cv": "DOWNLOAD CV",
   "side.now.k": "WORKING ON",
   "sec.projects": "PROJECTS",
@@ -41,5 +40,9 @@
   "cta.status": "AVAILABLE FOR JOBS AND PROJECTS",
   "cta.mail": "EMAIL ME",
   "cta.cv": "DOWNLOAD CV",
-  "radar.caption": "FOCUS AREAS"
+  "radar.caption": "FOCUS AREAS",
+  "stats.years": "YEARS CODING",
+  "stats.containers": "CONTAINERS IN PRODUCTION",
+  "stats.aur": "PACKAGE PUBLISHED ON THE AUR",
+  "stats.english": "ENGLISH LEVEL"
 }
