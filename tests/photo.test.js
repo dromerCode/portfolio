@@ -32,7 +32,7 @@ test('photo box holds both images, real first and visible by default', () => {
   assert.match(html, /<div class="photo" data-photo="real"/);
   const real = html.indexOf('photo__img--real'), anime = html.indexOf('photo__img--anime');
   assert.ok(real > 0 && anime > real);
-  assert.ok(existsSync(new URL('../site/assets/img/photo-real.webp', import.meta.url)));
+  assert.ok(existsSync(new URL('../site/assets/img/foto.webp', import.meta.url)));
 });
 
 test('toggle button sits on the photo with an icon and translated labels', () => {
@@ -45,11 +45,11 @@ test('toggle button sits on the photo with an icon and translated labels', () =>
 });
 
 test('share preview template uses the real photo', () => {
-  assert.match(read('tools/og.html'), /photo-real\.webp/);
+  assert.match(read('tools/og.html'), /foto\.webp/);
 });
 
 test('real photo is high resolution (800px) and declares its size', () => {
-  assert.match(html, /<img class="photo__img photo__img--real" src="assets\/img\/photo-real\.webp" alt="" width="800" height="800">/);
+  assert.match(html, /<img class="photo__img photo__img--real" src="assets\/img\/foto\.webp" alt="" width="800" height="800">/);
 });
 
 test('the hidden photo ignores the pointer so right-click hits the visible one', () => {
