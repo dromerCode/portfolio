@@ -36,7 +36,8 @@ test('nothing claims tabmon is published on the AUR (not released yet)', () => {
 
 test('stats focus on programming: languages and own apps in production', () => {
   assert.match(html, /<dt class="stat__value">5<\/dt>\s*<dd class="stat__label" data-i18n="stats\.languages">/);
-  assert.match(html, /<dt class="stat__value">3<\/dt>\s*<dd class="stat__label" data-i18n="stats\.apps">/);
+  assert.match(html, /<dt class="stat__value">3<\/dt>\s*<dd class="stat__label" data-i18n="stats\.projects">PROYECTOS REALIZADOS</);
+  assert.equal(JSON.parse(read('site/i18n/en.json'))['stats.projects'], 'PROJECTS COMPLETED');
   assert.doesNotMatch(html, /stats\.(containers|storage)/);
   for (const lang of ['es', 'en']) {
     const d = JSON.parse(read(`site/i18n/${lang}.json`));
