@@ -39,7 +39,7 @@ test('header and role say Junior Web Developer', () => {
 
 test('contact CTA before the footer with mail, CV and LinkedIn actions', () => {
   const cta = html.match(/<section id="contact" class="cta[^"]*">([\s\S]*?)<\/section>/)?.[1] ?? '';
-  assert.match(cta, /href="mailto:pichaDev2010@gmail\.com"/);
+  assert.match(cta, /href="mailto:dromerCode@gmail\.com"/);
   assert.match(cta, /data-cv/);
   assert.match(cta, /linkedin\.com\/in\/dromerocoz/);
   assert.match(cta, /data-i18n="cta\.title"/);

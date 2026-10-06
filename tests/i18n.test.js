@@ -58,9 +58,9 @@ function el(dataset, text = '') {
 test('applyTranslations sets text and aria-label', () => {
   const a = el({ i18n: 'nav.about' }, 'SOBRE MÍ');
   const b = el({ i18nAria: 'photo.alt' });
-  applyTranslations(fakeRoot([a, b]), { 'nav.about': 'ABOUT', 'photo.alt': 'Photo of pichaDev' });
+  applyTranslations(fakeRoot([a, b]), { 'nav.about': 'ABOUT', 'photo.alt': 'Photo of dromerCode' });
   assert.equal(a.textContent, 'ABOUT');
-  assert.equal(b.attrs['aria-label'], 'Photo of pichaDev');
+  assert.equal(b.attrs['aria-label'], 'Photo of dromerCode');
 });
 
 test('applyTranslations keeps existing text when key is missing', () => {

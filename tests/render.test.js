@@ -5,7 +5,7 @@ import { escapeHTML, localized, safeUrl, projectCardHTML, timelineRowHTML } from
 const project = {
   id: 'pichaflix',
   tags: ['DOCKER', 'LINUX'],
-  repo: 'https://github.com/pichaDev/x',
+  repo: 'https://github.com/dromerCode/x',
   es: { category: 'HOMELAB', title: 'PICHAFLIX', desc: 'Servidor multimedia' },
   en: { category: 'HOMELAB', title: 'PICHAFLIX', desc: 'Media server' },
 };
@@ -37,7 +37,7 @@ test('projectCardHTML renders number, category, title, desc, tags and repo link'
   assert.match(html, /<h3 class="proj__title">PICHAFLIX<\/h3>/);
   assert.match(html, /Media server/);
   assert.match(html, /<li class="tag">DOCKER<\/li>/);
-  assert.match(html, /href="https:\/\/github.com\/pichaDev\/x"/);
+  assert.match(html, /href="https:\/\/github.com\/dromerCode\/x"/);
   assert.match(html, /VIEW REPO →/);
 });
 

@@ -10,9 +10,9 @@ const json = (p) => JSON.parse(read(p));
 const base = { id: 'x', tags: [], repo: null, es: { category: 'C', title: 'T', desc: 'D', learned: 'Aprendí <x>' }, en: { category: 'C', title: 'T', desc: 'D' } };
 
 // 1 · nombre como título
-test('full name is the main heading and pichaDev is the alias', () => {
+test('full name is the main heading and dromerCode is the alias', () => {
   assert.match(html, /<h1 class="title glow[^"]*">DANIEL ROMERO CÓZAR<\/h1>/);
-  assert.match(html, /class="dossier__alias">@pichaDev</);
+  assert.match(html, /class="dossier__alias">@dromerCode</);
 });
 
 // 3 · Pichaflix contado de forma neutra

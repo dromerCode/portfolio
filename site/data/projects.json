@@ -6,7 +6,7 @@
       "REACT",
       "POSTGRESQL"
     ],
-    "repo": "https://github.com/pichaDev/subtrack",
+    "repo": "https://github.com/dromerCode/subtrack",
     "es": {
       "category": "FULL STACK",
       "title": "SUBTRACK",
@@ -35,7 +35,7 @@
       "NIRI",
       "LINUX"
     ],
-    "repo": "https://github.com/pichaDev/tabmon",
+    "repo": "https://github.com/dromerCode/tabmon",
     "es": {
       "category": "HERRAMIENTA LINUX",
       "title": "TABMON",
@@ -60,7 +60,7 @@
       "DOCKER",
       "AWS EC2"
     ],
-    "repo": "https://github.com/pichaDev/proyecto-cicd-daw",
+    "repo": "https://github.com/dromerCode/proyecto-cicd-daw",
     "es": {
       "category": "DEVOPS",
       "title": "CI/CD DAW",

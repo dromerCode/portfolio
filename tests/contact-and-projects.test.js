@@ -11,8 +11,8 @@ test('projects are in the agreed order and subtrack/tabmon link to their repos',
   const projects = JSON.parse(read('site/data/projects.json'));
   assert.deepEqual(projects.map((p) => p.id), ['subtrack', 'tabmon', 'cicd']);
   const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
-  assert.equal(byId.subtrack.repo, 'https://github.com/pichaDev/subtrack');
-  assert.equal(byId.tabmon.repo, 'https://github.com/pichaDev/tabmon');
+  assert.equal(byId.subtrack.repo, 'https://github.com/dromerCode/subtrack');
+  assert.equal(byId.tabmon.repo, 'https://github.com/dromerCode/tabmon');
   for (const p of projects) assert.ok(p.es.desc && p.en.desc, p.id);
 });
 
@@ -23,8 +23,8 @@ test('timeline: degree in progress first, then internship, then Erasmus+', () =>
 
 test('"working on" box lists subtrack and tabmon with repo links and descriptions', () => {
   const box = html.match(/<div class="box side-box side-box--now">([\s\S]*?)<\/div>\s*<\/aside>/)?.[1] ?? '';
-  assert.match(box, /href="https:\/\/github.com\/pichaDev\/subtrack"/);
-  assert.match(box, /href="https:\/\/github.com\/pichaDev\/tabmon"/);
+  assert.match(box, /href="https:\/\/github.com\/dromerCode\/subtrack"/);
+  assert.match(box, /href="https:\/\/github.com\/dromerCode\/tabmon"/);
   assert.match(box, /data-i18n="side\.now\.subtrack"/);
   assert.match(box, /data-i18n="side\.now\.tabmon"/);
   const es = JSON.parse(read('site/i18n/es.json'));
