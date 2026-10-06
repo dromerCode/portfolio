@@ -1,4 +1,4 @@
-# Portfolio pichaDev: diseño
+# Portfolio dromerCode: diseño
 
 Fecha: 2026-09-30
 URL final: https://portfolio.pichahouse.es
@@ -26,7 +26,7 @@ Un **expediente de desarrollador** de estética sci-fi y servercore suave. La re
 
 1. **Barra superior**: "DEV PROFILE", navegación con anclas (About, Projects, Contact) y el selector ES/EN.
 2. **Ficha de cabecera** (#about), en rejilla de 3/4 + 1/4:
-   - Cabecera: `PICHADEV` y el ID `DAW-2027`.
+   - Cabecera: `DROMERCODE` y el ID `DAW-2027`.
    - Foto o avatar, con los enlaces (GitHub, LinkedIn, Mail) debajo.
    - **Radar de skills** en SVG con 6 ejes: Frontend, Backend, Java, Linux, DevOps y BBDD. Los valores salen de un JSON. Incluye una alternativa accesible: una lista oculta visualmente con cada skill y su nivel.
    - Tabla de datos: rol, formación, ubicación, idiomas y estado (LED verde + "Buscando prácticas").
@@ -92,7 +92,7 @@ Cloudflare DNS (CNAME portfolio → pichaserver.myddns.me, DNS only)
 2. **Actualizar**: `deploy.sh` hace `rsync` de los ficheros públicos a `zimaos:/DATA/AppData/portfolio/site/`. No hace falta reiniciar el contenedor.
 3. **Nginx Proxy Manager**: proxy host `portfolio.pichahouse.es` → `192.168.1.130:<puerto>`, con certificado Let's Encrypt, Force SSL, HTTP/2 y HSTS. Se crea con la API de NPM usando las credenciales que me pasas en el chat, que no se guardan en ningún fichero.
 4. **Cloudflare**: registro CNAME `portfolio` → `pichaserver.myddns.me` en modo proxy desactivado (nube gris). Se crea con la integración de Cloudflare si tiene acceso a la zona; si no, lo añade Picha a mano.
-5. **Repo**: `pichaDev/portfolio` en GitHub (push por SSH). El `.gitignore` incluye `.superpowers/` y `refs/`.
+5. **Repo**: `dromerCode/portfolio` en GitHub (push por SSH). El `.gitignore` incluye `.superpowers/` y `refs/`.
 
 No se toca el firewall, SSH ni ningún hardening del servidor.
 

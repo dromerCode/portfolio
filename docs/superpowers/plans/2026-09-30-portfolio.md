@@ -1,4 +1,4 @@
-# Portfolio pichaDev Implementation Plan
+# Portfolio dromerCode Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -114,11 +114,11 @@ Expected: los dos ficheros aparecen como `Web Open Font Format (Version 2)`.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pichaDev · Portfolio</title>
-  <meta name="description" content="Portfolio de pichaDev, estudiante de DAW: desarrollo web, Linux y self-hosting.">
+  <title>dromerCode · Portfolio</title>
+  <meta name="description" content="Portfolio de dromerCode, estudiante de DAW: desarrollo web, Linux y self-hosting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://portfolio.pichahouse.es/">
-  <meta property="og:title" content="pichaDev · Portfolio">
+  <meta property="og:title" content="dromerCode · Portfolio">
   <meta property="og:description" content="Estudiante de DAW: desarrollo web, Linux y self-hosting.">
   <meta name="theme-color" content="#1a1a1f">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1f'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23b8b3ff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
@@ -153,15 +153,15 @@ Expected: los dos ficheros aparecen como `Web Open Font Format (Version 2)`.
       <section id="about" class="dossier">
         <div class="box dossier__main">
           <div class="dossier__head">
-            <h1 class="title glow">PICHADEV</h1>
+            <h1 class="title glow">DROMERCODE</h1>
             <span class="dossier__id">ID: DAW-2027</span>
           </div>
 
           <div class="dossier__row">
             <div class="dossier__photo">
-              <div class="photo" role="img" data-i18n-aria="photo.alt" aria-label="Foto de pichaDev"><span>PD</span></div>
+              <div class="photo" role="img" data-i18n-aria="photo.alt" aria-label="Foto de dromerCode"><span>PD</span></div>
               <div class="links">
-                <a href="https://github.com/pichaDev" target="_blank" rel="noopener">GITHUB</a>
+                <a href="https://github.com/dromerCode" target="_blank" rel="noopener">GITHUB</a>
                 <!-- PENDIENTE (Task 7): URL de LinkedIn -->
                 <a href="#" data-link="linkedin" target="_blank" rel="noopener">LINKEDIN</a>
                 <!-- PENDIENTE (Task 7): correo público -->
@@ -208,7 +208,7 @@ Expected: los dos ficheros aparecen como `Web Open Font Format (Version 2)`.
       <section id="projects">
         <h2 class="sec"><span class="title glow" data-i18n="sec.projects">PROYECTOS</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
         <div id="projects-grid" class="grid">
-          <noscript><p class="noscript">Activa JavaScript para ver los proyectos, o mira <a href="https://github.com/pichaDev">github.com/pichaDev</a>.</p></noscript>
+          <noscript><p class="noscript">Activa JavaScript para ver los proyectos, o mira <a href="https://github.com/dromerCode">github.com/dromerCode</a>.</p></noscript>
         </div>
       </section>
 
@@ -223,7 +223,7 @@ Expected: los dos ficheros aparecen como `Web Open Font Format (Version 2)`.
     <footer id="contact" class="footer">
       <div class="footer__links">
         <span class="footer__label" data-i18n="footer.contact">CONTACTO</span>
-        <a href="https://github.com/pichaDev" target="_blank" rel="noopener">GITHUB</a>
+        <a href="https://github.com/dromerCode" target="_blank" rel="noopener">GITHUB</a>
         <a href="#" data-link="linkedin" target="_blank" rel="noopener">LINKEDIN</a>
         <a href="#" data-link="email">MAIL</a>
         <a href="assets/cv/cv-es.pdf" data-cv download data-i18n="footer.cv">CV</a>
@@ -467,9 +467,9 @@ function el(dataset, text = '') {
 test('applyTranslations sets text and aria-label', () => {
   const a = el({ i18n: 'nav.about' }, 'SOBRE MÍ');
   const b = el({ i18nAria: 'photo.alt' });
-  applyTranslations(fakeRoot([a, b]), { 'nav.about': 'ABOUT', 'photo.alt': 'Photo of pichaDev' });
+  applyTranslations(fakeRoot([a, b]), { 'nav.about': 'ABOUT', 'photo.alt': 'Photo of dromerCode' });
   assert.equal(a.textContent, 'ABOUT');
-  assert.equal(b.attrs['aria-label'], 'Photo of pichaDev');
+  assert.equal(b.attrs['aria-label'], 'Photo of dromerCode');
 });
 
 test('applyTranslations keeps existing text when key is missing', () => {
@@ -569,14 +569,14 @@ Expected: FAIL con `ENOENT ... i18n/es.json`.
 
 ```json
 {
-  "meta.title": "pichaDev · Portfolio",
-  "meta.desc": "Portfolio de pichaDev, estudiante de DAW: desarrollo web, Linux y self-hosting.",
+  "meta.title": "dromerCode · Portfolio",
+  "meta.desc": "Portfolio de dromerCode, estudiante de DAW: desarrollo web, Linux y self-hosting.",
   "profile.label": "EXPEDIENTE DEV",
   "nav.label": "Principal",
   "nav.about": "SOBRE MÍ",
   "nav.projects": "PROYECTOS",
   "nav.contact": "CONTACTO",
-  "photo.alt": "Foto de pichaDev",
+  "photo.alt": "Foto de dromerCode",
   "spec.role.k": "ROL:",
   "spec.role.v": "DESARROLLADOR WEB",
   "spec.edu.k": "FORMACIÓN:",
@@ -603,14 +603,14 @@ Expected: FAIL con `ENOENT ... i18n/es.json`.
 
 ```json
 {
-  "meta.title": "pichaDev · Portfolio",
-  "meta.desc": "Portfolio of pichaDev, web development student: web dev, Linux and self-hosting.",
+  "meta.title": "dromerCode · Portfolio",
+  "meta.desc": "Portfolio of dromerCode, web development student: web dev, Linux and self-hosting.",
   "profile.label": "DEV PROFILE",
   "nav.label": "Main",
   "nav.about": "ABOUT",
   "nav.projects": "PROJECTS",
   "nav.contact": "CONTACT",
-  "photo.alt": "Photo of pichaDev",
+  "photo.alt": "Photo of dromerCode",
   "spec.role.k": "ROLE:",
   "spec.role.v": "WEB DEVELOPER",
   "spec.edu.k": "EDUCATION:",
@@ -675,7 +675,7 @@ import { escapeHTML, localized, safeUrl, projectCardHTML, timelineRowHTML } from
 const project = {
   id: 'pichaflix',
   tags: ['DOCKER', 'LINUX'],
-  repo: 'https://github.com/pichaDev/x',
+  repo: 'https://github.com/dromerCode/x',
   es: { category: 'HOMELAB', title: 'PICHAFLIX', desc: 'Servidor multimedia' },
   en: { category: 'HOMELAB', title: 'PICHAFLIX', desc: 'Media server' },
 };
@@ -707,7 +707,7 @@ test('projectCardHTML renders number, category, title, desc, tags and repo link'
   assert.match(html, /<h3 class="proj__title">PICHAFLIX<\/h3>/);
   assert.match(html, /Media server/);
   assert.match(html, /<li class="tag">DOCKER<\/li>/);
-  assert.match(html, /href="https:\/\/github.com\/pichaDev\/x"/);
+  assert.match(html, /href="https:\/\/github.com\/dromerCode\/x"/);
   assert.match(html, /VIEW REPO →/);
 });
 
@@ -812,21 +812,21 @@ Expected: PASS (todos los tests de `render.test.js` y los anteriores).
   {
     "id": "cicd",
     "tags": ["GITHUB ACTIONS", "DOCKER", "NODE"],
-    "repo": "https://github.com/pichaDev/proyecto-cicd-daw",
+    "repo": "https://github.com/dromerCode/proyecto-cicd-daw",
     "es": { "category": "DEVOPS", "title": "CI/CD DAW", "desc": "Pipeline con GitHub Actions y Docker para probar y desplegar una app de Node.js." },
     "en": { "category": "DEVOPS", "title": "CI/CD DAW", "desc": "GitHub Actions and Docker pipeline to test and deploy a Node.js app." }
   },
   {
     "id": "juegonaves",
     "tags": ["JAVA", "EQUIPO"],
-    "repo": "https://github.com/pichaDev/juegoNaves",
+    "repo": "https://github.com/dromerCode/juegoNaves",
     "es": { "category": "JUEGO", "title": "JUEGONAVES", "desc": "Shooter espacial en Java, proyecto en grupo para clase." },
     "en": { "category": "GAME", "title": "JUEGONAVES", "desc": "Space shooter in Java, a group project for class." }
   },
   {
     "id": "cursophp",
     "tags": ["PHP"],
-    "repo": "https://github.com/pichaDev/cursophp",
+    "repo": "https://github.com/dromerCode/cursophp",
     "es": { "category": "APRENDIZAJE", "title": "CURSO PHP", "desc": "Curso de PHP desde cero, con ejercicios y apuntes." },
     "en": { "category": "LEARNING", "title": "PHP COURSE", "desc": "PHP course from scratch, with exercises and notes." }
   }
@@ -1288,10 +1288,10 @@ git commit -m "feat: add contact links and personal content"
 
 Confirma con Picha si el repo va **público** (recomendado para un portfolio) o privado. Después:
 ```bash
-gh repo create pichaDev/portfolio --public --source . --remote origin --push
+gh repo create dromerCode/portfolio --public --source . --remote origin --push
 ```
 (Usa `--private` si lo pide así.)
-Expected: el repo aparece en `https://github.com/pichaDev/portfolio`.
+Expected: el repo aparece en `https://github.com/dromerCode/portfolio`.
 
 - [ ] **Step 3: Desplegar en ZimaOS**
 
