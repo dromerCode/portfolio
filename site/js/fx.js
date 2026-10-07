@@ -58,7 +58,8 @@ export function countUp(el, duration = 900) {
   run(el, duration, (p) => { el.textContent = countFrame(value, p); });
 }
 
-// Escribe texto carácter a carácter
-export function typeText(el, text, speed = 28) {
-  run(el, Math.max(1, text.length * speed), (p) => { el.textContent = text.slice(0, Math.round(text.length * p)); });
+// Escribe texto carácter a carácter. El cursor va en el propio texto: como elemento aparte,
+// cada salto de línea lo movería y contaría como layout shift.
+export function typeText(el, text, speed = 28, cursor = '▌') {
+  run(el, Math.max(1, text.length * speed), (p) => { el.textContent = text.slice(0, Math.round(text.length * p)) + cursor; });
 }

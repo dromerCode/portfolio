@@ -44,14 +44,18 @@ export function runBoot(lang) {
   overlay.addEventListener('click', skip);
   window.addEventListener('keydown', skip, { once: true });
 
+  // El cursor va dentro del texto: como pseudo-elemento, al bajar de línea cuenta como layout shift
+  let written = '';
+  const show = (current) => { log.textContent = `${written}${current}▌`; };
   (async () => {
     for (const line of bootLines(lang)) {
       for (let i = 1; i <= line.length && !skipped; i += 2) {
-        log.textContent = log.textContent.replace(/[^\n]*$/, line.slice(0, i));
+        show(line.slice(0, i));
         await wait(12);
       }
       if (skipped) return;
-      log.textContent = log.textContent.replace(/[^\n]*$/, line) + '\n';
+      written += `${line}\n`;
+      show('');
       await wait(120);
     }
     await wait(200);

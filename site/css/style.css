@@ -303,8 +303,9 @@ img.proj__media { object-fit: cover; object-position: top left; }
 .topbar__nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px var(--c); }
 .topbar__nav a[aria-current="page"]::after { transform: scaleX(1); }
 
-/* Vistas: sin JS se ven todas; con JS se oculta el main hasta que el router elige */
-.js:not([data-view]) main { visibility: hidden; }
+/* Vistas: sin JS se ven todas. Con JS no se pintan (ni el pie) hasta que el router elige:
+   si ocuparan sitio, el pie saltaría al ocultarlas y contaría como layout shift */
+.js:not([data-view]) .view, .js:not([data-view]) .footer { display: none; }
 .view { min-height: calc(100vh - 220px); animation: view-in .35s ease-out both; }
 [data-view-focus]:focus { outline: none; }
 @keyframes view-in { from { opacity: 0; transform: translateY(10px); } }
@@ -332,8 +333,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-event
 /* Boot */
 .boot { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--bg); cursor: pointer; }
 .boot::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(184, 179, 255, .05) 0 1px, transparent 1px 3px); }
-.boot__log { margin: 0; min-width: min(420px, 86vw); min-height: 8em; font: 14px/1.7 var(--mono); color: var(--led); text-shadow: 0 0 8px rgba(125, 255, 176, .5); white-space: pre-wrap; }
-.boot__log::after { content: "▌"; animation: blink 1s steps(1) infinite; }
+.boot__log { margin: 0; width: min(420px, 86vw); height: calc(1.7em * 6); overflow: hidden; font: 14px/1.7 var(--mono); color: var(--led); text-shadow: 0 0 8px rgba(125, 255, 176, .5); white-space: pre-wrap; }
 .boot__skip { position: absolute; right: 20px; bottom: 20px; font: 12px var(--mono); letter-spacing: .15em; color: var(--dim-text); background: none; border: 1px solid var(--dim); padding: 6px 12px; cursor: pointer; }
 .boot__skip:hover { color: var(--c); border-color: var(--c); }
 .boot--out { animation: boot-out .45s ease-in forwards; }
