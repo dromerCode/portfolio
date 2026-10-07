@@ -283,7 +283,7 @@ img.proj__media { object-fit: cover; object-position: top left; }
 
 /* Móviles estrechos (320-360px): el menú en español tiene que caber en una línea */
 @media (max-width: 360px) {
-  .topbar__nav { flex-wrap: nowrap; font-size: 10.5px; gap: 0 8px; }
+  .topbar__nav { font-size: 10.5px; gap: 4px 8px; }
   .lang { padding: 6px 7px; }
 }
 
@@ -505,6 +505,64 @@ body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-event
 .proj__link::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 100%; height: 1px; background: currentColor; transform-origin: left; transition: transform .25s; }
 .proj__link:hover { color: var(--led); }
 .proj__link:hover::after { transform: scaleX(0); transform-origin: right; }
+
+/* ===== v2.2: terminal, atajos, overdrive y sonido ===== */
+
+/* Botones de herramientas en la topbar */
+.tools { display: inline-flex; align-items: center; gap: 6px; }
+.tools .lang { margin-left: 10px; }
+.tool { display: grid; place-items: center; width: 30px; height: 26px; padding: 0; color: var(--dim-text); cursor: pointer; box-shadow: none; transition: color .2s, border-color .2s, box-shadow .2s; }
+.tool:hover, .tool[aria-pressed="true"] { color: var(--led); border-color: var(--led); box-shadow: 0 0 10px rgba(125, 255, 176, .3); }
+.tool .ico { width: 17px; height: 17px; }
+#sound-toggle[aria-pressed="false"] .ico-wave { opacity: .25; }
+
+/* Pistas de atajos: el corchete del nav pasa a ser el número */
+.show-keys .topbar__nav a[data-key]::before { content: attr(data-key); opacity: 1; left: 50%; top: -11px; transform: translateX(-50%); font-size: 9px; line-height: 1; padding: 1px 3px; border: 1px solid var(--led); color: var(--led); background: var(--bg); animation: rise .25s ease-out backwards; }
+.show-keys .topbar__nav a[data-key]:hover::before { left: 50%; }
+
+/* Toast */
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 90; padding: 9px 16px; transform: translateX(-50%); font-size: 12px; letter-spacing: .15em; color: var(--led); background: rgba(16, 20, 18, .92); border: 1.5px solid var(--led); box-shadow: 0 0 16px rgba(125, 255, 176, .35); white-space: nowrap; }
+.toast--in { animation: toast-in .3s cubic-bezier(.2, .9, .3, 1.3) both; }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 12px); } }
+
+/* Terminal modal */
+.term-dlg { width: min(640px, calc(100vw - 32px)); max-height: min(460px, calc(100vh - 80px)); padding: 0; color: var(--c); font: 13px/1.6 var(--mono); background: rgba(18, 18, 24, .97); display: none; flex-direction: column; }
+.term-dlg[open] { display: flex; animation: term-in .25s cubic-bezier(.2, .9, .3, 1.2) both; }
+.term-dlg::backdrop { background: rgba(10, 10, 16, .6); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+@keyframes term-in { from { opacity: 0; transform: translateY(-12px) scale(.97); clip-path: inset(0 0 100% 0); } }
+.term-dlg .term__bar { flex: none; }
+.term-dlg__close { margin-left: auto; width: 24px; height: 22px; padding: 0; font: 16px/1 var(--mono); color: var(--dim-text); background: none; border: 1px solid transparent; cursor: pointer; }
+.term-dlg__close:hover { color: var(--led); border-color: var(--led); }
+.term-dlg__log { flex: 1; min-height: 120px; overflow-y: auto; padding: 12px 14px 4px; color: var(--txt); white-space: pre-wrap; }
+.term-dlg__cmd { color: var(--c); }
+.term-dlg__err { color: #ff6b9a; }
+.term-dlg__hint { color: var(--dim-text); }
+.term-dlg__line { flex: none; display: flex; align-items: center; gap: 8px; padding: 8px 14px 12px; }
+.term-dlg__prompt { color: var(--led); }
+.term-dlg__input { flex: 1; min-width: 0; padding: 4px 0; font: inherit; color: var(--led); background: none; border: 0; border-bottom: 1px solid var(--dim); caret-color: var(--led); }
+.term-dlg__input:focus { outline: none; border-bottom-color: var(--led); }
+
+/* Overdrive (código Konami) */
+.overdrive .page { animation: od-hue 1.6s linear infinite; }
+.overdrive body::after { background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .06) 0 1px, transparent 1px 3px); }
+.overdrive .title { animation: text-glitch .25s steps(3) infinite !important; }
+.overdrive .radar__sweep { animation-duration: .8s; }
+.overdrive .box { box-shadow: 0 0 22px rgba(255, 59, 141, .35), inset 0 0 12px rgba(59, 240, 255, .15); }
+.overdrive .mesh { opacity: .25; }
+@keyframes od-hue { to { filter: hue-rotate(360deg); } }
+
+@media (max-width: 760px) {
+  .tool { width: 34px; height: 30px; }
+  .term-dlg { font-size: 12px; }
+}
+
+/* Móviles: los enlaces en una fila y las herramientas + idioma debajo, a la derecha */
+@media (max-width: 440px) {
+  .topbar__nav { flex-wrap: wrap; row-gap: 4px; }
+  .topbar__nav a { white-space: nowrap; }
+  .tools { margin-left: auto; }
+  .show-keys .topbar__nav a[data-key]::before { top: -7px; }
+}
 
 /* En contacto los enlaces del pie ya están en la propia vista */
 [data-view="contacto"] .footer__links { display: none; }

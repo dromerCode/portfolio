@@ -6,6 +6,9 @@ import { startRouter } from './router.js';
 import { shouldBoot, markBooted, runBoot } from './boot.js';
 import { scramble, countUp, typeText } from './fx.js';
 import { startPointerFx } from './pointer.js';
+import { startKeys } from './keys.js';
+import { createSound, readSound, saveSound } from './sound.js';
+import { createTerminal } from './terminal.js';
 
 const $ = (sel) => document.querySelector(sel);
 const storage = (() => {
@@ -13,6 +16,8 @@ const storage = (() => {
 })();
 
 const state = { lang: 'es', dicts: {}, data: null, seq: 0, photo: 'real', view: null };
+const sound = createSound(readSound(storage));
+let router = null;
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 async function getJSON(path) {
@@ -140,7 +145,72 @@ function playTerminal() {
   typeText($('#term'), text);
 }
 
+function switchPhoto() {
+  const next = nextPhoto(state.photo);
+  savePhoto(storage, next);
+  const box = $('.photo');
+  box.classList.remove('is-switching');
+  void box.offsetWidth; // reinicia la animación si se pulsa seguido
+  box.classList.add('is-switching');
+  applyPhoto(next);
+}
+
+let toastTimer = 0;
+function toast(key) {
+  const el = $('#toast');
+  el.textContent = dictNow()[key] ?? key;
+  el.hidden = false;
+  el.classList.remove('toast--in');
+  void el.offsetWidth;
+  el.classList.add('toast--in');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.hidden = true; }, 2600);
+}
+
+function setSound(on, { quiet = false } = {}) {
+  sound.enabled = on;
+  saveSound(storage, on);
+  $('#sound-toggle').setAttribute('aria-pressed', String(on));
+  if (!quiet) {
+    sound.play('toggle');
+    toast(on ? 'toast.sound.on' : 'toast.sound.off');
+  }
+}
+
+function toggleHints() {
+  const on = document.documentElement.classList.toggle('show-keys');
+  if (on) toast('toast.keys');
+}
+
+let overdriveTimer = 0;
+function overdrive() {
+  const root = document.documentElement;
+  toast('toast.overdrive');
+  if (reducedMotion()) return;
+  root.classList.remove('overdrive');
+  void root.offsetWidth;
+  root.classList.add('overdrive');
+  sound.play('overdrive');
+  clearTimeout(overdriveTimer);
+  overdriveTimer = setTimeout(() => root.classList.remove('overdrive'), 8000);
+}
+
+function runAction(action) {
+  switch (action.type) {
+    case 'go': router?.navigate(action.path); break;
+    case 'cv': document.querySelector('a[data-cv]:not([hidden])')?.click(); break;
+    case 'open':
+      if (action.url.startsWith('mailto:')) location.href = action.url;
+      else window.open(action.url, '_blank', 'noopener');
+      break;
+    case 'lang': saveLang(storage, action.lang); setLang(action.lang); break;
+    case 'photo': switchPhoto(); break;
+    case 'sound': setSound(action.on); break;
+  }
+}
+
 function onEnter(view, section) {
+  if (state.view) sound.play('nav');
   state.view = view;
   updateChrome(view);
   playTitles(section);
@@ -158,17 +228,19 @@ function fillYears() {
 async function init() {
   fillYears();
   applyPhoto(readPhoto(storage));
-  $('#photo-toggle').addEventListener('click', () => {
-    const next = nextPhoto(state.photo);
-    savePhoto(storage, next);
-    const box = $('.photo');
-    box.classList.remove('is-switching');
-    void box.offsetWidth; // reinicia la animación si se pulsa seguido
-    box.classList.add('is-switching');
-    applyPhoto(next);
-  });
+  $('#photo-toggle').addEventListener('click', () => switchPhoto());
   $('.photo').addEventListener('animationend', (e) => {
     if (e.animationName === 'photo-glitch') e.currentTarget.classList.remove('is-switching');
+  });
+  $('#sound-toggle').addEventListener('click', () => setSound(!sound.enabled));
+  setSound(sound.enabled, { quiet: true });
+  const terminal = createTerminal({ lang: () => state.lang, sound, state: () => ({ sound: sound.enabled }), onAction: runAction });
+  $('#term-toggle').addEventListener('click', () => terminal.open());
+  startKeys({
+    navigate: (path) => router?.navigate(path),
+    openTerminal: () => terminal.open(),
+    toggleHints,
+    konami: overdrive,
   });
   $('#lang-toggle').addEventListener('click', () => {
     const next = state.lang === 'es' ? 'en' : 'es';
@@ -176,8 +248,8 @@ async function init() {
     setLang(next);
   });
 
-  startPointerFx();
   const lang = pickLang(readStoredLang(storage), navigator.language);
+  startPointerFx();
   const booting = shouldBoot(storage, reducedMotion()) ? runBoot(lang).then(() => markBooted(storage)) : null;
   const data = loadData().catch((err) => {
     console.error('No se pudieron cargar los datos', err);
@@ -187,7 +259,7 @@ async function init() {
 
   await setLang(lang);
   await booting;
-  startRouter({ onEnter, titleFor });
+  router = startRouter({ onEnter, titleFor });
 
   state.data = await data;
   if (state.data) renderData(state.lang, dictNow());

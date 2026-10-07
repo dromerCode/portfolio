@@ -62,5 +62,5 @@ export function startRouter({ onEnter, titleFor }) {
   });
   window.addEventListener('popstate', () => go(location.pathname, false));
 
-  return { refresh: () => current && onEnter(current, sections.find((s) => s.dataset.view === current)) };
+  return { navigate: (path) => { if (path !== location.pathname) go(path, true); } };
 }

@@ -60,5 +60,11 @@
   "nf.text": "Esta parte del expediente no existe o fue borrada.",
   "nf.back": "VOLVER AL INICIO",
   "term.reply": "respuesta de dromerCode: tiempo < 24h",
-  "term.status": "DISPONIBLE · empleo y proyectos"
+  "term.status": "DISPONIBLE · empleo y proyectos",
+  "tool.term": "Abrir terminal (/)",
+  "tool.sound": "Efectos de sonido",
+  "toast.keys": "1-5 VISTAS · / TERMINAL · ? ATAJOS",
+  "toast.overdrive": "⚡ OVERDRIVE ACTIVADO",
+  "toast.sound.on": "SONIDO ON",
+  "toast.sound.off": "SONIDO OFF"
 }

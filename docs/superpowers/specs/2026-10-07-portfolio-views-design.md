@@ -76,3 +76,13 @@ Los elementos usan una variable `--i` para escalonar retrasos.
 - `fx.test.js`: lógica pura del descifrado (frame final = texto real, espacios intactos) y del contador.
 - `boot.test.js`: `shouldBoot(storage, reducedMotion)`.
 - Los tests existentes se adaptan donde comprueban anclas `#…` o el orden de secciones.
+
+## Añadidos posteriores (2026-10-07)
+
+- **Hovers y ambiente**: halo que sigue al ratón, foco de luz por caja, inclinación 3D en proyectos (solo ratón),
+  barrido del radar, glitch en nav/nombre/stats, glitch al cambiar foto real/anime.
+- **Terminal** (`js/commands.js` puro + `js/terminal.js` UI): `<dialog>` que se abre con `/`, `Ctrl+K` o el botón `>_`.
+  Comandos ES/EN para navegar, CV, enlaces, idioma, foto, sonido, `whoami`, `clear`, `salir`; historial ↑↓, Tab autocompleta.
+- **Atajos** (`js/keys.js`): `1`–`5` vistas, `?` muestra los números en el nav. Ignorados al escribir o con la terminal abierta.
+- **Konami** → modo overdrive 8 s (hue-rotate, glitch continuo). Con movimiento reducido solo sale el aviso.
+- **Sonido** (`js/sound.js`): bips WebAudio sintetizados, apagado por defecto, preferencia en localStorage.

@@ -60,5 +60,11 @@
   "nf.text": "This part of the dossier does not exist or was wiped.",
   "nf.back": "BACK TO HOME",
   "term.reply": "reply from dromerCode: time < 24h",
-  "term.status": "AVAILABLE · jobs and projects"
+  "term.status": "AVAILABLE · jobs and projects",
+  "tool.term": "Open terminal (/)",
+  "tool.sound": "Sound effects",
+  "toast.keys": "1-5 VIEWS · / TERMINAL · ? SHORTCUTS",
+  "toast.overdrive": "⚡ OVERDRIVE ENGAGED",
+  "toast.sound.on": "SOUND ON",
+  "toast.sound.off": "SOUND OFF"
 }
