@@ -42,7 +42,14 @@ function run(el, duration, frame) {
 }
 
 export function scramble(el, text, duration = 700) {
-  run(el, duration, (p) => { el.textContent = scrambleFrame(text, p); });
+  // Altura fija mientras dura: los glifos aleatorios pueden partir la línea y empujar el resto (CLS)
+  el.style.height = '';
+  el.textContent = text;
+  el.style.height = `${el.offsetHeight}px`;
+  run(el, duration, (p) => {
+    el.textContent = scrambleFrame(text, p);
+    if (p >= 1) el.style.height = '';
+  });
 }
 
 export function countUp(el, duration = 900) {

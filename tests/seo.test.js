@@ -1,0 +1,28 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+
+const read = (p) => readFileSync(new URL(`../site/${p}`, import.meta.url), 'utf8');
+
+// Sin estos ficheros, el fallback de nginx sirve index.html en su lugar
+test('robots.txt exists and points to the sitemap', () => {
+  const robots = read('robots.txt');
+  assert.match(robots, /^User-agent: \*/m);
+  assert.match(robots, /^Sitemap: https:\/\/portfolio\.pichahouse\.es\/sitemap\.xml$/m);
+});
+
+test('sitemap lists every view', () => {
+  const xml = read('sitemap.xml');
+  for (const path of ['/', '/proyectos', '/stack', '/homelab', '/contacto']) {
+    assert.match(xml, new RegExp(`<loc>https://portfolio\\.pichahouse\\.es${path.replace(/\//g, '\\/')}</loc>`), path);
+  }
+});
+
+test('profile photo has a small srcset variant and loads with high priority', () => {
+  const html = read('index.html');
+  const img = html.match(/<img class="photo__img photo__img--real"[^>]*>/)[0];
+  assert.match(img, /fetchpriority="high"/);
+  assert.match(img, /srcset="\/assets\/img\/foto-400\.webp 400w, \/assets\/img\/foto\.webp 800w"/);
+  assert.match(img, /sizes="/);
+  assert.ok(existsSync(new URL('../site/assets/img/foto-400.webp', import.meta.url)));
+});
