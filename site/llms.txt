@@ -1,0 +1,24 @@
+# Daniel Romero Cózar · Junior Web Developer
+
+> Portfolio of Daniel Romero Cózar (@dromerCode), Junior Web Developer and 2nd-year DAW student in Spain. React, TypeScript, Java/Spring Boot, Linux and self-hosting. Available for work and projects. The site is in Spanish and English.
+
+## Views
+
+- [Inicio / About](https://portfolio.pichahouse.es/): profile, focus areas and CV
+- [Proyectos / Projects](https://portfolio.pichahouse.es/proyectos): selected projects with what was built and learned
+- [Stack](https://portfolio.pichahouse.es/stack): technologies and timeline
+- [Homelab](https://portfolio.pichahouse.es/homelab): self-hosted Linux server with Docker
+- [Contacto / Contact](https://portfolio.pichahouse.es/contacto): how to get in touch
+
+## Projects
+
+- [subtrack](https://github.com/dromerCode/subtrack): self-hosted subscription tracker. Spring Boot + React/TypeScript + PostgreSQL in a single Docker image.
+- [tabmon](https://github.com/dromerCode/tabmon): Rust CLI that turns an Android tablet into an extended monitor for the niri compositor over USB (vkms + wayvnc).
+- [CI/CD DAW](https://github.com/dromerCode/proyecto-cicd-daw): GitHub Actions pipeline that builds a Docker image, pushes it to Docker Hub and deploys it over SSH to AWS EC2.
+
+## Contact
+
+- Email: dromerCode@gmail.com
+- GitHub: https://github.com/dromerCode
+- LinkedIn: https://www.linkedin.com/in/dromerocoz/
+- [CV (PDF, Spanish)](https://portfolio.pichahouse.es/assets/cv/cv-es.pdf)

@@ -31,3 +31,15 @@ test('favicon shows an R', () => {
   const html = readFileSync(new URL('../site/index.html', import.meta.url), 'utf8');
   assert.match(html, /<link rel="icon"[^>]*%3ER%3C\/text%3E/);
 });
+
+test('language toggle accessible name starts with its visible text', () => {
+  const html = read('index.html');
+  assert.match(html, /id="lang-toggle"[^>]*aria-label="ES \/ EN · [^"]+"/);
+});
+
+test('llms.txt summarises the site with its views and contact', () => {
+  const llms = read('llms.txt');
+  assert.match(llms, /^# Daniel Romero/m);
+  assert.match(llms, /^> /m);
+  for (const v of ['/proyectos', '/stack', '/homelab', '/contacto', 'github.com/dromerCode', 'dromerCode@gmail.com']) assert.ok(llms.includes(v), v);
+});
