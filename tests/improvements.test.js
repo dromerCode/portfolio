@@ -11,7 +11,7 @@ const base = { id: 'x', tags: [], repo: null, es: { category: 'C', title: 'T', d
 
 // 1 · nombre como título
 test('full name is the main heading and dromerCode is the alias', () => {
-  assert.match(html, /<h1 class="title glow[^"]*">DANIEL ROMERO CÓZAR<\/h1>/);
+  assert.match(html, /<h1 class="title glow[^"]*"[^>]*>DANIEL ROMERO CÓZAR<\/h1>/);
   assert.match(html, /class="dossier__alias">@dromerCode</);
 });
 
@@ -44,7 +44,7 @@ test('project cards show what was learned, escaped, only when present', () => {
 test('every project has media and a learned line in both languages', () => {
   for (const p of json('site/data/projects.json')) {
     assert.ok(['img', 'code'].includes(p.media?.type), p.id);
-    if (p.media.type === 'img') assert.ok(existsSync(new URL(`../site/${p.media.src}`, import.meta.url)), p.media.src);
+    if (p.media.type === 'img') assert.ok(existsSync(new URL(`../site/${p.media.src.replace(/^\//, '')}`, import.meta.url)), p.media.src);
     assert.ok(p.es.learned && p.en.learned, p.id);
   }
 });

@@ -48,5 +48,17 @@
   "photo.alt.anime": "Anime avatar of Daniel Romero",
   "photo.toggle": "Anime version",
   "photo.show.anime": "Show anime version",
-  "photo.show.real": "Show real photo"
+  "photo.show.real": "Show real photo",
+  "nav.stack": "STACK",
+  "view.inicio": "HOME",
+  "view.proyectos": "PROJECTS",
+  "view.stack": "STACK",
+  "view.homelab": "HOMELAB",
+  "view.contacto": "CONTACT",
+  "view.notfound": "404",
+  "nf.title": "SIGNAL LOST",
+  "nf.text": "This part of the dossier does not exist or was wiped.",
+  "nf.back": "BACK TO HOME",
+  "term.reply": "reply from dromerCode: time < 24h",
+  "term.status": "AVAILABLE · jobs and projects"
 }

@@ -2,13 +2,17 @@ import { readPhoto, savePhoto, nextPhoto } from './photo.js';
 import { pickLang, readStoredLang, saveLang, applyTranslations } from './i18n.js';
 import { yearsSince, projectCardHTML, timelineRowHTML, pickCv, serviceCardHTML, stepHTML, storageRowHTML, stackGroupHTML, escapeHTML } from './render.js';
 import { radarSVG, radarListHTML } from './radar.js';
+import { startRouter } from './router.js';
+import { shouldBoot, markBooted, runBoot } from './boot.js';
+import { scramble, countUp, typeText } from './fx.js';
 
 const $ = (sel) => document.querySelector(sel);
 const storage = (() => {
   try { return window.localStorage; } catch { return undefined; }
 })();
 
-const state = { lang: 'es', dicts: {}, data: null, seq: 0, photo: 'real' };
+const state = { lang: 'es', dicts: {}, data: null, seq: 0, photo: 'real', view: null };
+const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 async function getJSON(path) {
   const res = await fetch(path);
@@ -17,18 +21,18 @@ async function getJSON(path) {
 }
 
 async function loadDict(lang) {
-  state.dicts[lang] ??= await getJSON(`i18n/${lang}.json`);
+  state.dicts[lang] ??= await getJSON(`/i18n/${lang}.json`);
   return state.dicts[lang];
 }
 
 async function loadData() {
   const [profile, projects, timeline, homelab, pichaflix, stack] = await Promise.all([
-    getJSON('data/profile.json'),
-    getJSON('data/projects.json'),
-    getJSON('data/timeline.json'),
-    getJSON('data/homelab.json'),
-    getJSON('data/pichaflix.json'),
-    getJSON('data/stack.json'),
+    getJSON('/data/profile.json'),
+    getJSON('/data/projects.json'),
+    getJSON('/data/timeline.json'),
+    getJSON('/data/homelab.json'),
+    getJSON('/data/pichaflix.json'),
+    getJSON('/data/stack.json'),
   ]);
   return { profile, projects, timeline, homelab, pichaflix, stack };
 }
@@ -45,6 +49,9 @@ function renderData(lang, dict) {
   $('#homelab-grid').innerHTML = homelab.services.map((s) => serviceCardHTML(s, lang)).join('');
   $('#pichaflix-steps').innerHTML = pichaflix.steps.map((s, i) => stepHTML(s, lang, i)).join('');
   $('#pichaflix-storage').innerHTML = pichaflix.storage.map((d) => storageRowHTML(d, lang)).join('');
+
+  for (const list of document.querySelectorAll('#stack-grid, #projects-grid, #homelab-grid, #pichaflix-steps, #timeline-body')) stagger(list);
+  for (const list of document.querySelectorAll('#stack-grid .proj__tags')) stagger(list, '--j');
 
   const cv = pickCv(profile.cv, lang);
   for (const a of document.querySelectorAll('[data-cv]')) {
@@ -86,6 +93,58 @@ async function setLang(lang) {
   state.lang = lang;
   applyPhoto(state.photo);
   if (state.data) renderData(lang, dict);
+  if (state.view) {
+    updateChrome(state.view);
+    playTitles(document.querySelector(`.view[data-view="${state.view}"]`));
+  }
+}
+
+// Retraso escalonado de entrada para los hijos de una lista
+function stagger(list, prop = '--i') {
+  [...list.children].forEach((el, i) => el.style.setProperty(prop, i));
+}
+
+const dictNow = () => state.dicts[state.lang] ?? {};
+
+function titleFor(view) {
+  const dict = dictNow();
+  if (view === 'inicio') return dict['meta.title'] ?? document.title;
+  return `${dict[`view.${view}`] ?? view} · Daniel Romero`;
+}
+
+function updateChrome(view) {
+  $('#route-name').textContent = dictNow()[`view.${view}`] ?? view.toUpperCase();
+  document.title = titleFor(view);
+}
+
+// Texto real de un título: traducido si tiene clave, si no el original
+function realText(el) {
+  const key = el.dataset.i18n;
+  if (key && dictNow()[key]) return dictNow()[key];
+  el.dataset.text ??= el.textContent;
+  return el.dataset.text;
+}
+
+function playTitles(section) {
+  for (const el of section?.querySelectorAll('h1.title, .sec .title, .cta__title, .nf__title') ?? []) {
+    const text = realText(el);
+    el.setAttribute('aria-label', text);
+    scramble(el, text);
+  }
+}
+
+function playTerminal() {
+  const dict = dictNow();
+  const text = `> ping dromerCode@gmail.com\n${dict['term.reply'] ?? ''}\n> status\n${dict['term.status'] ?? ''}`;
+  typeText($('#term'), text);
+}
+
+function onEnter(view, section) {
+  state.view = view;
+  updateChrome(view);
+  playTitles(section);
+  if (view === 'inicio') for (const el of section.querySelectorAll('.stat__value')) countUp(el);
+  if (view === 'contacto') playTerminal();
 }
 
 function fillYears() {
@@ -109,14 +168,20 @@ async function init() {
     setLang(next);
   });
 
-  try {
-    state.data = await loadData();
-  } catch (err) {
+  const lang = pickLang(readStoredLang(storage), navigator.language);
+  const booting = shouldBoot(storage, reducedMotion()) ? runBoot(lang).then(() => markBooted(storage)) : null;
+  const data = loadData().catch((err) => {
     console.error('No se pudieron cargar los datos', err);
     $('#projects-grid').innerHTML = '<p class="noscript">—</p>';
-  }
+    return null;
+  });
 
-  await setLang(pickLang(readStoredLang(storage), navigator.language));
+  await setLang(lang);
+  await booting;
+  startRouter({ onEnter, titleFor });
+
+  state.data = await data;
+  if (state.data) renderData(state.lang, dictNow());
 }
 
 init();

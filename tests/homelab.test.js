@@ -42,12 +42,18 @@ test('pichaflix has pipeline steps and storage, and is no longer a project', () 
   assert.ok(!json('site/data/projects.json').some((x) => x.id === 'pichaflix'));
 });
 
-test('page has homelab and pichaflix sections in order, with nav link', () => {
-  const order = ['id="about"', 'id="projects"', 'id="homelab"', 'id="pichaflix"', 'id="timeline"', 'id="contact"'].map((s) => html.indexOf(s));
-  assert.ok(order.every((i) => i > 0));
-  assert.deepEqual([...order].sort((a, b) => a - b), order);
-  assert.match(html, /<a href="#homelab"/);
-  const pf = html.slice(html.indexOf('id="pichaflix"'), html.indexOf('id="timeline"'));
+test('each view holds its sections, and every view has a nav link', () => {
+  const views = { inicio: ['about'], proyectos: ['projects'], stack: ['stack', 'timeline'], homelab: ['homelab', 'pichaflix'], contacto: ['contact'] };
+  for (const [view, ids] of Object.entries(views)) {
+    const start = html.indexOf(`data-view="${view}"`);
+    const end = html.indexOf('<div class="view"', start + 1);
+    const block = html.slice(start, end);
+    assert.ok(start > 0, view);
+    for (const id of ids) assert.match(block, new RegExp(`<section id="${id}"`), `${id} in ${view}`);
+    assert.match(html, new RegExp(`<a href="${view === 'inicio' ? '/' : `/${view}`}" data-route`), view);
+  }
+  assert.match(html, /data-view="notfound" hidden/);
+  const pf = html.slice(html.indexOf('id="pichaflix"'), html.indexOf('</section>', html.indexOf('id="pichaflix"')));
   assert.doesNotMatch(pf, /<a /, 'pichaflix section has no links');
 });
 

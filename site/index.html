@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js')</script>
   <title>Daniel Romero · Junior Web Developer</title>
   <meta name="description" content="Portfolio de Daniel Romero (dromerCode), Junior Web Developer: React, TypeScript, Java, Linux y self-hosting.">
   <meta property="og:type" content="website">
@@ -18,10 +19,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#1a1a1f">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1f'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23b8b3ff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
-  <link rel="preload" href="assets/fonts/orbitron-800.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/share-tech-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-  <script type="module" src="js/main.js"></script>
+  <link rel="preload" href="/assets/fonts/orbitron-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/share-tech-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/main.js"></script>
 </head>
 <body>
   <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
@@ -45,22 +46,27 @@
 
   <div class="page">
     <header class="topbar">
-      <span class="topbar__label" data-i18n="profile.label">EXPEDIENTE DEV</span>
+      <div class="topbar__id">
+        <a class="topbar__label" href="/" data-route data-i18n="profile.label">EXPEDIENTE DEV</a>
+        <p class="route" aria-hidden="true">DOSSIER://<span id="route-name">INICIO</span><span class="cursor">▌</span></p>
+      </div>
       <nav class="topbar__nav" data-i18n-aria="nav.label" aria-label="Principal">
-        <a href="#about" data-i18n="nav.about">SOBRE MÍ</a>
-        <a href="#projects" data-i18n="nav.projects">PROYECTOS</a>
-        <a href="#homelab" data-i18n="nav.homelab">HOMELAB</a>
-        <a href="#contact" data-i18n="nav.contact">CONTACTO</a>
+        <a href="/" data-route data-i18n="nav.about">SOBRE MÍ</a>
+        <a href="/proyectos" data-route data-i18n="nav.projects">PROYECTOS</a>
+        <a href="/stack" data-route data-i18n="nav.stack">STACK</a>
+        <a href="/homelab" data-route data-i18n="nav.homelab">HOMELAB</a>
+        <a href="/contacto" data-route data-i18n="nav.contact">CONTACTO</a>
         <button id="lang-toggle" class="lang box" type="button" data-lang="es" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
       </nav>
     </header>
 
     <main>
+      <div class="view" data-view="inicio">
       <section id="about" class="dossier">
         <div class="box dossier__main">
           <div class="dossier__head">
             <div class="dossier__who">
-              <h1 class="title glow">DANIEL ROMERO CÓZAR</h1>
+              <h1 class="title glow" data-view-focus tabindex="-1">DANIEL ROMERO CÓZAR</h1>
               <span class="dossier__role">JUNIOR WEB DEVELOPER</span>
             </div>
             <span class="dossier__alias">@dromerCode</span>
@@ -71,8 +77,8 @@
               <div class="photo-wrap">
               <span class="badge-available"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-briefcase"/></svg><span data-i18n="badge.available">DISPONIBLE</span></span>
               <div class="photo" data-photo="real" role="img" aria-label="Foto de Daniel Romero">
-                <img class="photo__img photo__img--real" src="assets/img/foto.webp" alt="" width="800" height="800">
-                <img class="photo__img photo__img--anime" src="assets/img/photo.avif" alt="" width="225" height="225" loading="lazy">
+                <img class="photo__img photo__img--real" src="/assets/img/foto.webp" alt="" width="800" height="800">
+                <img class="photo__img photo__img--anime" src="/assets/img/photo.avif" alt="" width="225" height="225" loading="lazy">
               </div>
               <button id="photo-toggle" class="photo-toggle" type="button" aria-pressed="false" aria-label="Versión anime" title="Ver versión anime">
                 <svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-swap"/></svg>
@@ -82,7 +88,7 @@
                 <a class="ico-link" title="GitHub" href="https://github.com/dromerCode" data-link="github" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span class="sr-only">GITHUB</span></a>
                 <a class="ico-link" title="LinkedIn" href="https://www.linkedin.com/in/dromerocoz/" data-link="linkedin" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span class="sr-only">LINKEDIN</span></a>
                 <a class="ico-link" title="Mail" href="mailto:dromerCode@gmail.com" data-link="email"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg><span class="sr-only">MAIL</span></a>
-                <a class="ico-link" title="CV" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span class="sr-only" data-i18n="footer.cv">CV</span></a>
+                <a class="ico-link" title="CV" href="/assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span class="sr-only" data-i18n="footer.cv">CV</span></a>
               </div>
             </div>
             <div class="dossier__radar">
@@ -130,7 +136,7 @@
               </div>
             </dl>
           </div>
-          <a class="box side-box side-box--cv" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden>
+          <a class="box side-box side-box--cv" href="/assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden>
             <svg class="ico ico--stroke cv-doc" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg>
             <span class="side-box__label" data-i18n="side.cv">DESCARGAR CV</span>
             <span class="cv-meta"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="side.cv.meta">PDF · 1 PÁGINA</span></span>
@@ -150,26 +156,34 @@
           </div>
         </aside>
       </section>
-
-      <section id="stack">
-        <h2 class="sec"><span class="title glow" data-i18n="sec.stack">STACK</span><span class="sec__line"></span></h2>
-        <div id="stack-grid" class="grid grid--stack"></div>
-      </section>
-
+      </div>
+      <div class="view" data-view="proyectos">
       <section id="projects">
-        <h2 class="sec"><span class="title glow" data-i18n="sec.projects">PROYECTOS</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
+        <h2 class="sec" data-view-focus tabindex="-1"><span class="title glow" data-i18n="sec.projects">PROYECTOS</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
         <div id="projects-grid" class="grid">
           <noscript><p class="noscript">Activa JavaScript para ver los proyectos, o mira <a href="https://github.com/dromerCode">github.com/dromerCode</a>.</p></noscript>
         </div>
       </section>
-
+      </div>
+      <div class="view" data-view="stack">
+      <section id="stack">
+        <h2 class="sec" data-view-focus tabindex="-1"><span class="title glow" data-i18n="sec.stack">STACK</span><span class="sec__line"></span></h2>
+        <div id="stack-grid" class="grid grid--stack"></div>
+      </section>
+      <section id="timeline">
+        <h2 class="sec"><span class="title glow" data-i18n="sec.timeline">TRAYECTORIA</span><span class="sec__line"></span></h2>
+        <div class="box timeline">
+          <table><tbody id="timeline-body"></tbody></table>
+        </div>
+      </section>
+      </div>
+      <div class="view" data-view="homelab">
       <section id="homelab">
-        <h2 class="sec"><span class="title glow" data-i18n="sec.homelab">HOMELAB</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
+        <h2 class="sec" data-view-focus tabindex="-1"><span class="title glow" data-i18n="sec.homelab">HOMELAB</span><span class="sec__line"></span><span class="slashes" aria-hidden="true">/ / / /</span></h2>
         <p class="sec__intro" data-i18n="homelab.intro">Tengo un servidor en casa con ZimaOS y Docker donde monto, pruebo y mantengo servicios reales que uso a diario. Estos son los principales:</p>
         <ul id="homelab-specs" class="chips"></ul>
         <div id="homelab-grid" class="grid grid--svc"></div>
       </section>
-
       <section id="pichaflix">
         <h2 class="sec"><span class="title glow">PICHAFLIX</span><span class="sec__line"></span></h2>
         <p class="sec__intro" data-i18n="pichaflix.intro">Mi plataforma de streaming privada, montada de principio a fin en el homelab. Así funciona desde que alguien pide algo hasta que lo ve:</p>
@@ -179,26 +193,39 @@
           <table><tbody id="pichaflix-storage"></tbody></table>
         </div>
       </section>
-
-      <section id="timeline">
-        <h2 class="sec"><span class="title glow" data-i18n="sec.timeline">TRAYECTORIA</span><span class="sec__line"></span></h2>
-        <div class="box timeline">
-          <table><tbody id="timeline-body"></tbody></table>
-        </div>
-      </section>
+      </div>
+      <div class="view" data-view="contacto">
       <section id="contact" class="cta box">
         <div class="cta__body">
           <span class="side-box__label side-box__label--top" data-i18n="cta.label">CONTACTO</span>
-          <h2 class="cta__title title glow" data-i18n="cta.title">¿TRABAJAMOS JUNTOS?</h2>
+          <h2 class="cta__title title glow" data-view-focus tabindex="-1" data-i18n="cta.title">¿TRABAJAMOS JUNTOS?</h2>
           <p class="cta__text" data-i18n="cta.text">Busco mi primer puesto como Junior Web Developer y estoy abierto a proyectos. Si tienes una oferta o una idea, escríbeme y te respondo rápido.</p>
           <p class="cta__status"><span class="led" aria-hidden="true"></span> <span data-i18n="cta.status">DISPONIBLE PARA EMPLEO Y PROYECTOS</span></p>
         </div>
         <div class="cta__actions">
           <a class="cta-btn cta-btn--primary" href="mailto:dromerCode@gmail.com"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="cta.mail">ESCRÍBEME</span></a>
-          <a class="cta-btn" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="cta.cv">DESCARGAR CV</span></a>
+          <a class="cta-btn" href="/assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="cta.cv">DESCARGAR CV</span></a>
           <a class="cta-btn" href="https://www.linkedin.com/in/dromerocoz/" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LINKEDIN</span></a>
         </div>
       </section>
+        <div class="box term" aria-hidden="true">
+          <div class="term__bar"><span></span><span></span><span></span><span class="term__name">dromer@pichahouse: ~</span></div>
+          <pre class="term__body"><code id="term"></code><span class="cursor">▌</span></pre>
+        </div>
+      </div>
+      <div class="view" data-view="notfound" hidden>
+        <section class="nf">
+          <p class="nf__code">ERR 404</p>
+          <h2 class="nf__title title glow" data-view-focus tabindex="-1" data-i18n="nf.title">SEÑAL PERDIDA</h2>
+          <p class="nf__text" data-i18n="nf.text">Esta parte del expediente no existe o fue borrada.</p>
+          <a class="cta-btn cta-btn--primary" href="/" data-route data-i18n="nf.back">VOLVER AL INICIO</a>
+        </section>
+      </div>
+
+
+
+
+
     </main>
 
     <footer class="footer">
@@ -207,7 +234,7 @@
         <a class="ico-link contact-btn" href="https://github.com/dromerCode" data-link="github" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span>GITHUB</span></a>
         <a class="ico-link contact-btn" href="https://www.linkedin.com/in/dromerocoz/" data-link="linkedin" target="_blank" rel="noopener"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LINKEDIN</span></a>
         <a class="ico-link contact-btn" href="mailto:dromerCode@gmail.com" data-link="email"><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg><span>MAIL</span></a>
-        <a class="ico-link contact-btn" href="assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="footer.cv">CV</span></a>
+        <a class="ico-link contact-btn" href="/assets/cv/cv-es.pdf" data-cv download="CV-Daniel Romero.pdf" hidden><svg class="ico ico--stroke" width="16" height="16" aria-hidden="true"><use href="#i-cv"/></svg><span data-i18n="footer.cv">CV</span></a>
       </div>
       <div class="footer__bar">
         <span class="slashes" aria-hidden="true">/ / / / / /</span>

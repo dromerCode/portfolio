@@ -48,5 +48,17 @@
   "photo.alt.anime": "Avatar de anime de Daniel Romero",
   "photo.toggle": "Versión anime",
   "photo.show.anime": "Ver versión anime",
-  "photo.show.real": "Ver foto real"
+  "photo.show.real": "Ver foto real",
+  "nav.stack": "STACK",
+  "view.inicio": "INICIO",
+  "view.proyectos": "PROYECTOS",
+  "view.stack": "STACK",
+  "view.homelab": "HOMELAB",
+  "view.contacto": "CONTACTO",
+  "view.notfound": "404",
+  "nf.title": "SEÑAL PERDIDA",
+  "nf.text": "Esta parte del expediente no existe o fue borrada.",
+  "nf.back": "VOLVER AL INICIO",
+  "term.reply": "respuesta de dromerCode: tiempo < 24h",
+  "term.status": "DISPONIBLE · empleo y proyectos"
 }

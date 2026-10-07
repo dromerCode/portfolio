@@ -21,9 +21,9 @@ test('stack data covers the main areas from the CV', () => {
   for (const t of ['React', 'TypeScript', 'Java', 'Spring Boot', 'Node.js', 'Docker', 'Linux', 'Git']) assert.ok(all.includes(t), t);
 });
 
-test('stack section sits between about and projects', () => {
-  const [a, s, p] = ['id="about"', 'id="stack"', 'id="projects"'].map((x) => html.indexOf(x));
-  assert.ok(a < s && s < p && a > 0);
+test('stack view comes after projects and holds the stack grid', () => {
+  const [a, p, s] = ['id="about"', 'id="projects"', 'id="stack"'].map((x) => html.indexOf(x));
+  assert.ok(a < p && p < s && a > 0);
   assert.match(html, /<div id="stack-grid"/);
 });
 

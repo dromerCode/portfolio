@@ -21,7 +21,7 @@
     },
     "media": {
       "type": "img",
-      "src": "assets/img/subtrack.webp",
+      "src": "/assets/img/subtrack.webp",
       "width": 1200,
       "height": 750,
       "es": "Panel de subtrack en modo oscuro con el gasto mensual, los próximos cobros y el gasto por categoría",
