@@ -91,5 +91,5 @@ Los elementos usan una variable `--i` para escalonar retrasos.
 
 - Sin barrido de sonar en el radar.
 - Lanzador flotante `>_ TERMINAL /` abajo a la derecha (solo `>_` en móvil) para que la terminal no quede escondida en la topbar.
-- Comandos `neofetch` (logo ASCII + info, ≤ 44 columnas para móvil) y `easter-egg` (`secreto`, `secret`…) que da la pista del Konami.
+- Comandos `neofetch` (logo ASCII "DR" + info, ≤ 44 columnas para móvil) y `easter-egg` (`secreto`, `secret`…) que da la pista del Konami.
 - Vista previa al compartir en JPEG de ~95 KB (antes PNG de 440 KB; WhatsApp no la mostraba por encima de ~300 KB).

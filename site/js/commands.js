@@ -27,19 +27,19 @@ const COMMANDS = {
   salir: ['exit', 'quit'],
 };
 
-// Logo de neofetch: la "P" del favicon
+// Logo de neofetch: iniciales DR
 const LOGO = [
-  ' ____  ',
-  '|  _ \\ ',
-  '| |_) |',
-  '|  __/ ',
-  '|_|    ',
+  ' ____  ____  ',
+  '|  _ \\|  _ \\ ',
+  '| | | | |_) |',
+  '| |_| |  _ < ',
+  '|____/|_| \\_\\',
 ];
 
 // Logo a la izquierda e info a la derecha; las líneas que sobran van sin logo
 function fetchLines(info) {
   const lines = ['dromer@pichahouse', '-----------------', ...info];
-  return lines.map((l, i) => `${(LOGO[i] ?? '').padEnd(9)}${l}`);
+  return lines.map((l, i) => `${(LOGO[i] ?? '').padEnd(15)}${l}`);
 }
 
 const VIEWS = { inicio: '/', proyectos: '/proyectos', stack: '/stack', homelab: '/homelab', contacto: '/contacto' };

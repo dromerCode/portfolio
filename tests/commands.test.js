@@ -86,3 +86,8 @@ test('help mentions the new commands', () => {
   assert.deepEqual(complete('neo'), ['neofetch']);
   assert.deepEqual(complete('east'), ['easter-egg']);
 });
+
+test('neofetch logo spells DR in ASCII', () => {
+  const art = runCommand('neofetch', 'es').out.slice(0, 5).map((l) => l.slice(0, 13)).join('\n');
+  assert.equal(art, [' ____  ____  ', '|  _ \\|  _ \\ ', '| | | | |_) |', '| |_| |  _ < ', '|____/|_| \\_\\'].join('\n'));
+});

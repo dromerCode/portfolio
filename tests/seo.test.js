@@ -26,3 +26,8 @@ test('profile photo has a small srcset variant and loads with high priority', ()
   assert.match(img, /sizes="/);
   assert.ok(existsSync(new URL('../site/assets/img/foto-400.webp', import.meta.url)));
 });
+
+test('favicon shows an R', () => {
+  const html = readFileSync(new URL('../site/index.html', import.meta.url), 'utf8');
+  assert.match(html, /<link rel="icon"[^>]*%3ER%3C\/text%3E/);
+});
