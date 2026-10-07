@@ -161,7 +161,14 @@ async function init() {
   $('#photo-toggle').addEventListener('click', () => {
     const next = nextPhoto(state.photo);
     savePhoto(storage, next);
+    const box = $('.photo');
+    box.classList.remove('is-switching');
+    void box.offsetWidth; // reinicia la animación si se pulsa seguido
+    box.classList.add('is-switching');
     applyPhoto(next);
+  });
+  $('.photo').addEventListener('animationend', (e) => {
+    if (e.animationName === 'photo-glitch') e.currentTarget.classList.remove('is-switching');
   });
   $('#lang-toggle').addEventListener('click', () => {
     const next = state.lang === 'es' ? 'en' : 'es';
