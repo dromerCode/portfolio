@@ -52,9 +52,9 @@ test('radarSVG escapes labels', () => {
 });
 
 
-test('radarSVG has a sweep and one dot per skill vertex', () => {
+test('radarSVG has no sonar sweep and one dot per skill vertex', () => {
   const svg = radarSVG(skills, 'en');
-  assert.equal((svg.match(/class="radar__sweep"/g) ?? []).length, 1);
+  assert.doesNotMatch(svg, /radar__sweep/);
   assert.equal((svg.match(/class="radar__dot"/g) ?? []).length, skills.length);
   assert.doesNotMatch(svg, /NaN/);
 });

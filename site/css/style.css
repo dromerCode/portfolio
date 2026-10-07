@@ -453,10 +453,6 @@ body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-event
 .links .ico-link:hover { transform: translateY(-3px) scale(1.12); }
 
 /* Radar: barrido giratorio y vértices que laten */
-.radar__sweep { transform-origin: 0 0; animation: sweep-spin 4s linear infinite; }
-.radar__sweep path { fill: rgba(125, 255, 176, .12); }
-.radar__sweep line { stroke: var(--led); stroke-width: 1; opacity: .7; }
-@keyframes sweep-spin { to { transform: rotate(360deg); } }
 .radar__dot { fill: var(--led); transform-box: fill-box; transform-origin: center; animation: dot-pulse 2s ease-in-out infinite; animation-delay: calc(var(--i, 0) * .25s); }
 @keyframes dot-pulse { 50% { transform: scale(1.7); opacity: .5; } }
 #radar svg { transition: filter .3s; }
@@ -546,7 +542,6 @@ body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-event
 .overdrive .page { animation: od-hue 1.6s linear infinite; }
 .overdrive body::after { background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .06) 0 1px, transparent 1px 3px); }
 .overdrive .title { animation: text-glitch .25s steps(3) infinite !important; }
-.overdrive .radar__sweep { animation-duration: .8s; }
 .overdrive .box { box-shadow: 0 0 22px rgba(255, 59, 141, .35), inset 0 0 12px rgba(59, 240, 255, .15); }
 .overdrive .mesh { opacity: .25; }
 @keyframes od-hue { to { filter: hue-rotate(360deg); } }
