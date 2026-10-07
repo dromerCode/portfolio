@@ -51,7 +51,7 @@ function renderData(lang, dict) {
   const repoLabel = dict['project.repo'] ?? 'REPO →';
   $('#projects-grid').innerHTML = projects.map((p, i) => projectCardHTML(p, lang, i, repoLabel)).join('');
   $('#timeline-body').innerHTML = timeline.map((e) => timelineRowHTML(e, lang)).join('');
-  $('#homelab-specs').innerHTML = pichaflix.specs.map((s) => `<li class="tag">${escapeHTML(s)}</li>`).join('');
+  $('#homelab-specs').innerHTML = pichaflix.specs.map((s) => `<li class="tag">${escapeHTML(typeof s === 'string' ? s : s[lang] ?? s.es)}</li>`).join('');
   $('#homelab-grid').innerHTML = homelab.services.map((s) => serviceCardHTML(s, lang)).join('');
   $('#pichaflix-steps').innerHTML = pichaflix.steps.map((s, i) => stepHTML(s, lang, i)).join('');
   $('#pichaflix-storage').innerHTML = pichaflix.storage.map((d) => storageRowHTML(d, lang)).join('');

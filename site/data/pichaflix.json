@@ -88,6 +88,9 @@
     "RYZEN 5 PRO 3400G",
     "GTX 1660 SUPER",
     "~13 TB + RAID5",
-    "DOCKER · 30 CONTENEDORES"
+    {
+      "es": "DOCKER · 30 CONTENEDORES",
+      "en": "DOCKER · 30 CONTAINERS"
+    }
   ]
 }

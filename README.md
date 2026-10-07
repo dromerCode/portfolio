@@ -4,7 +4,7 @@ My personal portfolio as a Junior Web Developer, live at **[portfolio.pichahouse
 
 ![Portfolio screenshot](docs/screenshot.png)
 
-A single bilingual page (Spanish / English) styled as a sci-fi "dev dossier", self-hosted on my own homelab.
+A bilingual (Spanish / English) single-page app styled as a sci-fi "dev dossier", self-hosted on my own homelab. Each section is its own view with its own URL, animated transitions and a few hidden extras.
 
 ## What's inside
 
@@ -13,6 +13,15 @@ A single bilingual page (Spanish / English) styled as a sci-fi "dev dossier", se
 - **Homelab and Pichaflix:** the services I run at home and how my private streaming platform works end to end.
 - **Experience and education**, and a contact section.
 
+Views: `/` · `/proyectos` · `/stack` · `/homelab` · `/contacto` (and a 404).
+
+### Extras
+
+- A boot sequence on the first visit (skippable).
+- Press `/` or `Ctrl+K` for a command terminal (`help` lists the commands), `1`–`5` to jump between views and `?` to show the shortcuts.
+- Optional UI sounds (off by default) and a Konami code easter egg.
+- Everything respects `prefers-reduced-motion`.
+
 ## Stack
 
 Plain **HTML, CSS and JavaScript (ES modules)**, no framework and no build step.
@@ -20,6 +29,8 @@ Plain **HTML, CSS and JavaScript (ES modules)**, no framework and no build step.
 - Texts live in `site/i18n/{es,en}.json` and are applied through `data-i18n` attributes. The language follows the browser and is remembered in `localStorage`.
 - Projects, homelab, timeline and stack are JSON files in `site/data/` rendered by small functions in `site/js/render.js`. Everything coming from JSON is HTML-escaped.
 - The skills radar is an SVG generated in `site/js/radar.js`.
+- A tiny router (`site/js/router.js`) uses the History API: every view lives in `index.html` and the router shows one at a time. Transitions use the View Transitions API with a CSS fallback.
+- Pure logic (routes, commands, shortcuts, text effects) is kept apart from the DOM code so it can be unit-tested.
 - Fonts (Orbitron, Share Tech Mono) are self-hosted. Icons are an inline SVG sprite.
 
 ## Project structure
@@ -28,25 +39,25 @@ Plain **HTML, CSS and JavaScript (ES modules)**, no framework and no build step.
 site/            everything that gets published
   index.html
   css/style.css
-  js/            i18n.js · render.js · radar.js · main.js
+  js/            main.js · router.js · render.js · radar.js · i18n.js · photo.js
+                 boot.js · fx.js · pointer.js · terminal.js · commands.js · keys.js · sound.js
   i18n/          es.json · en.json
   data/          profile · projects · homelab · pichaflix · timeline · stack
   assets/        fonts · images · CV
 tests/           unit tests (node:test)
 tools/           og.html + make-og.sh to regenerate the share preview image
 compose.yaml     nginx:alpine serving ./site
-nginx.conf       gzip, static caching, revalidation for css/js/json
+nginx.conf       gzip, static caching, revalidation for css/js/json, SPA fallback to index.html
 deploy.sh        rsync to the server + reload
 ```
 
 ## Run it locally
 
 ```sh
-python3 -m http.server 8000 -d site   # http://localhost:8000
 npm test                              # unit tests, no dependencies
 ```
 
-Or the same container used in production:
+To browse it, use the same container as in production (a plain static server would 404 on `/proyectos` and friends, because those routes need the fallback to `index.html`):
 
 ```sh
 docker compose up -d                  # http://localhost:8099

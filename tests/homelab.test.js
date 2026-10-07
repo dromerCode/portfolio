@@ -91,3 +91,11 @@ test('storageRowHTML escapes name and localized description', async () => {
   assert.match(out, /HDD &lt;6TB&gt;/);
   assert.match(out, /Library/);
 });
+
+test('homelab spec chips are translated when they contain words', () => {
+  const specs = json('site/data/pichaflix.json').specs;
+  const docker = specs.find((s) => JSON.stringify(s).includes('DOCKER'));
+  assert.equal(typeof docker, 'object');
+  assert.match(docker.es, /CONTENEDORES/);
+  assert.match(docker.en, /CONTAINERS/);
+});
