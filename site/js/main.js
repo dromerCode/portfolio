@@ -5,6 +5,7 @@ import { radarSVG, radarListHTML } from './radar.js';
 import { startRouter } from './router.js';
 import { shouldBoot, markBooted, runBoot } from './boot.js';
 import { scramble, countUp, typeText } from './fx.js';
+import { startPointerFx } from './pointer.js';
 
 const $ = (sel) => document.querySelector(sel);
 const storage = (() => {
@@ -168,6 +169,7 @@ async function init() {
     setLang(next);
   });
 
+  startPointerFx();
   const lang = pickLang(readStoredLang(storage), navigator.language);
   const booting = shouldBoot(storage, reducedMotion()) ? runBoot(lang).then(() => markBooted(storage)) : null;
   const data = loadData().catch((err) => {

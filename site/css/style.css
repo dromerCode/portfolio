@@ -347,14 +347,14 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-event
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 @keyframes pop { from { opacity: 0; transform: scale(.85); } }
 @keyframes slide { from { opacity: 0; transform: translateX(-16px); } }
-.dossier__main, .dossier__side > *, .grid > *, .steps > *, .storage, .timeline, .cta, .term, .chips, .sec__intro { animation: rise .5s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
+.dossier__main, .dossier__side > *, .grid > *, .steps > *, .storage, .timeline, .cta, .term, .chips, .sec__intro { animation: rise .5s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
 .dossier__side > :nth-child(1) { --i: 1; }
 .dossier__side > :nth-child(2) { --i: 2; }
 .dossier__side > :nth-child(3) { --i: 3; }
 .storage { --i: 5; }
 .term { --i: 2; }
-.grid--stack .tag { animation: pop .3s ease-out both; animation-delay: calc(var(--i, 0) * 70ms + var(--j, 0) * 35ms + 200ms); }
-.timeline tr { animation: slide .4s ease-out both; animation-delay: calc(var(--i, 0) * 80ms + 300ms); }
+.grid--stack .tag { animation: pop .3s ease-out backwards; animation-delay: calc(var(--i, 0) * 70ms + var(--j, 0) * 35ms + 200ms); }
+.timeline tr { animation: slide .4s ease-out backwards; animation-delay: calc(var(--i, 0) * 80ms + 300ms); }
 .sec__line { transform-origin: left; animation: line-grow .6s ease-out both; }
 @keyframes line-grow { from { transform: scaleX(0); } }
 
@@ -375,7 +375,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-event
 .proj::before, .proj::after { content: ""; position: absolute; width: 0; height: 0; border: 0 solid var(--led); opacity: 0; transition: width .25s, height .25s, opacity .15s; pointer-events: none; z-index: 2; }
 .proj::before { top: -5px; left: -5px; border-top-width: 2px; border-left-width: 2px; }
 .proj::after { bottom: -5px; right: -5px; border-bottom-width: 2px; border-right-width: 2px; }
-.proj:hover { transform: translateY(-3px); box-shadow: 0 0 22px rgba(184, 179, 255, .35), inset 0 0 12px rgba(184, 179, 255, .1); }
+.proj:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px); transition: box-shadow .25s, transform .12s ease-out; box-shadow: 0 0 22px rgba(184, 179, 255, .35), inset 0 0 12px rgba(184, 179, 255, .1); }
 .proj:hover::before, .proj:hover::after { width: 22px; height: 22px; opacity: 1; }
 img.proj__media { transition: transform .4s ease, filter .4s; }
 .proj:hover img.proj__media { filter: brightness(1.1) saturate(1.1); }
@@ -401,6 +401,107 @@ img.proj__media { transition: transform .4s ease, filter .4s; }
 .cta-btn--primary { animation: btn-pulse 2.4s ease-in-out infinite; }
 @keyframes btn-pulse { 50% { box-shadow: 0 0 26px rgba(184, 179, 255, .8); } }
 
+/* ===== v2.1: hovers y más vida ===== */
+
+/* Halo que sigue al ratón por el fondo */
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(500px circle at var(--cx, 50%) var(--cy, -500px), rgba(90, 80, 255, .09), transparent 60%); }
+
+/* Foco de luz dentro de cualquier caja */
+.box { transition: border-color .25s, box-shadow .25s; }
+.box:hover { background-image: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(184, 179, 255, .09), transparent 70%); }
+.svc:hover, .stack-group:hover, .step:hover, .side-box--stats:hover, .side-box--now:hover, .storage:hover, .timeline:hover, .term:hover { border-color: #d4d0ff; box-shadow: 0 0 18px rgba(184, 179, 255, .32), inset 0 0 10px rgba(184, 179, 255, .08); }
+
+/* Glitch RGB reutilizable */
+@keyframes text-glitch {
+  0% { text-shadow: 2px 0 #ff3b8d, -2px 0 #3bf0ff; transform: translateX(1px); }
+  33% { text-shadow: -2px 0 #ff3b8d, 2px 0 #3bf0ff; transform: translateX(-1px); }
+  66% { text-shadow: 1px 0 #ff3b8d, -1px 0 #3bf0ff; transform: none; }
+  100% { text-shadow: 0 0 8px var(--c); }
+}
+
+/* Nav: corchetes y glitch */
+.topbar__nav a::before { content: "["; position: absolute; left: -9px; opacity: 0; color: var(--led); transition: opacity .2s, left .2s; }
+.topbar__nav a:hover { animation: text-glitch .3s steps(3) 1; }
+.topbar__nav a:hover::before { opacity: 1; left: -7px; }
+.lang { transition: border-color .2s, box-shadow .2s; }
+.lang:hover { border-color: var(--led); box-shadow: 0 0 10px rgba(125, 255, 176, .3); }
+
+/* Título principal: glitch de vez en cuando y al pasar */
+.dossier__head .title { animation: idle-glitch 7s steps(1) infinite 3s; }
+.dossier__head .title:hover { animation: text-glitch .35s steps(3) 1; }
+@keyframes idle-glitch {
+  0%, 96%, 100% { text-shadow: 0 0 10px rgba(184, 179, 255, .6); transform: none; }
+  97% { text-shadow: 3px 0 #ff3b8d, -3px 0 #3bf0ff; transform: translateX(-2px); }
+  98.5% { text-shadow: -2px 0 #ff3b8d, 2px 0 #3bf0ff; transform: translateX(2px); }
+}
+
+/* Foto: glitch al pasar */
+.photo:hover img { animation: photo-glitch .45s steps(1) 1; }
+@keyframes photo-glitch {
+  0% { clip-path: inset(10% 0 70% 0); transform: translateX(-6px); filter: hue-rotate(40deg); }
+  20% { clip-path: inset(55% 0 20% 0); transform: translateX(5px); }
+  40% { clip-path: inset(30% 0 45% 0); transform: translateX(-3px); filter: hue-rotate(-30deg) saturate(1.6); }
+  60% { clip-path: inset(0); transform: none; filter: none; }
+}
+
+/* Iconos sociales */
+.links .ico-link { transition: color .15s, filter .15s, transform .2s cubic-bezier(.2, .9, .3, 1.4); }
+.links .ico-link:hover { transform: translateY(-3px) scale(1.12); }
+
+/* Radar: barrido giratorio y vértices que laten */
+.radar__sweep { transform-origin: 0 0; animation: sweep-spin 4s linear infinite; }
+.radar__sweep path { fill: rgba(125, 255, 176, .12); }
+.radar__sweep line { stroke: var(--led); stroke-width: 1; opacity: .7; }
+@keyframes sweep-spin { to { transform: rotate(360deg); } }
+.radar__dot { fill: var(--led); transform-box: fill-box; transform-origin: center; animation: dot-pulse 2s ease-in-out infinite; animation-delay: calc(var(--i, 0) * .25s); }
+@keyframes dot-pulse { 50% { transform: scale(1.7); opacity: .5; } }
+#radar svg { transition: filter .3s; }
+#radar:hover svg { filter: drop-shadow(0 0 8px rgba(125, 255, 176, .35)); }
+
+/* Specs y trayectoria: filas que se iluminan */
+.specs tr, .timeline tr, .storage tr { transition: background .2s; }
+.specs tr:hover, .storage tr:hover { background: rgba(90, 80, 255, .12); }
+.specs tr:hover th { color: var(--led); }
+.timeline tr { position: relative; }
+.timeline tr:hover { background: linear-gradient(90deg, rgba(125, 255, 176, .08), transparent 70%); }
+.timeline tr:hover .timeline__period { color: var(--led); }
+.timeline tr:hover .timeline__title { color: #fff; }
+
+/* Stats */
+.stat { cursor: default; }
+.stat:hover .stat__value { animation: text-glitch .35s steps(3) 1; color: #fff; }
+
+/* Tags */
+.tag { transition: border-color .2s, color .2s, background .2s, box-shadow .2s, transform .2s; }
+.tag:hover { border-color: var(--c); color: #fff; background: rgba(90, 80, 255, .25); box-shadow: 0 0 8px rgba(184, 179, 255, .4); transform: translateY(-1px); }
+
+/* Pasos de Pichaflix y servicios */
+.step__num { transition: color .2s, text-shadow .2s, transform .2s; }
+.step:hover .step__num { color: var(--led); text-shadow: 0 0 12px var(--led); transform: scale(1.12); }
+.svc:hover .led { animation-duration: .4s; }
+.svc:hover .svc__name { text-shadow: 0 0 8px var(--c); }
+
+/* Botones: destello diagonal */
+.cta-btn, .contact-btn { position: relative; overflow: hidden; }
+.cta-btn::after, .contact-btn::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .35), transparent); transform: skewX(-20deg); transition: left .5s ease; pointer-events: none; }
+.cta-btn:hover::after, .contact-btn:hover::after { left: 130%; }
+.contact-btn { transition: background .15s, transform .15s, box-shadow .2s; }
+.contact-btn:hover { transform: translateY(-2px); box-shadow: 0 0 16px rgba(184, 179, 255, .45); }
+
+/* "Trabajando en": flecha que sale disparada */
+.now-list a span[aria-hidden="true"]:last-child { display: inline-block; transition: transform .2s; }
+.now-list a:hover span[aria-hidden="true"]:last-child { transform: translate(3px, -3px); color: var(--led); }
+
+/* Barras / / / / con brillo que corre */
+.slashes { background: linear-gradient(90deg, var(--c) 0 40%, var(--led) 50%, var(--c) 60% 100%); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 3.5s linear infinite; }
+@keyframes shine { from { background-position: 100% 0; } to { background-position: -50% 0; } }
+
+/* Enlaces de repo */
+.proj__link { position: relative; text-decoration: none; }
+.proj__link::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 100%; height: 1px; background: currentColor; transform-origin: left; transition: transform .25s; }
+.proj__link:hover { color: var(--led); }
+.proj__link:hover::after { transform: scaleX(0); transform-origin: right; }
+
 /* En contacto los enlaces del pie ya están en la propia vista */
 [data-view="contacto"] .footer__links { display: none; }
 
@@ -423,7 +524,7 @@ img.proj__media { transition: transform .4s ease, filter .4s; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  body::after { display: none; }
+  body::after, body::before { display: none; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
   html { scroll-behavior: auto; }
 }

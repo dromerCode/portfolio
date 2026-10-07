@@ -51,3 +51,10 @@ test('radarSVG escapes labels', () => {
   assert.doesNotMatch(svg, /<x>/);
 });
 
+
+test('radarSVG has a sweep and one dot per skill vertex', () => {
+  const svg = radarSVG(skills, 'en');
+  assert.equal((svg.match(/class="radar__sweep"/g) ?? []).length, 1);
+  assert.equal((svg.match(/class="radar__dot"/g) ?? []).length, skills.length);
+  assert.doesNotMatch(svg, /NaN/);
+});

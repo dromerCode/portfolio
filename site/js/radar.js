@@ -42,12 +42,17 @@ export function radarSVG(skills, lang) {
     const [x, y] = axisPoint(i, n, RADIUS);
     return `M0 0L${x} ${y}`;
   }).join('');
-  const area = `<polygon class="radar__area" points="${polygon(radarPoints(skills.map(skillValue)))}"/>`;
+  const pts = radarPoints(skills.map(skillValue));
+  const area = `<polygon class="radar__area" points="${polygon(pts)}"/>`;
+  const dots = pts.map(([x, y], i) => `<circle class="radar__dot" cx="${x}" cy="${y}" r="2.6" style="--i:${i}"/>`).join('');
+  // Barrido: cuña de 40° que gira desde el centro
+  const [ex, ey] = axisPoint(-1, 9, RADIUS);
+  const sweep = `<g class="radar__sweep"><path d="M0 0L0 ${-RADIUS}A${RADIUS} ${RADIUS} 0 0 0 ${ex} ${ey}Z"/><line x1="0" y1="0" x2="0" y2="${-RADIUS}"/></g>`;
   const labels = skills.map((s, i) => {
     const [x, y] = axisPoint(i, n, LABEL_RADIUS);
     return `<text class="radar__label" x="${x}" y="${y}">${escapeHTML(s[lang] ?? s.es)}</text>`;
   }).join('');
-  return `<svg viewBox="-110 -100 220 200" role="presentation">${rings}<path class="radar__grid" d="${axes}"/>${area}${labels}</svg>`;
+  return `<svg viewBox="-110 -100 220 200" role="presentation">${rings}<path class="radar__grid" d="${axes}"/>${sweep}${area}${dots}${labels}</svg>`;
 }
 
 export function radarListHTML(skills, lang) {
