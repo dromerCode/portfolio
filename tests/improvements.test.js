@@ -69,13 +69,19 @@ test('bio is not forced to uppercase', () => {
 });
 
 // 8 · vista previa al compartir
-test('share preview has og:image (1200x630 PNG), twitter card and locale', () => {
-  assert.match(html, /<meta property="og:image" content="https:\/\/portfolio\.pichahouse\.es\/assets\/img\/og\.png">/);
+test('share preview has a light og:image (1200x630 JPEG under 300 KB), twitter card and locale', () => {
+  assert.match(html, /<meta property="og:image" content="https:\/\/portfolio\.pichahouse\.es\/assets\/img\/og\.jpg">/);
+  assert.match(html, /<meta property="og:image:type" content="image\/jpeg">/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
   assert.match(html, /<meta property="og:locale" content="es_ES">/);
-  const png = readFileSync(new URL('../site/assets/img/og.png', import.meta.url));
-  assert.equal(png.readUInt32BE(16), 1200);
-  assert.equal(png.readUInt32BE(20), 630);
+  const jpg = readFileSync(new URL('../site/assets/img/og.jpg', import.meta.url));
+  // WhatsApp no muestra la vista previa con imágenes grandes
+  assert.ok(jpg.length < 300 * 1024);
+  // Tamaño en el marcador SOF0/SOF2 del JPEG
+  let i = 2;
+  while (i < jpg.length && ![0xc0, 0xc2].includes(jpg[i + 1])) i += 2 + jpg.readUInt16BE(i + 2);
+  assert.equal(jpg.readUInt16BE(i + 7), 1200);
+  assert.equal(jpg.readUInt16BE(i + 5), 630);
 });
 
 // 9 · README del repo

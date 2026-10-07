@@ -18,7 +18,7 @@ Views: `/` · `/proyectos` · `/stack` · `/homelab` · `/contacto` (and a 404).
 ### Extras
 
 - A boot sequence on the first visit (skippable).
-- Press `/` or `Ctrl+K` for a command terminal (`help` lists the commands), `1`–`5` to jump between views and `?` to show the shortcuts.
+- Open the command terminal with the floating `>_ TERMINAL` button, `/` or `Ctrl+K` (`help` lists the commands; there is a `neofetch` and an `easter-egg` that hints at the Konami code). `1`–`5` jump between views and `?` shows the shortcuts.
 - Optional UI sounds (off by default) and a Konami code easter egg.
 - Everything respects `prefers-reduced-motion`.
 

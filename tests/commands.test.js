@@ -56,3 +56,33 @@ test('complete returns the unique match or the common candidates', () => {
   assert.deepEqual(complete('zzz'), []);
   assert.deepEqual(complete(''), []);
 });
+
+test('neofetch prints a logo next to system info, narrow enough for mobile', () => {
+  for (const lang of ['es', 'en']) {
+    const r = runCommand('neofetch', lang);
+    assert.equal(r.error, false);
+    assert.ok(r.out.length >= 8);
+    assert.ok(r.out.some((l) => /dromer@pichahouse/.test(l)));
+    assert.ok(r.out.some((l) => /niri/.test(l)));
+    for (const l of r.out) assert.ok(l.length <= 44, `too wide: "${l}"`);
+  }
+});
+
+test('easter-egg hints at the Konami code, in both languages and with aliases', () => {
+  const es = runCommand('easter-egg', 'es');
+  assert.equal(es.error, false);
+  assert.ok(es.out.some((l) => /Konami/.test(l)));
+  assert.ok(es.out.some((l) => /↑ ↑ ↓ ↓ ← → ← → B A/.test(l)));
+  assert.deepEqual(runCommand('secreto', 'es').out, es.out);
+  assert.ok(runCommand('secret', 'en').out.some((l) => /try the Konami code/i.test(l)));
+});
+
+test('help mentions the new commands', () => {
+  for (const lang of ['es', 'en']) {
+    const help = runCommand('help', lang).out.join('\n');
+    assert.match(help, /neofetch/);
+    assert.match(help, /easter-egg/);
+  }
+  assert.deepEqual(complete('neo'), ['neofetch']);
+  assert.deepEqual(complete('east'), ['easter-egg']);
+});

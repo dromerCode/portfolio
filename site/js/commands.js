@@ -21,9 +21,26 @@ const COMMANDS = {
   foto: ['photo'],
   sonido: ['sound'],
   whoami: [],
+  neofetch: ['fetch'],
+  'easter-egg': ['secreto', 'secret', 'huevo', 'egg'],
   clear: ['limpiar', 'cls'],
   salir: ['exit', 'quit'],
 };
+
+// Logo de neofetch: la "P" del favicon
+const LOGO = [
+  ' ____  ',
+  '|  _ \\ ',
+  '| |_) |',
+  '|  __/ ',
+  '|_|    ',
+];
+
+// Logo a la izquierda e info a la derecha; las líneas que sobran van sin logo
+function fetchLines(info) {
+  const lines = ['dromer@pichahouse', '-----------------', ...info];
+  return lines.map((l, i) => `${(LOGO[i] ?? '').padEnd(9)}${l}`);
+}
 
 const VIEWS = { inicio: '/', proyectos: '/proyectos', stack: '/stack', homelab: '/homelab', contacto: '/contacto' };
 
@@ -38,6 +55,8 @@ const T = {
       '  foto                  cambiar foto real/anime',
       '  sonido [on|off]       efectos de sonido',
       '  whoami                quién soy',
+      '  neofetch              info del sistema',
+      '  easter-egg            ¿?',
       '  clear · salir',
       'ATAJOS: 1-5 vistas · / terminal · ? ver atajos',
     ],
@@ -50,6 +69,22 @@ const T = {
     photo: 'foto cambiada',
     sound: (on) => `sonido: ${on ? 'ON' : 'OFF'}`,
     whoami: ['Daniel Romero Cózar · @dromerCode', 'Junior Web Developer · 2º DAW · España'],
+    neofetch: fetchLines([
+      'OS: EndeavourOS',
+      'Host: HP Victus 15',
+      'WM: niri · Shell: zsh',
+      'Editor: Neovim',
+      'Stack: React · TS · Java',
+      'Homelab: ZimaOS · 30 cont.',
+      'Idiomas: ES · EN',
+      'Estado: DISPONIBLE',
+    ]),
+    egg: [
+      '[!] has encontrado un huevo de pascua.',
+      'Hay otro escondido en la web:',
+      'cierra la terminal y prueba el código Konami.',
+      'pista: ↑ ↑ ↓ ↓ ← → ← → B A',
+    ],
     sudo: ['permiso denegado: el usuario no está en el fichero sudoers.', 'Este incidente será reportado.'],
   },
   en: {
@@ -62,6 +97,8 @@ const T = {
       '  photo                 switch real/anime photo',
       '  sound [on|off]        sound effects',
       '  whoami                who am I',
+      '  neofetch              system info',
+      '  easter-egg            ?',
       '  clear · exit',
       'SHORTCUTS: 1-5 views · / terminal · ? show shortcuts',
     ],
@@ -74,6 +111,22 @@ const T = {
     photo: 'photo switched',
     sound: (on) => `sound: ${on ? 'ON' : 'OFF'}`,
     whoami: ['Daniel Romero Cózar · @dromerCode', 'Junior Web Developer · 2nd year DAW · Spain'],
+    neofetch: fetchLines([
+      'OS: EndeavourOS',
+      'Host: HP Victus 15',
+      'WM: niri · Shell: zsh',
+      'Editor: Neovim',
+      'Stack: React · TS · Java',
+      'Homelab: ZimaOS · 30 ctrs',
+      'Languages: ES · EN',
+      'Status: AVAILABLE',
+    ]),
+    egg: [
+      '[!] you found an easter egg.',
+      'There is another one hidden on the site:',
+      'close the terminal and try the Konami code.',
+      'hint: ↑ ↑ ↓ ↓ ← → ← → B A',
+    ],
     sudo: ['permission denied: user is not in the sudoers file.', 'This incident will be reported.'],
   },
 };
@@ -106,6 +159,8 @@ export function runCommand(raw, lang, state = {}) {
       return result([t.sound(on)], { type: 'sound', on });
     }
     case 'whoami': return result(t.whoami);
+    case 'neofetch': return result(t.neofetch);
+    case 'easter-egg': return result(t.egg);
     case 'clear': return result([], { type: 'clear' });
     case 'salir': return result([], { type: 'close' });
   }

@@ -579,6 +579,25 @@ body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-event
   .view { min-height: calc(100vh - 260px); }
 }
 
+/* ===== v2.3: lanzador flotante de la terminal ===== */
+.term-launch { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: inline-flex; align-items: center; gap: 9px; padding: 9px 12px 9px 14px; font: 12px/1 var(--mono); letter-spacing: .18em; color: var(--led); background: rgba(16, 20, 18, .9); border: 1.5px solid var(--led); box-shadow: 0 0 14px rgba(125, 255, 176, .3); cursor: pointer; animation: launch-in .5s cubic-bezier(.2, .9, .3, 1.3) .6s backwards, launch-glow 3s ease-in-out 1.2s infinite; transition: transform .2s, box-shadow .2s, background .2s; }
+.term-launch:hover { transform: translateY(-3px); background: rgba(22, 34, 28, .95); box-shadow: 0 0 24px rgba(125, 255, 176, .55); animation-play-state: paused; }
+.term-launch__prompt { font-weight: bold; letter-spacing: 0; }
+.term-launch__prompt::after { content: "▌"; margin-left: 1px; animation: blink 1s steps(1) infinite; }
+.term-launch__key { padding: 2px 6px; font: inherit; letter-spacing: 0; color: var(--dim-text); border: 1px solid var(--dim); }
+.term-launch:hover .term-launch__label { animation: text-glitch .35s steps(2) 1; }
+.js:not([data-view]) .term-launch { display: none; }
+@keyframes launch-in { from { opacity: 0; transform: translateY(20px); } }
+@keyframes launch-glow { 50% { box-shadow: 0 0 22px rgba(125, 255, 176, .5); } }
+.overdrive .term-launch { animation-duration: .5s, .4s; }
+@media (hover: none) { .term-launch__key { display: none; } }
+@media (max-width: 520px) {
+  .term-launch { right: 14px; bottom: 14px; padding: 9px 12px; }
+  .term-launch__label { display: none; }
+  .toast { bottom: 70px; }
+  .footer { padding-bottom: 44px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   body::after, body::before { display: none; }

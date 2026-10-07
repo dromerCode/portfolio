@@ -235,7 +235,7 @@ async function init() {
   $('#sound-toggle').addEventListener('click', () => setSound(!sound.enabled));
   setSound(sound.enabled, { quiet: true });
   const terminal = createTerminal({ lang: () => state.lang, sound, state: () => ({ sound: sound.enabled }), onAction: runAction });
-  $('#term-toggle').addEventListener('click', () => terminal.open());
+  for (const btn of document.querySelectorAll('#term-toggle, #term-launch')) btn.addEventListener('click', () => terminal.open());
   startKeys({
     navigate: (path) => router?.navigate(path),
     openTerminal: () => terminal.open(),
