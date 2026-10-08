@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CV Daniel Romero (EN)</title>
+<!-- Réplica en inglés del CV de Canva (refs/CV Daniel Romero.pdf). Se exporta con tools/make-cv.sh -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@700;800&family=Cabin:wght@700&family=DM+Sans:ital,wght@0,400;0,700;1,700&display=block" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --navy: #22385a; --ink: #13284b; --side: #e4e6ea; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 210mm; height: 297mm; }
+  body { position: relative; overflow: hidden; font: 9.6pt/1.32 'DM Sans', sans-serif; color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .band { position: absolute; left: 0; top: 0; width: 100%; height: 53.5mm; background: var(--navy); }
+  .side { position: absolute; left: 0; top: 59.5mm; bottom: 0; width: 89.5mm; background: var(--side); }
+  .rule { position: absolute; right: 5.5mm; top: 59.5mm; bottom: 0; width: 5.5mm; background: var(--navy); }
+
+  .photo { position: absolute; left: 13.5mm; top: 15.5mm; width: 64mm; height: 64mm; border: 1.8mm solid #fff; background: #fff; }
+  .photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+
+  .name { position: absolute; left: 97mm; top: 22mm; width: 98mm; text-align: center; font: 700 39pt/1 'Cabin', sans-serif; color: #fff; }
+  .role { position: absolute; left: 97mm; top: 41mm; width: 93mm; text-align: right; font: 700 10pt 'DM Sans', sans-serif; letter-spacing: .3em; color: #fff; }
+
+  h2 { font: 800 19pt/1 'Assistant', sans-serif; letter-spacing: .12em; color: var(--ink); }
+  .col-l { position: absolute; left: 7mm; top: 88mm; width: 78mm; }
+  .col-r { position: absolute; left: 97.5mm; top: 58mm; width: 95mm; font-size: 8.8pt; line-height: 1.25; }
+
+  .contact { margin: 5mm 0 0 7mm; list-style: none; font-size: 11pt; }
+  .contact li { position: relative; padding-left: 10mm; margin-bottom: 2.6mm; line-height: 1.45; }
+  .contact svg { position: absolute; left: 0; top: .6mm; width: 5.5mm; height: 5.5mm; fill: var(--navy); }
+  .contact b { display: block; }
+
+  .skills { margin: 4.5mm 0 0 4.5mm; font-size: 10.5pt; }
+  .skills p { margin-bottom: 3.6mm; }
+
+  .langs { position: absolute; left: 7mm; top: 268mm; width: 78mm; }
+  .langs dl { display: grid; grid-template-columns: 30mm 1fr; margin: 4mm 0 0 3.5mm; font: 700 9.4pt 'DM Sans', sans-serif; row-gap: .6mm; }
+
+  .col-r h2 { margin-top: 6.5mm; }
+  .col-r h2:first-child { margin-top: 0; }
+  .col-r h3 { margin: 4mm 0 0 3.5mm; font: italic 700 11pt 'DM Sans', sans-serif; }
+  .col-r h3.plain { font-style: normal; font-weight: 700; font-size: 12pt; }
+  .date { margin: 2mm 0 1.6mm 12.5mm; font: italic 700 7.6pt 'DM Sans', sans-serif; }
+  .col-r p, .col-r ul { margin-left: 4.5mm; }
+  .col-r ul { padding-left: 6.5mm; }
+  .col-r li { margin-bottom: .1mm; }
+  .school { margin: 3.4mm 0 0 4.5mm; }
+  .school b { display: block; font: 700 11pt 'DM Sans', sans-serif; }
+  .school b + b { font-size: 10pt; margin-top: 1mm; }
+  .school span { display: block; margin-top: 1mm; font-size: 8pt; }
+</style>
+</head>
+<body>
+  <div class="band"></div>
+  <div class="side"></div>
+  <div class="rule"></div>
+  <div class="photo"><img src="photo.jpg" alt=""></div>
+  <h1 class="name">Daniel Romero</h1>
+  <p class="role">JUNIOR DEVELOPER</p>
+
+  <div class="col-l">
+    <h2>CONTACT</h2>
+    <ul class="contact">
+      <li><svg viewBox="0 0 24 24"><path d="M12 6C7 6 2.5 7.5 1 10.5l2.8 2.8 3.2-1.6V9.3C8.5 8.7 10.2 8.4 12 8.4s3.5.3 5 .9v2.4l3.2 1.6 2.8-2.8C21.5 7.5 17 6 12 6zM7 14l-2 6h14l-2-6zm5 1.3a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>+34 663 25 66 18</li>
+      <li><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5.5 8-5.5V7l-8 5.5z"/></svg>dromerCode@gmail.com</li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 4.5 7 11 7 11s7-6.5 7-11a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5c0 2.8-3.4 6.8-5 8.4C10.4 15.8 7 11.8 7 9a5 5 0 0 1 5-5zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zM5 21h14v1.6H5z"/></svg><b>Jaén</b>Calle Paseo de España 30, 6ºA<br>CP 23009</li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 4.5 7 11 7 11s7-6.5 7-11a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5c0 2.8-3.4 6.8-5 8.4C10.4 15.8 7 11.8 7 9a5 5 0 0 1 5-5zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zM5 21h14v1.6H5z"/></svg><b>Granada</b>Calle Delfín 5, Sector A, 10ºA Derecha<br>CP 18015</li>
+    </ul>
+
+    <h2 style="margin-top: 6mm">SKILLS</h2>
+    <div class="skills">
+      <p><b>Frontend:</b> HTML, CSS, JavaScript, TypeScript, React</p>
+      <p><b>Backend:</b> Java, Node.js</p>
+      <p><b>Systems:</b> Linux, Windows Server, Docker</p>
+      <p><b>Databases:</b> MariaDB, MySQL</p>
+      <p><b>Other:</b> Git, REST APIs, Artificial Intelligence, Self-Hosting</p>
+    </div>
+  </div>
+
+  <div class="langs">
+    <h2>LANGUAGES</h2>
+    <dl>
+      <dt>SPANISH</dt><dd>Native</dd>
+      <dt>ENGLISH</dt><dd>Upper-intermediate, B2 certificate</dd>
+    </dl>
+  </div>
+
+  <div class="col-r">
+    <h2>PROFILE</h2>
+    <p style="margin-top: 3mm">Web Application Development student with experience in frontend development, systems administration and self-hosted projects. Interested in modern web development, artificial intelligence and open-source technologies. Used to self-directed learning and hands-on work in real environments.</p>
+
+    <h2>WORK EXPERIENCE</h2>
+    <h3>Web Developer Intern — Granadev</h3>
+    <p class="date">May 2026</p>
+    <ul>
+      <li>Built modern web applications for managing board game sessions, with artificial intelligence integration.</li>
+      <li>Frontend development with React and TypeScript.</li>
+      <li>Designed dynamic interfaces and reusable components.</li>
+      <li>Teamwork in a professional environment using modern development workflows and tools.</li>
+    </ul>
+
+    <h3 style="margin-top: 5mm">Erasmus+ in Greece — Twinsoft</h3>
+    <p class="date">March 2025 - June 2025</p>
+    <p>Erasmus+ placement in Greece as a technician: administering, installing and repairing POS systems, printers, card terminals and local networks for all kinds of businesses, from hotels to local shops and companies.</p>
+
+    <h3 class="plain" style="margin-top: 5mm">PERSONAL PROJECTS</h3>
+    <p class="date">July 2020 - Present</p>
+    <ul>
+      <li>Development of web applications and websites with HTML, CSS, JavaScript, React and Java.</li>
+      <li>Administration of Linux and Windows servers.</li>
+      <li>Self-hosted services and virtualization on my own server.</li>
+      <li>Hands-on experience with Docker, networking, databases and automation.</li>
+      <li>Development and deployment of personal projects around streaming, home automation and self-hosted infrastructure.</li>
+      <li>Basic knowledge of building and integrating artificial intelligence through APIs and automations.</li>
+    </ul>
+
+    <h2>EDUCATION</h2>
+    <div class="school"><b>IES POLITÉCNICO HERMENEGILDO LANZ</b><b>(2025 - PRESENT)</b><span>Higher Vocational Degree in Web Application Development (DAW)</span></div>
+    <div class="school"><b>IES VIRGEN DEL CARMEN</b><b>(2023 - 2025)</b><span>Intermediate Vocational Degree in Microcomputer Systems and Networks (SMR)</span></div>
+  </div>
+</body>
+</html>

@@ -62,7 +62,9 @@ function renderData(lang, dict) {
   const cv = pickCv(profile.cv, lang);
   for (const a of document.querySelectorAll('[data-cv]')) {
     a.hidden = !cv;
-    if (cv) a.href = cv;
+    if (!cv) continue;
+    a.href = cv;
+    a.download = lang === 'en' ? 'CV-Daniel Romero-EN.pdf' : 'CV-Daniel Romero.pdf';
   }
 }
 

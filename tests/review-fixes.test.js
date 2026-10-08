@@ -48,3 +48,14 @@ test('deploy.sh syncs nginx.conf in place so the bind mount sees changes', () =>
   const sh = read('deploy.sh');
   assert.match(sh, /rsync[^\n]*--inplace[^\n]*nginx\.conf/);
 });
+
+test('each language has its own one-page A4 CV', () => {
+  const { cv } = JSON.parse(readFileSync(new URL('../site/data/profile.json', import.meta.url), 'utf8'));
+  assert.equal(cv.es, '/assets/cv/cv-es.pdf');
+  assert.equal(cv.en, '/assets/cv/cv-en.pdf');
+  for (const path of Object.values(cv)) {
+    const pdf = readFileSync(new URL(`../site${path}`, import.meta.url)).toString('latin1');
+    assert.ok(pdf.startsWith('%PDF'));
+    assert.equal((pdf.match(/\/Type\s*\/Page[^s]/g) ?? []).length, 1, path);
+  }
+});
