@@ -93,3 +93,6 @@ Los elementos usan una variable `--i` para escalonar retrasos.
 - Lanzador flotante `>_ TERMINAL /` abajo a la derecha (solo `>_` en móvil) para que la terminal no quede escondida en la topbar.
 - Comandos `neofetch` (logo ASCII "DR" + info, ≤ 44 columnas para móvil) y `easter-egg` (`secreto`, `secret`…) que da la pista del Konami.
 - Vista previa al compartir en JPEG de ~95 KB (antes PNG de 440 KB; WhatsApp no la mostraba por encima de ~300 KB).
+- CV en inglés (`tools/cv/cv-en.html` → `make-cv.sh` → `cv-en.pdf`), réplica de la maqueta de Canva; se sirve con la web en inglés.
+- CI en GitHub Actions (`npm test` en cada push/PR, badge en el README) y despliegue automático "pull":
+  `deployer.sh` en un contenedor alpine junto a nginx mira cada 2 min el último commit verde de main y sincroniza `site/`.
