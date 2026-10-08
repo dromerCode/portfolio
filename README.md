@@ -1,5 +1,7 @@
 # portfolio
 
+[![CI](https://github.com/dromerCode/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/dromerCode/portfolio/actions/workflows/ci.yml)
+
 My personal portfolio as a Junior Web Developer, live at **[portfolio.pichahouse.es](https://portfolio.pichahouse.es)**.
 
 ![Portfolio screenshot](docs/screenshot.png)
@@ -45,10 +47,12 @@ site/            everything that gets published
   data/          profile · projects · homelab · pichaflix · timeline · stack
   assets/        fonts · images · CV
 tests/           unit tests (node:test)
-tools/           og.html + make-og.sh to regenerate the share preview image
-compose.yaml     nginx:alpine serving ./site
+tools/           og.html + make-og.sh (share preview), cv/ + make-cv.sh (English CV PDF)
+compose.yaml     nginx:alpine serving ./site + the auto-deployer
 nginx.conf       gzip, static caching, revalidation for css/js/json, SPA fallback to index.html
-deploy.sh        rsync to the server + reload
+deploy.sh        manual deploy: rsync to the server + reload
+deployer.sh      auto-deploy loop: ships the last commit of main with green CI
+.github/         CI: runs the tests on every push and pull request
 ```
 
 ## Run it locally
@@ -71,4 +75,9 @@ It runs on my home server (ZimaOS) as an `nginx:alpine` container:
 Cloudflare DNS (CNAME) → DDNS → Nginx Proxy Manager (Let's Encrypt, HTTPS) → nginx:alpine
 ```
 
-`./deploy.sh` syncs `site/` to the server with rsync and reloads nginx, so publishing a change takes a few seconds.
+Every push to `main` runs the tests in GitHub Actions. A tiny `alpine` container next to nginx (`deployer.sh`) polls the
+GitHub API every 2 minutes for the newest commit of `main` whose CI passed, downloads that commit and syncs `site/`.
+It only reads public endpoints, so the server needs no SSH keys or open ports for CI, and a red build never goes live.
+
+`./deploy.sh` is still there for changes outside `site/` (`compose.yaml`, `nginx.conf`, `deployer.sh`) or to ship
+something by hand: it syncs everything with rsync and reloads nginx.
