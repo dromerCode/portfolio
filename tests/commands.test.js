@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { runCommand, complete } from '../site/js/commands.js';
 
 test('view commands navigate, in both languages', () => {
@@ -90,4 +91,11 @@ test('help mentions the new commands', () => {
 test('neofetch logo spells DR in ASCII', () => {
   const art = runCommand('neofetch', 'es').out.slice(0, 5).map((l) => l.slice(0, 13)).join('\n');
   assert.equal(art, [' ____  ____  ', '|  _ \\|  _ \\ ', '| | | | |_) |', '| |_| |  _ < ', '|____/|_| \\_\\'].join('\n'));
+});
+
+test('the terminal opens from the floating launcher only, not from a topbar icon', () => {
+  const html = readFileSync(new URL('../site/index.html', import.meta.url), 'utf8');
+  assert.doesNotMatch(html, /id="term-toggle"/);
+  assert.doesNotMatch(html, /id="i-term"/);
+  assert.match(html, /id="term-launch"[^>]*aria-keyshortcuts="\/ Control\+K"/);
 });
