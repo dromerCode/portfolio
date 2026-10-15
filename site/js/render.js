@@ -18,6 +18,11 @@ function mediaHTML(media, lang) {
     const size = media.width && media.height ? ` width="${Number(media.width)}" height="${Number(media.height)}"` : '';
     return `<img class="proj__media" src="${escapeHTML(media.src)}" alt="${escapeHTML(media[lang] ?? media.es ?? '')}" loading="lazy"${size}>`;
   }
+  if (media?.type === 'video') {
+    const size = media.width && media.height ? ` width="${Number(media.width)}" height="${Number(media.height)}"` : '';
+    const poster = media.poster ? ` poster="${escapeHTML(media.poster)}"` : '';
+    return `<video class="proj__media" src="${escapeHTML(media.src)}"${poster} aria-label="${escapeHTML(media[lang] ?? media.es ?? '')}" autoplay muted loop playsinline preload="metadata"${size}></video>`;
+  }
   if (media?.type === 'code') return `<pre class="proj__media proj__code"><code>${escapeHTML(media.text)}</code></pre>`;
   return '';
 }

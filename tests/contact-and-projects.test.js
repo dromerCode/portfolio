@@ -7,10 +7,12 @@ const html = read('site/index.html');
 
 const contactLinks = [...html.matchAll(/<a class="ico-link[^"]*"[^>]*>([\s\S]*?)<\/a>/g)];
 
-test('projects are in the agreed order and subtrack/tabmon link to their repos', () => {
+test('projects are in the agreed order and pocketpanel/subtrack/tabmon link to their repos', () => {
   const projects = JSON.parse(read('site/data/projects.json'));
-  assert.deepEqual(projects.map((p) => p.id), ['subtrack', 'tabmon', 'cicd']);
+  assert.deepEqual(projects.map((p) => p.id), ['pocketpanel', 'subtrack', 'tabmon', 'cicd']);
   const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
+  assert.equal(byId.pocketpanel.repo, 'https://github.com/dromerCode/pocketpanel');
+  assert.equal(byId.pocketpanel.media.type, 'video');
   assert.equal(byId.subtrack.repo, 'https://github.com/dromerCode/subtrack');
   assert.equal(byId.tabmon.repo, 'https://github.com/dromerCode/tabmon');
   for (const p of projects) assert.ok(p.es.desc && p.en.desc, p.id);

@@ -43,8 +43,9 @@ test('project cards show what was learned, escaped, only when present', () => {
 
 test('every project has media and a learned line in both languages', () => {
   for (const p of json('site/data/projects.json')) {
-    assert.ok(['img', 'code'].includes(p.media?.type), p.id);
-    if (p.media.type === 'img') assert.ok(existsSync(new URL(`../site/${p.media.src.replace(/^\//, '')}`, import.meta.url)), p.media.src);
+    assert.ok(['img', 'code', 'video'].includes(p.media?.type), p.id);
+    const files = p.media.type === 'img' ? [p.media.src] : p.media.type === 'video' ? [p.media.src, p.media.poster] : [];
+    for (const f of files) assert.ok(existsSync(new URL(`../site/${f.replace(/^\//, '')}`, import.meta.url)), f);
     assert.ok(p.es.learned && p.en.learned, p.id);
   }
 });
@@ -94,8 +95,8 @@ test('repo README describes the project with a screenshot', () => {
 });
 
 // 10 · proyectos de clase en formación
-test('class projects move to education: projects are subtrack, tabmon and cicd', () => {
-  assert.deepEqual(json('site/data/projects.json').map((p) => p.id), ['subtrack', 'tabmon', 'cicd']);
+test('class projects move to education: projects are pocketpanel, subtrack, tabmon and cicd', () => {
+  assert.deepEqual(json('site/data/projects.json').map((p) => p.id), ['pocketpanel', 'subtrack', 'tabmon', 'cicd']);
   const daw = json('site/data/timeline.json')[0];
   for (const lang of ['es', 'en']) {
     assert.match(daw[lang].detail, /juegoNaves/);

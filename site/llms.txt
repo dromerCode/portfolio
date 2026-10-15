@@ -12,6 +12,7 @@
 
 ## Projects
 
+- [pocketpanel](https://github.com/dromerCode/pocketpanel): phone app (PWA) to run a home server: status, containers, terminal, push alerts and Claude Code. FastAPI + vanilla JS, modular, installs on any Ubuntu + Docker + Tailscale server.
 - [subtrack](https://github.com/dromerCode/subtrack): self-hosted subscription tracker. Spring Boot + React/TypeScript + PostgreSQL in a single Docker image.
 - [tabmon](https://github.com/dromerCode/tabmon): Rust CLI that turns an Android tablet into an extended monitor for the niri compositor over USB (vkms + wayvnc).
 - [CI/CD DAW](https://github.com/dromerCode/proyecto-cicd-daw): GitHub Actions pipeline that builds a Docker image, pushes it to Docker Hub and deploys it over SSH to AWS EC2.

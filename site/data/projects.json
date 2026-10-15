@@ -1,5 +1,36 @@
 [
   {
+    "id": "pocketpanel",
+    "tags": [
+      "FASTAPI",
+      "VANILLA JS",
+      "DOCKER",
+      "TAILSCALE"
+    ],
+    "repo": "https://github.com/dromerCode/pocketpanel",
+    "es": {
+      "category": "SELF-HOSTED",
+      "title": "POCKETPANEL",
+      "desc": "App para el móvil (PWA) con la que controlo mi servidor casero: estado, contenedores, terminal, avisos push y chat con Claude Code. Modular y con instalador para que cualquiera la use en su servidor por Tailscale.",
+      "learned": "Qué hice: la app entera, de la API con FastAPI y SSH al frontend sin frameworks. Aprendí a convertir una herramienta hecha para mí en un proyecto público: configuración, módulos opcionales, instalador y pruebas en un Ubuntu limpio."
+    },
+    "en": {
+      "category": "SELF-HOSTED",
+      "title": "POCKETPANEL",
+      "desc": "Phone app (PWA) I use to run my home server: status, containers, terminal, push alerts and a Claude Code chat. Modular, with an installer so anyone can run it on their own server over Tailscale.",
+      "learned": "What I did: the whole app, from the FastAPI + SSH backend to the framework-free frontend. I learned to turn a tool built for myself into a public project: configuration, optional modules, an installer and testing on a clean Ubuntu box."
+    },
+    "media": {
+      "type": "video",
+      "src": "/assets/video/pocketpanel.mp4",
+      "poster": "/assets/img/pocketpanel.webp",
+      "width": 960,
+      "height": 540,
+      "es": "Tráiler de pocketpanel: estado del servidor, contenedores, chat con Claude Code y terminal en el móvil",
+      "en": "pocketpanel trailer: server status, containers, Claude Code chat and terminal on a phone"
+    }
+  },
+  {
     "id": "subtrack",
     "tags": [
       "SPRING BOOT",
