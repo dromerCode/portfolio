@@ -23,11 +23,11 @@ test('timeline: degree in progress first, then internship, then Erasmus+', () =>
   assert.deepEqual(timeline.slice(0, 3).map((e) => e.es.type), ['EN CURSO', 'PRÁCTICAS', 'ERASMUS+']);
 });
 
-test('"working on" box lists subtrack and tabmon with repo links and descriptions', () => {
+test('"working on" box lists pocketpanel and tabmon with repo links and descriptions', () => {
   const box = html.match(/<div class="box side-box side-box--now">([\s\S]*?)<\/div>\s*<\/aside>/)?.[1] ?? '';
-  assert.match(box, /href="https:\/\/github.com\/dromerCode\/subtrack"/);
+  assert.match(box, /href="https:\/\/github.com\/dromerCode\/pocketpanel"/);
   assert.match(box, /href="https:\/\/github.com\/dromerCode\/tabmon"/);
-  assert.match(box, /data-i18n="side\.now\.subtrack"/);
+  assert.match(box, /data-i18n="side\.now\.pocketpanel"/);
   assert.match(box, /data-i18n="side\.now\.tabmon"/);
   const es = JSON.parse(read('site/i18n/es.json'));
   assert.equal(es['side.now.k'], 'TRABAJANDO EN');

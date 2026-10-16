@@ -24,7 +24,7 @@
   "footer.contact": "CONTACTO",
   "footer.cv": "CV",
   "project.repo": "VER REPO →",
-  "side.now.subtrack": "Gestor de suscripciones self-hosted con Spring Boot y React.",
+  "side.now.pocketpanel": "App móvil para controlar tu servidor casero, con FastAPI y JS.",
   "side.now.tabmon": "Tablet Android como monitor extendido en niri, en Rust.",
   "side.cv.meta": "PDF · 1 PÁGINA",
   "nav.homelab": "HOMELAB",
